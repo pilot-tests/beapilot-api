@@ -1,0 +1,152 @@
+[02-May-2022 11:20:05 Etc/GMT-1] PHP Warning:  Use of undefined constant FILTER_SANITIZE - assumed 'FILTER_SANITIZE' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 5
+[02-May-2022 11:20:05 Etc/GMT-1] PHP Warning:  array_filter() expects parameter 2 to be a valid callback, function 'FILTER_SANITIZE' not found or invalid function name in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 5
+[02-May-2022 11:20:05 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to undefined function print_routes() in C:\Users\wakko\Documents\beapilot-api\routes\routes.php:6
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include()
+#1 C:\Users\wakko\Documents\beapilot-api\index.php(13): RoutesController->index()
+#2 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 6
+[02-May-2022 11:23:53 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to undefined function print_routes() in C:\Users\wakko\Documents\beapilot-api\routes\routes.php:6
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include()
+#1 C:\Users\wakko\Documents\beapilot-api\index.php(13): RoutesController->index()
+#2 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 6
+[02-May-2022 11:28:33 Etc/GMT-1] PHP Parse error:  syntax error, unexpected '}' in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 13
+[02-May-2022 11:51:13 Etc/GMT-1] PHP Warning:  Use of undefined constant http_response_code - assumed 'http_response_code' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 13
+[02-May-2022 11:51:13 Etc/GMT-1] PHP Warning:  json_encode() expects parameter 2 to be int, string given in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 13
+[02-May-2022 12:30:08 Etc/GMT-1] PHP Notice:  Undefined variable: _server in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 23
+[02-May-2022 12:30:08 Etc/GMT-1] PHP Notice:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 23
+[02-May-2022 12:30:08 Etc/GMT-1] PHP Notice:  Undefined variable: _server in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 32
+[02-May-2022 12:30:08 Etc/GMT-1] PHP Notice:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 32
+[02-May-2022 12:30:08 Etc/GMT-1] PHP Notice:  Undefined variable: _server in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 41
+[02-May-2022 12:30:08 Etc/GMT-1] PHP Notice:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 41
+[02-May-2022 12:30:08 Etc/GMT-1] PHP Notice:  Undefined variable: _server in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 50
+[02-May-2022 12:30:08 Etc/GMT-1] PHP Notice:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 50
+[02-May-2022 14:15:25 Etc/GMT-1] PHP Notice:  Undefined variable: routeArray in C:\Users\wakko\Documents\beapilot-api\routes\services\get.php on line 4
+[02-May-2022 14:15:25 Etc/GMT-1] PHP Notice:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\routes\services\get.php on line 4
+[02-May-2022 14:15:25 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class 'GetModel' not found in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php:5
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(5): GetController::getData(NULL)
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(15): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 5
+[02-May-2022 14:15:54 Etc/GMT-1] PHP Notice:  Undefined variable: routeArray in C:\Users\wakko\Documents\beapilot-api\routes\services\get.php on line 4
+[02-May-2022 14:15:54 Etc/GMT-1] PHP Notice:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\routes\services\get.php on line 4
+[02-May-2022 14:15:54 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\Users\wakko\Documents\beapilot-api\models\get.model.php:9
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(6): GetModel::getData(NULL)
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(5): GetController::getData(NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(15): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 9
+[02-May-2022 14:17:42 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\Users\wakko\Documents\beapilot-api\models\get.model.php:9
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(6): GetModel::getData('courses')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(6): GetController::getData('courses')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(15): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 9
+[02-May-2022 14:18:48 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\Users\wakko\Documents\beapilot-api\models\get.model.php:9
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(6): GetModel::getData('users')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(6): GetController::getData('users')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(15): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 9
+[02-May-2022 14:21:24 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\Users\wakko\Documents\beapilot-api\models\get.model.php:9
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(6): GetModel::getData('users')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(6): GetController::getData('users')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(15): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 9
+[02-May-2022 14:22:56 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\Users\wakko\Documents\beapilot-api\models\get.model.php:9
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(6): GetModel::getData('users')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(6): GetController::getData('users')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(15): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 9
+[02-May-2022 14:29:15 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to undefined method Connection::infoDatabse() in C:\Users\wakko\Documents\beapilot-api\index.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\index.php on line 13
+[02-May-2022 14:31:34 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to undefined method Connection::infoDatabse() in C:\Users\wakko\Documents\beapilot-api\index.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\index.php on line 13
+[02-May-2022 14:31:37 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to undefined method Connection::infoDatabse() in C:\Users\wakko\Documents\beapilot-api\index.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\index.php on line 13
+[02-May-2022 17:08:56 Etc/GMT-1] PHP Notice:  Array to string conversion in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 7
+[02-May-2022 18:44:36 Etc/GMT-1] PHP Parse error:  syntax error, unexpected ':', expecting ')' in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 23
+[02-May-2022 23:53:28 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[02-May-2022 23:54:48 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[02-May-2022 23:55:05 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 10:33:27 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 10:38:54 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 10:40:12 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 10:40:51 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 10:49:04 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 10:51:14 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 10:52:22 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 12:19:52 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:19:52 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:19:52 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 43
+[03-May-2022 12:20:39 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:20:39 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:20:39 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 43
+[03-May-2022 12:20:40 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:20:40 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:20:40 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 43
+[03-May-2022 12:20:58 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:20:58 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:20:58 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 43
+[03-May-2022 12:21:25 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:21:25 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 43
+[03-May-2022 12:23:57 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:23:57 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 43
+[03-May-2022 12:26:08 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:26:08 Etc/GMT-1] PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 37
+[03-May-2022 12:26:08 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 44
+[03-May-2022 12:28:12 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 12:28:49 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 12:29:00 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 12:31:41 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 34
+[03-May-2022 18:43:08 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 44
+[03-May-2022 18:43:34 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 44
+[03-May-2022 18:44:19 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 44
+[03-May-2022 18:46:04 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 44
+[09-May-2022 00:45:00 Etc/GMT-1] PHP Notice:  Undefined index: status in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 37
+[09-May-2022 12:02:01 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function GetController::getData(), 2 passed in C:\Users\wakko\Documents\beapilot-api\routes\services\get.php on line 27 and exactly 4 expected in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php:7
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(27): GetController::getData('answers', '*')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 7
+[09-May-2022 12:02:31 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function GetController::getData(), 2 passed in C:\Users\wakko\Documents\beapilot-api\routes\services\get.php on line 27 and exactly 4 expected in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php:7
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(27): GetController::getData('answers', '*')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 7
+[09-May-2022 15:44:02 Etc/GMT-1] PHP Parse error:  syntax error, unexpected '$orderMode' (T_VARIABLE) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 24
+[09-May-2022 15:44:23 Etc/GMT-1] PHP Parse error:  syntax error, unexpected '$orderMode' (T_VARIABLE) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 19
