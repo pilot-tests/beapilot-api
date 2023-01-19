@@ -1,0 +1,384 @@
+{
+	"info": {
+		"_postman_id": "b9227530-ed4a-47a4-8cb8-4c9713e1e4a8",
+		"name": "BeaPilot API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10165693"
+	},
+	"item": [
+		{
+			"name": "One parameter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://www.beapilot.local:82/relations?rel=",
+					"protocol": "http",
+					"host": [
+						"www",
+						"beapilot",
+						"local"
+					],
+					"port": "82",
+					"path": [
+						"relations"
+					],
+					"query": [
+						{
+							"key": "rel",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Select ONE column",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.beapilot.local:82/categories?select=id_category,name_category",
+					"protocol": "http",
+					"host": [
+						"www",
+						"beapilot",
+						"local"
+					],
+					"port": "82",
+					"path": [
+						"categories"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "id_category,name_category"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Several parameters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://www.beapilot.local:82/answers?linkTo=istrue_answer,id_question_answer&equalTo=1_4&select=string_answer,id_question_answer,id_question_answer",
+					"protocol": "http",
+					"host": [
+						"www",
+						"beapilot",
+						"local"
+					],
+					"port": "82",
+					"path": [
+						"answers"
+					],
+					"query": [
+						{
+							"key": "linkTo",
+							"value": "istrue_answer,id_question_answer"
+						},
+						{
+							"key": "equalTo",
+							"value": "1_4"
+						},
+						{
+							"key": "select",
+							"value": "string_answer,id_question_answer,id_question_answer"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Several parameters - test",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://beapilot.wakkos.com/test?linkTo=id_user_test,id_category_test&equalTo=2_4&select=id_category_test",
+					"protocol": "http",
+					"host": [
+						"beapilot",
+						"wakkos",
+						"com"
+					],
+					"path": [
+						"test"
+					],
+					"query": [
+						{
+							"key": "linkTo",
+							"value": "id_user_test,id_category_test"
+						},
+						{
+							"key": "equalTo",
+							"value": "2_4"
+						},
+						{
+							"key": "select",
+							"value": "id_category_test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order data without filters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://www.beapilot.local:82/answers?select=*&orderBy=id_answer&orderMode=DESC",
+					"protocol": "http",
+					"host": [
+						"www",
+						"beapilot",
+						"local"
+					],
+					"port": "82",
+					"path": [
+						"answers"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "*"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_answer"
+						},
+						{
+							"key": "orderMode",
+							"value": "DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order data with filters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://www.beapilot.local:82/answers?select=*&orderBy=id_answer&orderMode=DESC&linkTo=id_question_answer&equalTo=325",
+					"protocol": "http",
+					"host": [
+						"www",
+						"beapilot",
+						"local"
+					],
+					"port": "82",
+					"path": [
+						"answers"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "*"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_answer"
+						},
+						{
+							"key": "orderMode",
+							"value": "DESC"
+						},
+						{
+							"key": "linkTo",
+							"value": "id_question_answer"
+						},
+						{
+							"key": "equalTo",
+							"value": "325"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Limit Data without Filters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://www.beapilot.local:82/questions?select=*&orderBy=id_question&orderMode=DESC&startAt=0&endAt=5",
+					"protocol": "http",
+					"host": [
+						"www",
+						"beapilot",
+						"local"
+					],
+					"port": "82",
+					"path": [
+						"questions"
+					],
+					"query": [
+						{
+							"key": "linkTo",
+							"value": "id_category_question",
+							"disabled": true
+						},
+						{
+							"key": "equalTo",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "select",
+							"value": "*"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_question"
+						},
+						{
+							"key": "orderMode",
+							"value": "DESC"
+						},
+						{
+							"key": "startAt",
+							"value": "0"
+						},
+						{
+							"key": "endAt",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Limit data with filters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://www.beapilot.local:82/answers?select=*&orderBy=id_answer&orderMode=ASC&startAt=0&endAt=5",
+					"protocol": "http",
+					"host": [
+						"www",
+						"beapilot",
+						"local"
+					],
+					"port": "82",
+					"path": [
+						"answers"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "*"
+						},
+						{
+							"key": "orderBy",
+							"value": "id_answer"
+						},
+						{
+							"key": "orderMode",
+							"value": "ASC"
+						},
+						{
+							"key": "startAt",
+							"value": "0"
+						},
+						{
+							"key": "endAt",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JOIN tables, no filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.beapilot.local:82/relations?rel=questions,categories&type=id_category_question,id_category&select=id_category_question,id_category",
+					"protocol": "http",
+					"host": [
+						"www",
+						"beapilot",
+						"local"
+					],
+					"port": "82",
+					"path": [
+						"relations"
+					],
+					"query": [
+						{
+							"key": "rel",
+							"value": "questions,categories"
+						},
+						{
+							"key": "type",
+							"value": "id_category_question,id_category"
+						},
+						{
+							"key": "select",
+							"value": "id_category_question,id_category"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
