@@ -14,15 +14,22 @@
 
 
   //-----> Request with filter
-if(isset($_GET["linkTo"]) && isset($_GET["equalTo"])) {
+if(isset($_GET["linkTo"]) && isset($_GET["equalTo"]) && !isset($_GET["rel"]) && !isset($_GET["type"])) {
   $response -> getDataFilter($table, $select, $_GET["linkTo"], $_GET["equalTo"], $orderBy, $orderMode, $startAt, $endAt);
-
-
 }
+
+
 //-----> Get Requests WITHOUT filter among RELATED TABLES
 else if(isset($_GET["rel"]) && isset($_GET["type"]) && $table == "relations" && !isset($_GET["linkTo"]) && !isset($_GET["equalTo"])) {
   $response -> getRelData($_GET["rel"], $_GET["type"], $select, $orderBy, $orderMode, $startAt, $endAt);
 }
+
+
+//-----> Get Requests WITH filters among RELATED TABLES
+else if(isset($_GET["rel"]) && isset($_GET["type"]) && $table == "relations" && isset($_GET["linkTo"]) && isset($_GET["equalTo"])) {
+  $response -> getRelDataFilter($_GET["rel"], $_GET["type"], $select, $_GET["linkTo"], $_GET["equalTo"], $orderBy, $orderMode, $startAt, $endAt);
+}
+
 
 else {
   //-----> Request WITHOUT filter
