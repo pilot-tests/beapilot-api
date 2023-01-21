@@ -1,0 +1,79 @@
+[19-Jan-2023 14:29:41 Etc/GMT-1] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 11
+[19-Jan-2023 14:35:00 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 50
+[19-Jan-2023 14:38:47 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 50
+[19-Jan-2023 21:21:10 Etc/GMT-1] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 39
+[19-Jan-2023 21:21:16 Etc/GMT-1] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 39
+[19-Jan-2023 22:08:28 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[19-Jan-2023 22:08:37 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[20-Jan-2023 00:28:54 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 52
+[20-Jan-2023 00:30:05 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 52
+[20-Jan-2023 00:30:51 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 52
+[20-Jan-2023 00:33:04 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 52
+[20-Jan-2023 00:33:16 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 52
+[20-Jan-2023 00:34:18 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 48 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(48): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(17): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(18): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[20-Jan-2023 00:34:49 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 47 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(47): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(17): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(18): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[20-Jan-2023 00:35:16 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 47 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(47): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(16): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(18): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[20-Jan-2023 00:37:17 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 47 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(47): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(17): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(18): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[20-Jan-2023 00:38:06 Etc/GMT-1] PHP Notice:  Undefined variable: columns in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 47
+[20-Jan-2023 00:38:06 Etc/GMT-1] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 51
+[20-Jan-2023 00:38:06 Etc/GMT-1] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 51
+[20-Jan-2023 00:38:06 Etc/GMT-1] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 51
+[20-Jan-2023 00:38:06 Etc/GMT-1] PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 51
+[20-Jan-2023 00:38:06 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 54
+[21-Jan-2023 14:30:37 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 52
+[21-Jan-2023 14:30:41 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 52
+[21-Jan-2023 15:09:42 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 11 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(11): Connection::getColumnsData('answer2s')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(8): GetModel::getData('answer2s', 'istrue_answer,i...', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(36): GetController::getData('answer2s', 'istrue_answer,i...', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[21-Jan-2023 15:57:41 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 11 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(11): Connection::getColumnsData('answer2s')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(8): GetModel::getData('answer2s', 'istrue_answer,i...', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(36): GetController::getData('answer2s', 'istrue_answer,i...', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[21-Jan-2023 15:58:02 Etc/GMT-1] PHP Warning:  Use of undefined constant retunr - assumed 'retunr' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 10
+[21-Jan-2023 15:58:02 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 54
+[21-Jan-2023 15:58:13 Etc/GMT-1] PHP Warning:  Use of undefined constant retunr - assumed 'retunr' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 10
+[21-Jan-2023 15:58:13 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 54
+[21-Jan-2023 15:58:31 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[21-Jan-2023 15:58:59 Etc/GMT-1] PHP Notice:  Undefined variable: columns in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 43
+[21-Jan-2023 16:00:02 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51

@@ -31,6 +31,7 @@
     static public function getRelDataFilter($rel, $type, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt) {
       $response = GetModel::getRelDataFilter($rel, $type, $select ,$linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt);
 
+
       $return = new GetController();
       $return -> fncResponse($response);
     }

@@ -7,6 +7,9 @@
     //-----> Get Request, no filter
     static public function getData($table, $select, $orderBy, $orderMode, $startAt, $endAt) {
 
+      //-----> Validate that table and columns exists
+
+
       //-----> No limit, no Order query
       $sql = "SELECT $select FROM $table";
 
@@ -34,6 +37,12 @@
 
     //-----> Get Request with filter
     static public function getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt) {
+
+       //-----> Validate that table exists
+
+      if(empty(Connection::getColumnsData($table))){
+        return null;
+      }
 
       $linkToArray = explode(",",$linkTo);
       $equalToArray =  explode("_",$equalTo);
@@ -83,6 +92,7 @@
     //-----> Get Request, no filter among related tables
     static public function getRelData($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt) {
 
+
       $relArray = explode(",", $rel);
       $typeArray = explode(",", $type);
 
@@ -90,6 +100,10 @@
 
       if(count($relArray)>1) {
         foreach ($relArray as $key => $value) {
+           //-----> Validate that table exists
+          if(empty(Connection::getColumnsData($value))){
+            return null;
+          }
           if($key > 0) {
             $innerJoinText .= "INNER JOIN ".$value." ON ".$relArray[0].".".$typeArray[0] ." = ".$value.".".$typeArray[$key]." ";
           }
@@ -132,6 +146,10 @@
 
       if(count($linkToArray)>1) {
         foreach ($linkToArray as $key => $value) {
+           //-----> Validate that table exists
+          if(empty(Connection::getColumnsData($value))){
+            return null;
+          }
           if($key > 0) {
             $linkToText .= "AND ".$value." = :".$value." ";
           }
@@ -154,7 +172,7 @@
 
       //-----> No limit, no Order query
       $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] = :$linkToArray[0] $linkToText";
-      
+
 
       //-----> No Limit, Order query
       if($orderBy != null && $orderMode != null && $startAt == null && $endAt == null) {
