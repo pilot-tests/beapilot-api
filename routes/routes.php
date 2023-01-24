@@ -26,11 +26,7 @@ if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])) {
 
   //-----> POST Request Response
   if($_SERVER['REQUEST_METHOD'] == "POST") {
-    $json = array(
-    'status' => 200,
-    'result' => 'POST Request'
-    );
-    echo json_encode($json, http_response_code($json["status"]));
+    include "services/post.php";
   }
 
   //-----> PUT Request Response
