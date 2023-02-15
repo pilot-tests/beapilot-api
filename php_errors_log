@@ -77,3 +77,45 @@ Stack trace:
 [21-Jan-2023 15:58:31 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
 [21-Jan-2023 15:58:59 Etc/GMT-1] PHP Notice:  Undefined variable: columns in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 43
 [21-Jan-2023 16:00:02 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:16:11 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:16:42 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:16:42 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:18:11 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:18:11 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:18:24 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:18:24 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:18:40 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:18:40 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:18:43 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:18:43 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:19:16 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:19:16 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:19:17 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:19:17 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:19:20 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:19:20 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:23:38 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:23:56 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:23:56 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:24:00 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:24:00 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:24:14 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:24:14 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:24:16 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:24:16 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:24:50 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:24:50 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:24:53 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:24:53 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[03-Feb-2023 14:25:02 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[04-Feb-2023 14:42:26 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 51
+[10-Feb-2023 14:23:03 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function GetController::getDataFilter(), 1 passed in C:\Users\wakko\Documents\beapilot-api\routes\services\get.php on line 19 and exactly 8 expected in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php:25
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(19): GetController::getDataFilter('2')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(24): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 25
+[10-Feb-2023 14:23:42 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61
+[10-Feb-2023 14:26:36 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61

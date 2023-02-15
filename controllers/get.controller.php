@@ -3,6 +3,16 @@
   require_once "models/get.model.php";
 
   class GetController {
+
+
+    static public function getUserExams($userId) {
+      $response = GetModel::getUserExams($userId);
+
+      $return = new GetController();
+      $return -> fncResponse($response);
+    }
+
+
     //-----> Get request
     static public function getData($table, $select, $orderBy, $orderMode, $startAt, $endAt) {
       $response = GetModel::getData($table, $select, $orderBy, $orderMode, $startAt, $endAt);

@@ -9,14 +9,22 @@
   $orderMode = $_GET["orderMode"] ?? null;
   $startAt = $_GET["startAt"] ?? null;
   $endAt = $_GET["endAt"] ?? null;
+  $userID = $_GET["userID"] ?? null;
 
   $response = new GetController();
 
+//----> Get users exams
+
+if(isset($_GET["userID"])) {
+  $response -> getUserExams($_GET["userID"]);
+}
 
   //-----> Request with filter
-if(isset($_GET["linkTo"]) && isset($_GET["equalTo"]) && !isset($_GET["rel"]) && !isset($_GET["type"])) {
+else if(isset($_GET["linkTo"]) && isset($_GET["equalTo"]) && !isset($_GET["rel"]) && !isset($_GET["type"])) {
   $response -> getDataFilter($table, $select, $_GET["linkTo"], $_GET["equalTo"], $orderBy, $orderMode, $startAt, $endAt);
 }
+
+// Get
 
 
 //-----> Get Requests WITHOUT filter among RELATED TABLES

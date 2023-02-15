@@ -4,6 +4,24 @@
 
   class GetModel {
 
+    //-----> Get categories and the user's exams on that category
+    //-----> Exams created by user
+    static public function getUserExams($userId) {
+      $sql = "SELECT
+              *
+            FROM
+              categories c
+            LEFT JOIN (
+                SELECT * FROM test where id_user_test = $userId
+                ) t
+            ON c.id_category = t.id_category_test";
+      $stmt = Connection::connect()->prepare($sql);
+
+      $stmt -> execute();
+
+      return $stmt -> fetchAll(PDO::FETCH_CLASS);
+    }
+
     //-----> Get Request, no filter
     static public function getData($table, $select, $orderBy, $orderMode, $startAt, $endAt) {
 
