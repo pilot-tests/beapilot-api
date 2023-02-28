@@ -27,6 +27,11 @@
 
       //-----> Validate that table and columns exists
 
+      $selectArray = explode(",",$select);
+
+      if(empty(Connection::getColumnsData($table, $selectArray))){
+        return null;
+      }
 
       //-----> No limit, no Order query
       $sql = "SELECT $select FROM $table";

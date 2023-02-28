@@ -119,3 +119,51 @@ Stack trace:
   thrown in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 25
 [10-Feb-2023 14:23:42 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61
 [10-Feb-2023 14:26:36 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61
+[15-Feb-2023 10:54:36 Etc/GMT-1] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 104
+[25-Feb-2023 18:33:06 Etc/GMT-1] PHP Notice:  Undefined variable: table in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 7
+[25-Feb-2023 18:33:06 Etc/GMT-1] PHP Notice:  Undefined variable: columns in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 7
+[27-Feb-2023 10:22:33 Etc/GMT-1] PHP Notice:  Undefined variable: columns in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 7
+[27-Feb-2023 10:34:14 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to undefined function arrray() in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php:7
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#3 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 7
+[27-Feb-2023 13:25:41 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 62
+[27-Feb-2023 13:28:34 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 62
+[27-Feb-2023 15:51:24 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61
+[27-Feb-2023 19:49:24 Etc/GMT-1] PHP Notice:  Array to string conversion in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 32
+[27-Feb-2023 19:55:43 Etc/GMT-1] PHP Notice:  Array to string conversion in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 32
+[28-Feb-2023 00:45:26 Etc/GMT-1] PHP Parse error:  syntax error, unexpected '}' in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 53
+[28-Feb-2023 00:50:10 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61
+[28-Feb-2023 00:50:34 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61
+[28-Feb-2023 00:52:16 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61
+[28-Feb-2023 00:52:35 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61
+[28-Feb-2023 00:52:52 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61
+[28-Feb-2023 00:54:58 Etc/GMT-1] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php on line 61
+[28-Feb-2023 13:38:47 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class 'PostController' not found in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php:25
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#3 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 25
+[28-Feb-2023 15:29:20 Etc/GMT-1] PHP Parse error:  syntax error, unexpected '}' in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 23
+[28-Feb-2023 16:28:43 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to undefined method PDO::lastInsertedId() in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:31
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::postData('test', Array)
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(27): PostController::postData('test', Array)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 31
+[28-Feb-2023 16:33:20 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class 'GetController' not found in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:10
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(27): PostController::postData('test', Array)
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 10

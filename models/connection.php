@@ -32,12 +32,26 @@ class Connection {
 
   // -----> Validate that table exists
 
-  static public function getColumnsData($table){
+  static public function getColumnsData($table, $columns){
 
     $database = Connection::infoDatabase()["database"];
 
-    return Connection::connect()
-    ->query("SELECT COLUMN_NAME as item FROM information_schema.columns WHERE table_schema = '$database' AND table_name = '$table'")
+    $validate = Connection::connect()
+    ->query("SELECT COLUMN_NAME AS item FROM information_schema.columns WHERE table_schema = '$database' AND table_name = '$table'")
     ->fetchAll(PDO::FETCH_OBJ);
+
+    if(empty($validate)){
+
+      return null;
+
+    }else {
+      $sum = 0;
+      foreach ($validate as $key => $value) {
+
+        $sum += in_array($value->item, $columns);
+
+      }
+      return $sum == count($columns) ? $validate : null;
+    }
   }
 }

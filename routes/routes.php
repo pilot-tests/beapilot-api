@@ -19,6 +19,8 @@ if(count($routesArray) == 0) {
 //-----> Some Request
 if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])) {
 
+  $table = explode("?", $routesArray[1])[0];
+
   //-----> Get Request Response
   if($_SERVER['REQUEST_METHOD'] == "GET") {
     include "services/get.php";

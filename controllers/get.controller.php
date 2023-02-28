@@ -58,7 +58,7 @@
       else {
         $json = array(
           'status' => 404,
-          'total' => count($response),
+          'total' => count((is_countable($response)?$response:[])),
           'results' => "Not Found"
         );
       }
