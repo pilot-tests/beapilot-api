@@ -2,7 +2,7 @@
 require_once "connection.php";
   class PostModel {
 
-    //-----> Post <Req>uest to create data dinamically.
+    //-----> Post Request to create data dinamically.
     static public function postData($table, $data) {
 
       $columns = "";
@@ -32,9 +32,6 @@ require_once "connection.php";
       }else {
         return $link->errorInfo();
       }
-
-
-
     }
 
   }

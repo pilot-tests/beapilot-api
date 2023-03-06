@@ -2,6 +2,7 @@
 require_once "models/post.model.php";
 class PostController {
 
+
   //-----> Post request to add data
 
   static public function postData($table, $data) {
