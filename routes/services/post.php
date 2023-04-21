@@ -2,9 +2,17 @@
 require_once "models/connection.php";
 require_once "controllers/post.controller.php";
 
+$addTest = $_POST["newTest"] ?? null;
 
-  //-----> Insert new test
-  if(isset($_POST)) {
+
+  if(isset($_POST["newTest"])) {
+    $response = new PostController();
+    $response -> postNewTest($_POST);
+  }
+
+
+  //-----> Insert any POST
+  else {
     $columns = array();
     foreach (array_keys($_POST) as $key => $value) {
       array_push($columns, $value);

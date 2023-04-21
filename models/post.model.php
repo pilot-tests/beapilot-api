@@ -2,6 +2,21 @@
 require_once "connection.php";
   class PostModel {
 
+    static public function postNewTest($addTest) {
+      $sql = "BEGIN;
+              INSERT INTO test (id_category_test, id_user_test)
+                VALUES($addTest[id_category_test], $addTest[id_user_test]);
+              INSERT INTO questionintests (id_test_questionintest, id_question_questionintest, id_user_questionintest)
+                SELECT LAST_INSERT_ID(), id_question, $addTest[id_user_test] FROM beapilot.questions WHERE id_category_question = $addTest[id_category_test] ORDER BY RAND() LIMIT 20;
+              COMMIT;
+              ";
+      echo '<pre>'; print_r($sql); echo '</pre>';
+       $stmt = Connection::connect()->prepare($sql);
+
+      $stmt -> execute();
+
+      return $stmt -> fetchAll(PDO::FETCH_CLASS);
+    }
     //-----> Post Request to create data dinamically.
     static public function postData($table, $data) {
 

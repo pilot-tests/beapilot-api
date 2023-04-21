@@ -383,3 +383,32 @@ Stack trace:
 #3 {main}
   thrown in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 9
 [03-Mar-2023 11:57:03 Etc/GMT-1] PHP Fatal error:  Cannot use [] for reading in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 7
+[06-Mar-2023 11:57:38 Etc/GMT-1] PHP Fatal error:  Cannot re-assign auto-global variable _POST in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 5
+[06-Mar-2023 11:59:08 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to undefined method PostController::postNewTest() in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php:11
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#3 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 11
+[06-Mar-2023 11:59:56 Etc/GMT-1] PHP Notice:  Undefined variable: response in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 11
+[06-Mar-2023 11:59:56 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function postNewTest() on null in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php:11
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#3 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 11
+[06-Mar-2023 12:03:13 Etc/GMT-1] PHP Notice:  Array to string conversion in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 11
+[06-Mar-2023 12:47:30 Etc/GMT-1] PHP Warning:  Use of undefined constant newTest - assumed 'newTest' (this will throw an Error in a future version of PHP) in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 11
+[07-Mar-2023 12:03:58 Etc/GMT-1] PHP Warning:  A non-numeric value encountered in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 8
+[07-Mar-2023 12:03:58 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Unsupported operand types in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:8
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(10): PostController::postNewTest(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 8
+[07-Mar-2023 12:09:00 Etc/GMT-1] PHP Notice:  Undefined index: userID in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 8
+[07-Mar-2023 12:09:31 Etc/GMT-1] PHP Notice:  Undefined index: userID in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 8
