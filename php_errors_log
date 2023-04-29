@@ -412,3 +412,631 @@ Stack trace:
   thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 8
 [07-Mar-2023 12:09:00 Etc/GMT-1] PHP Notice:  Undefined index: userID in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 8
 [07-Mar-2023 12:09:31 Etc/GMT-1] PHP Notice:  Undefined index: userID in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 8
+[27-Apr-2023 17:08:15 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:08:15 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:08:15 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:08:15 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:52:58 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:52:58 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:52:58 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:52:58 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:53:32 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:53:32 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:53:32 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 17:53:32 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:01 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:01 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:01 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:01 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:48 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:48 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:48 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:48 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:48 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:48 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:48 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:03:48 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:04:03 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:04:03 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:04:03 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:04:03 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:04:21 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:04:21 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:04:21 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:04:21 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:05:25 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:05:25 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:05:25 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:05:25 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:05:33 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:05:33 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:05:33 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:05:33 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:15:19 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:15:19 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:15:19 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:15:19 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:15:34 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:15:34 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:15:34 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 18:15:34 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 20:15:54 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 20:15:54 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 20:15:54 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 20:15:54 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 20:47:23 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 20:47:23 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 20:47:23 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 20:47:23 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:37:40 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:37:40 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:37:40 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:37:40 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:37:41 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:37:41 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:37:41 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:37:41 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:38:02 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:38:02 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('test')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('test', '*', 'id_test,id_user...', '1_2', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:38:02 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[27-Apr-2023 23:38:02 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[28-Apr-2023 10:27:56 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 66 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(66): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[28-Apr-2023 10:40:02 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 65 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(65): Connection::getColumnsData('answers')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(26): GetModel::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(23): GetController::getDataFilter('answers', 'string_answer,i...', 'istrue_answer,i...', '1_4', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35

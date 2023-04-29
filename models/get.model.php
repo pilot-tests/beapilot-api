@@ -12,8 +12,7 @@
             FROM
               categories c
             LEFT JOIN (
-                SELECT * FROM test where id_user_test = $userId
-                ) t
+                SELECT * FROM test where id_user_test = $userId) t
             ON c.id_category = t.id_category_test";
       $stmt = Connection::connect()->prepare($sql);
 
@@ -63,9 +62,9 @@
 
        //-----> Validate that table exists
 
-      if(empty(Connection::getColumnsData($table))){
-        return null;
-      }
+      // if(empty(Connection::getColumnsData($table))){
+      //   return null;
+      // }
 
       $linkToArray = explode(",",$linkTo);
       $equalToArray =  explode("_",$equalTo);
