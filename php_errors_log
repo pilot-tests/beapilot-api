@@ -1040,3 +1040,11 @@ Stack trace:
 #3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
 #4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
 #5 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesCon in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[01-May-2023 13:04:07 Etc/GMT-1] PHP Notice:  Undefined variable: sql in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 191
+[01-May-2023 14:53:11 Etc/GMT-1] PHP Notice:  Undefined offset: 2 in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 190
+[01-May-2023 14:55:01 Etc/GMT-1] PHP Notice:  Undefined offset: 2 in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 190
+[01-May-2023 14:57:16 Etc/GMT-1] PHP Notice:  Undefined offset: 2 in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 190
+[01-May-2023 14:57:37 Etc/GMT-1] PHP Notice:  Undefined offset: 2 in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 190
+[01-May-2023 14:57:48 Etc/GMT-1] PHP Notice:  Undefined offset: 2 in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 190
+[01-May-2023 14:58:07 Etc/GMT-1] PHP Notice:  Undefined offset: 2 in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 190
+[02-May-2023 11:18:59 Etc/GMT-1] PHP Fatal error:  Cannot redeclare GetModel::getUserExams() in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 25

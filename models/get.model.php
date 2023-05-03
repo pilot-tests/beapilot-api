@@ -21,6 +21,44 @@
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
     }
 
+    //-----> Get exam (Questions and answers)
+  static public function getExam($examId) {
+    $sql = "SELECT
+      q.*,
+      qt.id_test_questionintest,
+      MAX(CASE WHEN a.answer_number = 1 THEN a.id_answer END) AS answer_1_id,
+      MAX(CASE WHEN a.answer_number = 1 THEN a.string_answer END) AS answer_1_string,
+      MAX(CASE WHEN a.answer_number = 2 THEN a.id_answer END) AS answer_id_2,
+      MAX(CASE WHEN a.answer_number = 2 THEN a.string_answer END) AS answer_2_string,
+      MAX(CASE WHEN a.answer_number = 3 THEN a.id_answer END) AS answer_3_id,
+      MAX(CASE WHEN a.answer_number = 3 THEN a.string_answer END) AS answer_3_string,
+      MAX(CASE WHEN a.answer_number = 4 THEN a.id_answer END) AS answer_4_id,
+      MAX(CASE WHEN a.answer_number = 4 THEN a.string_answer END) AS answer_4_string
+    FROM
+      questions q
+      INNER JOIN questionintests qt ON q.id_question = qt.id_question_questionintest
+      INNER JOIN (
+        SELECT
+          a.*,
+          @rn := IF(@prev_q = a.id_question_answer, @rn + 1, 1) AS answer_number,
+          @prev_q := a.id_question_answer
+        FROM
+          answers a,
+          (SELECT @prev_q := NULL, @rn := 0) vars
+        ORDER BY
+          a.id_question_answer, a.id_answer
+      ) a ON q.id_question = a.id_question_answer
+    WHERE
+      qt.id_test_questionintest = $examId
+    GROUP BY
+      q.id_question";
+   $stmt = Connection::connect()->prepare($sql);
+
+    $stmt -> execute();
+
+    return $stmt -> fetchAll(PDO::FETCH_CLASS);
+  }
+
     //-----> Get Request, no filter
     static public function getData($table, $select, $orderBy, $orderMode, $startAt, $endAt) {
 
@@ -187,23 +225,26 @@
       if(count($relArray)>1) {
         foreach ($relArray as $key => $value) {
           if($key > 0) {
-            $innerJoinText .= "INNER JOIN ".$value." ON ".$relArray[0].".".$typeArray[0] ." = ".$value.".".$typeArray[$key]." ";
+            $innerJoinText .= "INNER JOIN ".$value." ON ".$relArray[0].".".$typeArray[0]." = ".$value.".".$typeArray[$key]." ";
           }
         }
       }
 
       //-----> No limit, no Order query
       $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] = :$linkToArray[0] $linkToText";
+      echo '<pre>'; print_r($sql); echo '</pre>';
 
 
       //-----> No Limit, Order query
       if($orderBy != null && $orderMode != null && $startAt == null && $endAt == null) {
         $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] = :$linkToArray[0] $linkToText ORDER BY $orderBy $orderMode";
+
       }
 
       //-----> Limit and Order query
       if($orderBy != null && $orderMode != null && $startAt != null && $endAt != null) {
         $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] = :$linkToArray[0] $linkToText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
+
       }
 
       //-----> Limit, no Order query

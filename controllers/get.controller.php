@@ -12,6 +12,13 @@
       $return -> fncResponse($response);
     }
 
+     static public function getExam($examId) {
+      $response = GetModel::getExam($examId);
+
+      $return = new GetController();
+      $return -> fncResponse($response);
+    }
+
 
     //-----> Get request
     static public function getData($table, $select, $orderBy, $orderMode, $startAt, $endAt) {
