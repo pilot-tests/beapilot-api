@@ -28,7 +28,7 @@
       qt.id_test_questionintest,
       MAX(CASE WHEN a.answer_number = 1 THEN a.id_answer END) AS answer_1_id,
       MAX(CASE WHEN a.answer_number = 1 THEN a.string_answer END) AS answer_1_string,
-      MAX(CASE WHEN a.answer_number = 2 THEN a.id_answer END) AS answer_id_2,
+      MAX(CASE WHEN a.answer_number = 2 THEN a.id_answer END) AS answer_2_id,
       MAX(CASE WHEN a.answer_number = 2 THEN a.string_answer END) AS answer_2_string,
       MAX(CASE WHEN a.answer_number = 3 THEN a.id_answer END) AS answer_3_id,
       MAX(CASE WHEN a.answer_number = 3 THEN a.string_answer END) AS answer_3_string,
