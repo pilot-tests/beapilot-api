@@ -33,7 +33,8 @@
       MAX(CASE WHEN a.answer_number = 3 THEN a.id_answer END) AS answer_3_id,
       MAX(CASE WHEN a.answer_number = 3 THEN a.string_answer END) AS answer_3_string,
       MAX(CASE WHEN a.answer_number = 4 THEN a.id_answer END) AS answer_4_id,
-      MAX(CASE WHEN a.answer_number = 4 THEN a.string_answer END) AS answer_4_string
+      MAX(CASE WHEN a.answer_number = 4 THEN a.string_answer END) AS answer_4_string,
+      MAX(sa.id_test_student_answer) AS id_test_student_answer
     FROM
       questions q
       INNER JOIN questionintests qt ON q.id_question = qt.id_question_questionintest
@@ -48,6 +49,7 @@
         ORDER BY
           a.id_question_answer, a.id_answer
       ) a ON q.id_question = a.id_question_answer
+      LEFT JOIN student_answers sa ON q.id_question = sa.id_question_student_answer
     WHERE
       qt.id_test_questionintest = $examId
     GROUP BY
