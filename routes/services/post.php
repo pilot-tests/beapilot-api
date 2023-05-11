@@ -2,7 +2,7 @@
 require_once "models/connection.php";
 require_once "controllers/post.controller.php";
 
-$addTest = $_POST["newTest"] ?? null;
+
 
 
   if(isset($_POST["newTest"])) {

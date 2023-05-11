@@ -1056,3 +1056,13 @@ Stack trace:
 #3 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
 #4 {main}
   thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 17
+[11-May-2023 15:46:32 Etc/GMT-1] PHP Notice:  Undefined variable: link in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 19
+[11-May-2023 15:46:32 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function errorInfo() on null in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:19
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::postNewTest(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(10): PostController::postNewTest(Array)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 19

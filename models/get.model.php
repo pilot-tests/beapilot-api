@@ -234,7 +234,6 @@
 
       //-----> No limit, no Order query
       $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] = :$linkToArray[0] $linkToText";
-      echo '<pre>'; print_r($sql); echo '</pre>';
 
 
       //-----> No Limit, Order query
