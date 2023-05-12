@@ -5,7 +5,7 @@ require_once "controllers/post.controller.php";
 
 
 
-  if(isset($_POST["newTest"])) {
+  if(isset($_POST["addTest"])) {
     $response = new PostController();
     $response -> postNewTest($_POST);
   }

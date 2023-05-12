@@ -11,9 +11,8 @@ require_once "connection.php";
               COMMIT;
               ";
       echo '<pre>'; print_r($sql); echo '</pre>';
-       $stmt = Connection::connect()->prepare($sql);
-
-      $stmt -> execute();
+      $link = Connection::connect();
+      $stmt = $link->prepare($sql);
 
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
     }
