@@ -3,18 +3,34 @@ require_once "connection.php";
   class PostModel {
 
     static public function postNewTest($addTest) {
-      $sql = "BEGIN;
-              INSERT INTO test (id_category_test, id_user_test)
-                VALUES($addTest[id_category_test], $addTest[id_user_test]);
-              INSERT INTO questionintests (id_test_questionintest, id_question_questionintest, id_user_questionintest)
-                SELECT LAST_INSERT_ID(), id_question, $addTest[id_user_test] FROM beapilot.questions WHERE id_category_question = $addTest[id_category_test] ORDER BY RAND() LIMIT 20;
-              COMMIT;
-              ";
-      echo '<pre>'; print_r($sql); echo '</pre>';
       $link = Connection::connect();
-      $stmt = $link->prepare($sql);
 
-      return $stmt -> fetchAll(PDO::FETCH_CLASS);
+      // Begin transaction
+      $link->beginTransaction();
+
+      try {
+        // First query
+        $sql1 = "INSERT INTO test (id_category_test, id_user_test)
+            VALUES(:id_category_test, :id_user_test)";
+        $stmt1 = $link->prepare($sql1);
+        $stmt1->execute([':id_category_test' => $addTest['id_category_test'], ':id_user_test' => $addTest['id_user_test']]);
+        $lastInsertId = $link->lastInsertId();
+
+        // Second query
+        $sql2 = "INSERT INTO questionintests (id_test_questionintest, id_question_questionintest, id_user_questionintest)
+            SELECT :last_insert_id, id_question, :id_user_test FROM beapilot.questions WHERE id_category_question = :id_category_test ORDER BY RAND() LIMIT 20";
+        $stmt2 = $link->prepare($sql2);
+        $stmt2->execute([':last_insert_id' => $lastInsertId, ':id_category_test' => $addTest['id_category_test'], ':id_user_test' => $addTest['id_user_test']]);
+
+        // Commit transaction
+        $link->commit();
+
+          return $lastInsertId;
+      } catch (PDOException $e) {
+        // Rollback transaction in case of an error
+        $link->rollBack();
+        return false;
+      }
     }
     //-----> Post Request to create data dinamically.
     static public function postData($table, $data) {

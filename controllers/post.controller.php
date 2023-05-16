@@ -4,14 +4,20 @@ class PostController {
 
  //-----> Post request to add new Test
 
-  static public function postNewTest($addTest) {
+   static public function postNewTest($addTest) {
     $response = PostModel::postNewTest($addTest);
+
+    if ($response === false) {
+      // Handle error here
+      // You could throw an Exception or return a special response
+    }
 
     $return = new PostController();
     $return -> fncResponse($response);
   }
-  //-----> Post request to add data
 
+
+  //-----> Post request to add data
   static public function postData($table, $data) {
     $response = PostModel::postData($table, $data);
 
