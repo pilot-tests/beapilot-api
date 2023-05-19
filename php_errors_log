@@ -1066,3 +1066,27 @@ Stack trace:
 #4 C:\Users\wakko\Documents\beapilot-api\index.php(17): RoutesController->index()
 #5 {main}
   thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 19
+[16-May-2023 11:45:26 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 166 and exactly 2 expected in C:\Users\wakko\Documents\beapilot-api\models\connection.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(166): Connection::getColumnsData('questions')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(41): GetModel::getRelData('questions,categ...', 'id_category_que...', 'id_category_que...', NULL, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(37): GetController::getRelData('questions,categ...', 'id_category_que...', 'id_category_que...', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(26): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): Rou in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[16-May-2023 11:47:45 Etc/GMT-1] PHP Notice:  Undefined variable: addTest in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 8
+[16-May-2023 11:48:14 Etc/GMT-1] PHP Notice:  Undefined variable: addTest in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 8
+[16-May-2023 12:16:32 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 16
+[16-May-2023 12:16:32 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 23
+[18-May-2023 11:37:37 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 16
+[18-May-2023 11:37:37 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 23
+[18-May-2023 11:37:55 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 16
+[18-May-2023 11:37:55 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 23
+[18-May-2023 11:38:19 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 16
+[18-May-2023 11:38:19 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 23
+[18-May-2023 11:39:15 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 16
+[18-May-2023 11:39:15 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 23
+[18-May-2023 11:41:05 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 16
+[18-May-2023 11:41:05 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 23
+[18-May-2023 11:43:45 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 16
+[18-May-2023 11:43:45 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 23
