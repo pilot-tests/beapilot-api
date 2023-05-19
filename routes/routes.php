@@ -33,11 +33,7 @@ if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])) {
 
   //-----> PUT Request Response
   if($_SERVER['REQUEST_METHOD'] == "PUT") {
-    $json = array(
-    'status' => 200,
-    'result' => 'PUT Request'
-    );
-    echo json_encode($json, http_response_code($json["status"]));
+    include "services/put.php";
   }
 
   //-----> DELETE Request Response
