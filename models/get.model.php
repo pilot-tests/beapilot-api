@@ -158,43 +158,48 @@
       $relArray = explode(",", $rel);
       $typeArray = explode(",", $type);
 
+
       $innerJoinText = "";
 
       if(count($relArray)>1) {
         foreach ($relArray as $key => $value) {
-           //-----> Validate that table exists
-          if(empty(Connection::getColumnsData($value))){
-            return null;
-          }
+          //  //-----> Validate that table exists
+          // if(empty(Connection::getColumnsData($value))){
+          //   return null;
+          // }
           if($key > 0) {
             $innerJoinText .= "INNER JOIN ".$value." ON ".$relArray[0].".".$typeArray[0] ." = ".$value.".".$typeArray[$key]." ";
           }
         }
+
+        //-----> No limit, no Order query
+        $sql = "SELECT $select FROM $relArray[0] $innerJoinText";
+
+        //-----> No Limit, Order query
+        if($orderBy != null && $orderMode != null && $startAt == null && $endAt == null) {
+          $sql = "SELECT $select FROM $relArray[0] $innerJoinText ORDER BY $orderBy $orderMode";
+          echo '<pre>'; print_r($sql); echo '</pre>';
+        }
+
+        //-----> Limit and Order query
+        if($orderBy != null && $orderMode != null && $startAt != null && $endAt != null) {
+          $sql = "SELECT $select FROM $relArray[0] $innerJoinText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
+        }
+
+        //-----> Limit, no Order query
+        if($orderBy == null && $orderMode == null && $startAt != null && $endAt != null) {
+          $sql = "SELECT $select FROM $relArray[0] $innerJoinText LIMIT $startAt, $endAt";
+        }
+
+        $stmt = Connection::connect()->prepare($sql);
+
+        $stmt -> execute();
+
+        return $stmt -> fetchAll(PDO::FETCH_CLASS);
       }
-
-      //-----> No limit, no Order query
-      $sql = "SELECT $select FROM $relArray[0] $innerJoinText";
-
-      //-----> No Limit, Order query
-      if($orderBy != null && $orderMode != null && $startAt == null && $endAt == null) {
-        $sql = "SELECT $select FROM $relArray[0] $innerJoinText ORDER BY $orderBy $orderMode";
+      else {
+        return null;
       }
-
-      //-----> Limit and Order query
-      if($orderBy != null && $orderMode != null && $startAt != null && $endAt != null) {
-        $sql = "SELECT $select FROM $relArray[0] $innerJoinText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
-      }
-
-      //-----> Limit, no Order query
-      if($orderBy == null && $orderMode == null && $startAt != null && $endAt != null) {
-        $sql = "SELECT $select FROM $relArray[0] $innerJoinText LIMIT $startAt, $endAt";
-      }
-
-      $stmt = Connection::connect()->prepare($sql);
-
-      $stmt -> execute();
-
-      return $stmt -> fetchAll(PDO::FETCH_CLASS);
     }
 
 
@@ -208,10 +213,10 @@
 
       if(count($linkToArray)>1) {
         foreach ($linkToArray as $key => $value) {
-           //-----> Validate that table exists
-          if(empty(Connection::getColumnsData($value))){
-            return null;
-          }
+          //  //-----> Validate that table exists
+          // if(empty(Connection::getColumnsData($value))){
+          //   return null;
+          // }
           if($key > 0) {
             $linkToText .= "AND ".$value." = :".$value." ";
           }
