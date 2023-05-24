@@ -1091,3 +1091,18 @@ Stack trace:
 [18-May-2023 11:43:45 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 16
 [18-May-2023 11:43:45 Etc/GMT-1] PHP Notice:  Undefined index: id_user_test in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 23
 [19-May-2023 17:27:43 Etc/GMT-1] PHP Parse error:  syntax error, unexpected ';', expecting ')' in C:\Users\wakko\Documents\beapilot-api\routes\services\put.php on line 11
+[20-May-2023 13:49:06 Etc/GMT-1] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in C:\Users\wakko\Documents\beapilot-api\routes\services\put.php on line 5
+[20-May-2023 14:10:59 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class 'PutController' not found in C:\Users\wakko\Documents\beapilot-api\routes\services\put.php:29
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(36): include()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#3 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\routes\services\put.php on line 29
+[20-May-2023 15:01:51 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class 'PutController' not found in C:\Users\wakko\Documents\beapilot-api\routes\services\put.php:31
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(36): include()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#3 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\routes\services\put.php on line 31

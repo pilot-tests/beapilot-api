@@ -12,6 +12,13 @@ class PutController {
     $return -> fncResponse($response);
   }
 
+  //-----> Put request to edit the final test score
+  static public function updateFinalScore($id_test) {
+    $response = PutModel::updateFinalScore($id_test);
+    $return = new PutController();
+    $return -> fncResponse($response);
+}
+
   //-----> Controller response
   public function fncResponse($response) {
     if(!empty($response)) {
