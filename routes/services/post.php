@@ -2,13 +2,22 @@
 require_once "models/connection.php";
 require_once "controllers/post.controller.php";
 
-
+$prompt = $_POST['prompt'];
 
 
   if(isset($_POST["newTest"])) {
     $response = new PostController();
     $response -> postNewTest($_POST);
   }
+
+
+elseif(isset($_POST["prompt"])) {
+  $controller = new PostController();
+  $response = $controller->getAnswer($prompt);
+
+  echo $response;
+}
+
 
 
   //-----> Insert any POST

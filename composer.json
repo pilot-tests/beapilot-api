@@ -1,0 +1,20 @@
+{
+    "name": "beapilotapi/wakkos",
+    "description": "Api para Beapilot",
+    "authors": [
+        {
+            "name": "Daniel Matínez",
+            "email": "wakkos@gmail.com"
+        }
+    ],
+    "require": {
+        "openai-php/client": "^0.5.2",
+        "symfony/http-client": "^6.2",
+        "nyholm/psr7": "^1.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}

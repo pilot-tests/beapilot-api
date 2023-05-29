@@ -1,5 +1,8 @@
 <?php
-require_once "connection.php";
+
+// $yourApiKey = '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';
+
+
   class PostModel {
 
     static public function postNewTest($addTest) {
@@ -62,6 +65,10 @@ require_once "connection.php";
       }else {
         return $link->errorInfo();
       }
+    }
+
+    static public function getAnswerFromOpenAI($prompt) {
+      require_once "openAI.php";
     }
 
   }
