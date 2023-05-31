@@ -68,7 +68,41 @@
     }
 
     static public function getAnswerFromOpenAI($prompt) {
-      require_once "openAI.php";
+      require_once __DIR__.'/../vendor/autoload.php'; // Asegúrate de que este camino apunta a tu archivo autoload.php generado por Composer
+
+
+      $yourApiKey = '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';
+      $client = OpenAI::client($yourApiKey);
+
+      $result = $client->completions()->create([
+          'model' => 'text-davinci-003',
+          'prompt' => $prompt,
+          'max_tokens' => 200, // Ajusta este valor a la cantidad de tokens que necesites
+      ]);
+
+      return  $result['choices'][0]['text'];
+    }
+
+    static public function storePromptResult($prompt, $type, $userId, $testId, $responseOpenAi) {
+
+      // Aquí deberías abrir una conexión a tu base de datos
+      $link = Connection::connect();
+      // Prepara la consulta SQL
+      $sql = "INSERT INTO openai (id_user_openai, id_test_openai, type_openai, response_openai) VALUES (:id_user_openai, :id_test_openai, :type_openai, :response_openai)";
+
+      // Prepara y ejecuta la consulta SQL
+      $stmt = $link->prepare($sql);
+      // $stmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => $type, ':response_openai' => $responseOpenAi]);
+
+      if($stmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => $type, ':response_openai' => $responseOpenAi])) {
+        $response = array(
+          "lastId" => $link->lastInsertId(),
+          "comment" => "Sucess data entry"
+        );
+        return $response;
+      }else {
+        return $link->errorInfo();
+      }
     }
 
   }

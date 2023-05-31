@@ -14,3 +14,5 @@ $result = $client->completions()->create([
 
 return  $result['choices'][0]['text'];
 
+return "chain test";
+

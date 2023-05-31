@@ -178,7 +178,6 @@
         //-----> No Limit, Order query
         if($orderBy != null && $orderMode != null && $startAt == null && $endAt == null) {
           $sql = "SELECT $select FROM $relArray[0] $innerJoinText ORDER BY $orderBy $orderMode";
-          echo '<pre>'; print_r($sql); echo '</pre>';
         }
 
         //-----> Limit and Order query

@@ -2,8 +2,6 @@
 require_once "models/connection.php";
 require_once "controllers/post.controller.php";
 
-$prompt = $_POST['prompt'];
-
 
   if(isset($_POST["newTest"])) {
     $response = new PostController();
@@ -11,11 +9,17 @@ $prompt = $_POST['prompt'];
   }
 
 
-elseif(isset($_POST["prompt"])) {
-  $controller = new PostController();
-  $response = $controller->getAnswer($prompt);
+// elseif(isset($_POST["prompt"])) {
+//   $controller = new PostController();
+//   $response = $controller->getAnswer($prompt);
 
-  echo $response;
+//   echo $response;
+// }
+
+  //----> openAI
+elseif(isset($_POST["prompt"]) && isset($_POST["type"])) {
+    $controller = new PostController();
+    $response = $controller->getAndStoreAnswer($_POST["prompt"], $_POST["type"], $_POST["userId"], $_POST["testId"]);
 }
 
 

@@ -25,6 +25,30 @@ class PostController {
     $return -> fncResponse($response);
   }
 
+
+
+
+  //-----> OpenAI resquest
+  public function getAnswer($prompt) {
+    $postModel = new PostModel();
+    $responseOpenAi = $postModel->getAnswerFromOpenAI($prompt);
+    return $responseOpenAi;
+  }
+
+  public function getAndStoreAnswer($prompt, $type, $userId, $testId) {
+    $postModel = new PostModel();
+
+    // Obtiene la respuesta de la API de OpenAI
+    $responseOpenAi = $postModel->getAnswerFromOpenAI($prompt);
+
+    // Guarda la respuesta en la base de datos
+    $storeResult = $postModel->storePromptResult($prompt, $type, $userId, $testId, $responseOpenAi);
+
+    // return $storeResult;
+    $return = new PostController();
+    $return -> fncResponse($storeResult);
+  }
+
   //-----> Controller response
   public function fncResponse($response) {
     if(!empty($response)) {
@@ -43,10 +67,4 @@ class PostController {
 
     echo json_encode($json, http_response_code($json["status"]));
   }
-
-  public function getAnswer($prompt) {
-        $postModel = new PostModel();
-        $response = $postModel->getAnswerFromOpenAI($prompt);
-        return $response;
-    }
 }
