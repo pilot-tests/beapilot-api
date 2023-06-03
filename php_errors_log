@@ -2241,3 +2241,77 @@ Stack trace:
 #6 {main}
   thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 121
 [02-Jun-2023 20:34:17 Etc/GMT-1] PHP Warning:  Undefined variable $result in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 26
+[03-Jun-2023 14:01:58 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:112
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 112
+[03-Jun-2023 14:30:04 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Non-static method PostModel::createOrUpdateUser() cannot be called statically in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:33
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 33
+[03-Jun-2023 14:30:56 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Non-static method PostModel::createOrUpdateUser() cannot be called statically in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:33
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController->createOrUpdateUser('2', 'wakkos@gmail.co...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 33
+[03-Jun-2023 14:32:46 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Non-static method PostModel::createOrUpdateUser() cannot be called statically in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController->createOrUpdateUser('2', 'wakkos@gmail.co...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 35
+[03-Jun-2023 14:33:03 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Non-static method PostModel::createOrUpdateUser() cannot be called statically in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:35
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController->createOrUpdateUser('2', 'wakkos@gmail.co...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 35
+[03-Jun-2023 14:33:24 Etc/GMT-1] PHP Warning:  Undefined variable $id_auth0 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 112
+[03-Jun-2023 14:33:24 Etc/GMT-1] PHP Warning:  Undefined property: PostModel::$conn in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 139
+[03-Jun-2023 14:33:24 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:139
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(112): PostModel->userExists(NULL)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(35): PostModel->createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController->createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 139
+[03-Jun-2023 14:35:02 Etc/GMT-1] PHP Warning:  Undefined property: PostModel::$conn in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 139
+[03-Jun-2023 14:35:02 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:139
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(112): PostModel->userExists('2')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(35): PostModel->createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController->createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 139
+[03-Jun-2023 14:36:34 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Object of class PDO could not be converted to string in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:141
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(112): PostModel->userExists('2')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(35): PostModel->createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController->createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 141

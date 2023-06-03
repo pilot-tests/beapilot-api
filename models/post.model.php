@@ -108,17 +108,19 @@
 
 
 
-  public static function createOrUpdateUser($authId, $authEmail) {
+  public function createOrUpdateUser($authId, $authEmail) {
 
     $link = Connection::connect();
+    $userId = $this->userExists($authId);
 
-    $sql = 'INSERT INTO users (auth0_user_id, email_user)
-    VALUES (:id_auth0, :email_user)
-            ON DUPLICATE KEY UPDATE email_user = :email_user';
+    if ($userId === false) {
+      $sql = 'INSERT INTO users (auth0_user_id, email_user)
+      VALUES (:id_auth0, :email_user)
+              ON DUPLICATE KEY UPDATE email_user = :email_user';
 
-    $stmt = $link->prepare($sql);
+      $stmt = $link->prepare($sql);
 
-    if($stmt->execute([':id_auth0' => $authId, ':email_user' => $authEmail])) {
+      if($stmt->execute([':id_auth0' => $authId, ':email_user' => $authEmail])) {
         $response = array(
           "lastId" => $link->lastInsertId(),
           "comment" => "User added successful =D"
@@ -127,18 +129,21 @@
       }else {
         return $link->errorInfo();
       }
+    } else {
+       return "Usuario: " . $userId;
     }
-
-
-
+  }
 
     public function userExists($auth0_user_id)
     {
-      $query = "SELECT id_user FROM users WHERE auth0_user_id = ? LIMIT 0,1";
-m
-      $stmt = $this->conn->prepare($query);
+      $link = Connection::connect();
+
+      $sql = "SELECT id_user FROM users WHERE auth0_user_id = ? LIMIT 0,1";
+
+      $stmt = $link->prepare($sql);
 
       $stmt->bindParam(1, $auth0_user_id);
+
 
       $stmt->execute();
 

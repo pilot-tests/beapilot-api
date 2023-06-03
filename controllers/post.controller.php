@@ -29,8 +29,11 @@ class PostController {
 
 
     //-----> Post request to verify user
-  static public function  createOrUpdateUser($authId, $authEmail) {
-    $response = PostModel::createOrUpdateUser($authId, $authEmail);
+  public function  createOrUpdateUser($authId, $authEmail) {
+
+    $postModel = new PostModel();
+    $response = $postModel->createOrUpdateUser($authId, $authEmail);
+
     $return = new PostController();
     $return -> fncResponse($response);
   }
