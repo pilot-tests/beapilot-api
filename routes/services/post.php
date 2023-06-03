@@ -3,12 +3,29 @@ require_once "models/connection.php";
 require_once "controllers/post.controller.php";
 
 
-
-
   if(isset($_POST["newTest"])) {
     $response = new PostController();
     $response -> postNewTest($_POST);
   }
+
+
+
+  //----> openAI
+elseif(isset($_POST["prompt"]) && isset($_POST["type"])) {
+    $controller = new PostController();
+    $response = $controller->getAndStoreAnswer($_POST["prompt"], $_POST["type"], $_POST["userId"], $_POST["testId"]);
+}
+
+
+
+
+  //----> VerifyUser
+elseif(isset($_POST["authId"]) && isset($_POST["authEmail"])) {
+    $post = new PostController();
+    $response = $post->createOrUpdateUser($_POST["authId"], $_POST["authEmail"]);
+}
+
+
 
 
   //-----> Insert any POST

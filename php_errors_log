@@ -1192,3 +1192,1052 @@ Stack trace:
 #5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
 #6 {main}
   thrown in C:\Users\wakko\Documents\beapilot-api\models\connection.php on line 35
+[25-May-2023 18:33:08 Etc/GMT-1] PHP Parse error:  syntax error, unexpected ')' in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 3
+[25-May-2023 18:33:28 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/engines/davinci-codex/completions): failed to open stream: HTTP request failed! HTTP/1.1 401 Unauthorized
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 86
+[25-May-2023 18:33:28 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[25-May-2023 18:36:05 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/engines/davinci-codex/completions): failed to open stream: HTTP request failed! HTTP/1.1 401 Unauthorized
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 86
+[25-May-2023 18:36:05 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[25-May-2023 18:39:40 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/engines/davinci-codex/completions): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 86
+[25-May-2023 18:39:40 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[25-May-2023 23:32:12 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 86
+[25-May-2023 23:32:12 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[25-May-2023 23:32:59 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 86
+[25-May-2023 23:32:59 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:90
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 90
+[25-May-2023 23:34:20 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 86
+[25-May-2023 23:34:20 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:90
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 90
+[25-May-2023 23:37:41 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 429 Too Many Requests
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 93
+[25-May-2023 23:37:41 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:96
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 96
+[25-May-2023 23:38:24 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 429 Too Many Requests
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 93
+[25-May-2023 23:38:24 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:96
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 96
+[25-May-2023 23:52:28 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 429 Too Many Requests
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 93
+[25-May-2023 23:52:28 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:96
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 96
+[25-May-2023 23:52:37 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 429 Too Many Requests
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 93
+[25-May-2023 23:52:37 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:96
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 96
+[25-May-2023 23:52:39 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 429 Too Many Requests
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 93
+[25-May-2023 23:52:39 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:96
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 96
+[25-May-2023 23:52:40 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 429 Too Many Requests
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 93
+[25-May-2023 23:52:40 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:96
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 96
+[25-May-2023 23:53:10 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 429 Too Many Requests
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 93
+[25-May-2023 23:53:10 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:96
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 96
+[25-May-2023 23:53:29 Etc/GMT-1] PHP Warning:  file_get_contents(https://api.openai.com/v1/chat/completions): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 93
+[25-May-2023 23:53:29 Etc/GMT-1] PHP Fatal error:  Uncaught Exception: Error occurred! in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:96
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(8): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(20): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 96
+[26-May-2023 13:27:39 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Non-static method PostModel::getAnswerFromOpenAI() cannot be called statically in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:48
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 48
+[26-May-2023 13:28:46 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Non-static method PostModel::getAnswerFromOpenAI() cannot be called statically in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:48
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController::getAnswer('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 48
+[26-May-2023 13:28:58 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Non-static method PostModel::getAnswerFromOpenAI() cannot be called statically in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:48
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController::getAnswer('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 48
+[26-May-2023 13:30:55 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "OpenAI" not found in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:69
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel->getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 69
+[26-May-2023 13:35:36 Etc/GMT-1] PHP Fatal error:  Uncaught OpenAI\Exceptions\ErrorException: You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys. in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php:129
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php(55): OpenAI\Transporters\HttpTransporter->throwIfJsonError(Array, '{\n    "error": ...')
+#1 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Completions.php(32): OpenAI\Transporters\HttpTransporter->requestObject(Object(OpenAI\ValueObjects\Transporter\Payload))
+#2 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(76): OpenAI\Resources\Completions->create(Array)
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel->getAnswerFromOpenAI('What is the cap...')
+#4 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#5 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#6 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#7 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#8 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php on line 129
+[26-May-2023 13:36:03 Etc/GMT-1] PHP Fatal error:  Uncaught OpenAI\Exceptions\ErrorException: You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys. in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php:129
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php(55): OpenAI\Transporters\HttpTransporter->throwIfJsonError(Array, '{\n    "error": ...')
+#1 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Completions.php(32): OpenAI\Transporters\HttpTransporter->requestObject(Object(OpenAI\ValueObjects\Transporter\Payload))
+#2 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(76): OpenAI\Resources\Completions->create(Array)
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel->getAnswerFromOpenAI('What is the cap...')
+#4 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#5 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#6 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#7 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#8 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php on line 129
+[26-May-2023 13:39:27 Etc/GMT-1] PHP Warning:  require(../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 13:39:27 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required '../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 13:39:50 Etc/GMT-1] PHP Warning:  require(/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 13:39:50 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required '/vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 13:40:10 Etc/GMT-1] PHP Warning:  require(../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 13:40:10 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required '../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 13:40:42 Etc/GMT-1] PHP Fatal error:  Uncaught OpenAI\Exceptions\ErrorException: You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys. in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php:129
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php(55): OpenAI\Transporters\HttpTransporter->throwIfJsonError(Array, '{\n    "error": ...')
+#1 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Completions.php(32): OpenAI\Transporters\HttpTransporter->requestObject(Object(OpenAI\ValueObjects\Transporter\Payload))
+#2 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(77): OpenAI\Resources\Completions->create(Array)
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel->getAnswerFromOpenAI('What is the cap...')
+#4 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#5 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#6 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#7 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#8 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php on line 129
+[26-May-2023 13:43:18 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[26-May-2023 13:47:03 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "OpenAI\OpenAIApi" not found in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:73
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 73
+[26-May-2023 13:48:04 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "OpenAIApi" not found in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:73
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 73
+[26-May-2023 13:48:48 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[26-May-2023 13:49:40 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "OpenAI\OpenAI\OpenAI" not found in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:74
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 74
+[26-May-2023 13:52:32 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "OpenAI\OpenAI\OpenAI" not found in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:74
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 74
+[26-May-2023 13:57:43 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "OpenAI\OpenAI\OpenAI" not found in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:74
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 74
+[26-May-2023 15:24:59 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[26-May-2023 15:30:05 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[26-May-2023 16:12:36 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[26-May-2023 16:22:04 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[26-May-2023 16:22:40 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[26-May-2023 16:22:49 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function completions() on null in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:77
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel->getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 77
+[26-May-2023 17:07:07 Etc/GMT-1] PHP Warning:  require(C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:07:07 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:07:37 Etc/GMT-1] PHP Warning:  require(C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:07:37 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:07:54 Etc/GMT-1] PHP Warning:  require(C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:07:54 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:08:09 Etc/GMT-1] PHP Warning:  require(C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:08:09 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:08:32 Etc/GMT-1] PHP Warning:  require(C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:08:32 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:08:51 Etc/GMT-1] PHP Warning:  require(C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:08:51 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\wakko\Documents\beapilot-api\models/vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:09:14 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "Orhanerday\OpenAi\OpenAi" not found in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:8
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 8
+[26-May-2023 17:09:28 Etc/GMT-1] PHP Warning:  require(../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:09:28 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required '../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:09:49 Etc/GMT-1] PHP Warning:  require(..\vendor\autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:09:49 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required '..\vendor\autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:10:05 Etc/GMT-1] PHP Warning:  require(\vendor\autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:10:05 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required '\vendor\autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:10:11 Etc/GMT-1] PHP Warning:  require(../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:10:11 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required '../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:10:14 Etc/GMT-1] PHP Warning:  require(/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:10:14 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required '/vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:3
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 3
+[26-May-2023 17:10:19 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "Orhanerday\OpenAi\OpenAi" not found in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:8
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 8
+[26-May-2023 17:10:52 Etc/GMT-1] PHP Warning:  require_once(../openAI.php): Failed to open stream: No such file or directory in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 75
+[26-May-2023 17:10:52 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Failed opening required '../openAI.php' (include_path='.;C:\php\pear') in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:75
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('What is the cap...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 75
+[26-May-2023 17:11:03 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "Orhanerday\OpenAi\OpenAi" not found in C:\Users\wakko\Documents\beapilot-api\models\openAI.php:6
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(75): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 6
+[26-May-2023 17:12:16 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "Orhanerday\OpenAi\OpenAi" not found in C:\Users\wakko\Documents\beapilot-api\models\openAI.php:6
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(75): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 6
+[26-May-2023 17:14:46 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "Orhanerday\OpenAi\OpenAi" not found in C:\Users\wakko\Documents\beapilot-api\models\openAI.php:6
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(75): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 6
+[26-May-2023 18:27:27 Etc/GMT-1] PHP Warning:  Attempt to read property "choices" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 42
+[26-May-2023 18:27:27 Etc/GMT-1] PHP Warning:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 42
+[26-May-2023 18:27:27 Etc/GMT-1] PHP Warning:  Attempt to read property "message" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 42
+[26-May-2023 18:27:27 Etc/GMT-1] PHP Warning:  Attempt to read property "content" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 42
+[26-May-2023 18:32:21 Etc/GMT-1] PHP Warning:  Attempt to read property "choices" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 43
+[26-May-2023 18:32:21 Etc/GMT-1] PHP Warning:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 43
+[26-May-2023 18:32:21 Etc/GMT-1] PHP Warning:  Attempt to read property "message" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 43
+[26-May-2023 18:32:21 Etc/GMT-1] PHP Warning:  Attempt to read property "content" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 43
+[26-May-2023 18:32:31 Etc/GMT-1] PHP Warning:  Attempt to read property "choices" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 43
+[26-May-2023 18:32:31 Etc/GMT-1] PHP Warning:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 43
+[26-May-2023 18:32:31 Etc/GMT-1] PHP Warning:  Attempt to read property "message" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 43
+[26-May-2023 18:32:31 Etc/GMT-1] PHP Warning:  Attempt to read property "content" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 43
+[27-May-2023 15:43:47 Etc/GMT-1] PHP Warning:  Attempt to read property "choices" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 49
+[27-May-2023 15:43:47 Etc/GMT-1] PHP Warning:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 49
+[27-May-2023 15:43:47 Etc/GMT-1] PHP Warning:  Attempt to read property "message" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 49
+[27-May-2023 15:43:47 Etc/GMT-1] PHP Warning:  Attempt to read property "content" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 49
+[27-May-2023 15:44:53 Etc/GMT-1] PHP Warning:  Attempt to read property "choices" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:44:53 Etc/GMT-1] PHP Warning:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:44:53 Etc/GMT-1] PHP Warning:  Attempt to read property "message" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:44:53 Etc/GMT-1] PHP Warning:  Attempt to read property "content" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:45:34 Etc/GMT-1] PHP Warning:  Attempt to read property "choices" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:45:34 Etc/GMT-1] PHP Warning:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:45:34 Etc/GMT-1] PHP Warning:  Attempt to read property "message" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:45:34 Etc/GMT-1] PHP Warning:  Attempt to read property "content" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:48:15 Etc/GMT-1] PHP Parse error:  syntax error, unexpected token "]" in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 49
+[27-May-2023 15:48:28 Etc/GMT-1] PHP Warning:  Attempt to read property "choices" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:48:28 Etc/GMT-1] PHP Warning:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:48:28 Etc/GMT-1] PHP Warning:  Attempt to read property "message" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:48:28 Etc/GMT-1] PHP Warning:  Attempt to read property "content" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 50
+[27-May-2023 15:49:42 Etc/GMT-1] PHP Warning:  Attempt to read property "choices" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 59
+[27-May-2023 15:49:42 Etc/GMT-1] PHP Warning:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 59
+[27-May-2023 15:49:42 Etc/GMT-1] PHP Warning:  Attempt to read property "message" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 59
+[27-May-2023 15:49:42 Etc/GMT-1] PHP Warning:  Attempt to read property "content" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 59
+[27-May-2023 15:49:42 Etc/GMT-1] PHP Warning:  Attempt to read property "choices" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 64
+[27-May-2023 15:49:42 Etc/GMT-1] PHP Warning:  Trying to access array offset on value of type null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 64
+[27-May-2023 15:49:42 Etc/GMT-1] PHP Warning:  Attempt to read property "message" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 64
+[27-May-2023 15:49:42 Etc/GMT-1] PHP Warning:  Attempt to read property "content" on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 64
+[27-May-2023 15:57:34 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "OpenAI\API\OpenAIClient" not found in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:5
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(2): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(3): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 5
+[27-May-2023 15:58:28 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Class "OpenAI\API\OpenAIClient" not found in C:\Users\wakko\Documents\beapilot-api\models\openAI.php:5
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(71): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('What is the cap...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('What is the cap...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 5
+[27-May-2023 16:00:58 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[27-May-2023 16:01:53 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[27-May-2023 16:02:18 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[27-May-2023 20:50:32 Etc/GMT-1] PHP Warning:  Undefined variable $open_ai in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 9
+[27-May-2023 20:50:32 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function chat() on null in C:\Users\wakko\Documents\beapilot-api\models\openAI.php:9
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(71): require_once()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 9
+[27-May-2023 20:53:28 Etc/GMT-1] PHP Fatal error:  Cannot declare class OpenAI, because the name is already in use in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\OpenAI.php on line 8
+[27-May-2023 20:53:37 Etc/GMT-1] PHP Fatal error:  Uncaught TypeError: OpenAI\Resources\Chat::create(): Argument #1 ($parameters) must be of type array, string given, called in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 21 and defined in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Chat.php:25
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\openAI.php(21): OpenAI\Resources\Chat->create('gpt-3.5-turbo', Array)
+#1 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(71): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#4 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#6 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#7 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Chat.php on line 25
+[27-May-2023 20:54:30 Etc/GMT-1] PHP Fatal error:  Uncaught TypeError: OpenAI\Resources\Chat::create(): Argument #1 ($parameters) must be of type array, string given, called in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 20 and defined in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Chat.php:25
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\openAI.php(20): OpenAI\Resources\Chat->create('gpt-3.5-turbo', Array)
+#1 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(71): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#4 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#6 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#7 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Chat.php on line 25
+[27-May-2023 20:54:35 Etc/GMT-1] PHP Fatal error:  Uncaught TypeError: OpenAI\Resources\Chat::create(): Argument #1 ($parameters) must be of type array, string given, called in C:\Users\wakko\Documents\beapilot-api\models\openAI.php on line 20 and defined in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Chat.php:25
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\openAI.php(20): OpenAI\Resources\Chat->create('gpt-3.5-turbo', Array)
+#1 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(71): require_once('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#4 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#6 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#7 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Chat.php on line 25
+[27-May-2023 21:00:55 Etc/GMT-1] PHP Warning:  Undefined array key "choices" in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Responses\Completions\CreateResponse.php on line 45
+[27-May-2023 21:00:55 Etc/GMT-1] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, null given in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Responses\Completions\CreateResponse.php:43
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Responses\Completions\CreateResponse.php(43): array_map(Object(Closure), NULL)
+#1 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Completions.php(34): OpenAI\Responses\Completions\CreateResponse::from(Array)
+#2 C:\Users\wakko\Documents\beapilot-api\models\openAI.php(9): OpenAI\Resources\Completions->create(Array)
+#3 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(71): require_once('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#5 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#6 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#7 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#8 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#9 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Responses\Completions\CreateResponse.php on line 43
+[27-May-2023 21:01:01 Etc/GMT-1] PHP Warning:  Undefined array key "choices" in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Responses\Completions\CreateResponse.php on line 45
+[27-May-2023 21:01:01 Etc/GMT-1] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, null given in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Responses\Completions\CreateResponse.php:43
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Responses\Completions\CreateResponse.php(43): array_map(Object(Closure), NULL)
+#1 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Completions.php(34): OpenAI\Responses\Completions\CreateResponse::from(Array)
+#2 C:\Users\wakko\Documents\beapilot-api\models\openAI.php(9): OpenAI\Resources\Completions->create(Array)
+#3 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(71): require_once('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#5 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#6 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#7 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#8 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#9 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Responses\Completions\CreateResponse.php on line 43
+[27-May-2023 21:08:29 Etc/GMT-1] PHP Fatal error:  Uncaught OpenAI\Exceptions\ErrorException: The model: `gpt-4` does not exist in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php:129
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php(55): OpenAI\Transporters\HttpTransporter->throwIfJsonError(Array, '{\n    "error": ...')
+#1 C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Resources\Completions.php(32): OpenAI\Transporters\HttpTransporter->requestObject(Object(OpenAI\ValueObjects\Transporter\Payload))
+#2 C:\Users\wakko\Documents\beapilot-api\models\openAI.php(9): OpenAI\Resources\Completions->create(Array)
+#3 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(71): require_once('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(49): PostModel::getAnswerFromOpenAI('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#5 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(16): PostController->getAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...')
+#6 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#7 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#8 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#9 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\vendor\openai-php\client\src\Transporters\HttpTransporter.php on line 129
+[31-May-2023 12:05:21 Etc/GMT-1] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function PostController::getAndStoreAnswer(), 2 passed in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 24 and exactly 4 expected in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:55
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 55
+[31-May-2023 12:10:58 Etc/GMT-1] PHP Warning:  Undefined array key "id_user" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 6
+[31-May-2023 12:11:29 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:83
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(83): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('1', '4', 'Global', 'Qu\xC3\xA9 n\xC3\xBAmero es...', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController->getAndStoreAnswer('1', '4', 'Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 83
+[31-May-2023 12:12:28 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:83
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(83): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('1', '4', 'Global', 'Qu\xC3\xA9 n\xC3\xBAmero es...', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController->getAndStoreAnswer('1', '4', 'Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 83
+[31-May-2023 12:12:31 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:83
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(83): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('1', '4', 'Global', 'Qu\xC3\xA9 n\xC3\xBAmero es...', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController->getAndStoreAnswer('1', '4', 'Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 83
+[31-May-2023 12:12:51 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:83
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(83): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('1', '4', 'Global', 'Qu\xC3\xA9 n\xC3\xBAmero es...', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('1', '4', 'Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 83
+[31-May-2023 12:13:04 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:83
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(83): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('1', '4', 'Global', 'Qu\xC3\xA9 n\xC3\xBAmero es...', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('1', '4', 'Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 83
+[31-May-2023 12:13:35 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'type_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:82
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(82): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('1', '4', 'Global', 'Qu\xC3\xA9 n\xC3\xBAmero es...', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('1', '4', 'Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 82
+[31-May-2023 12:16:53 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`beapilot`.`openai`, CONSTRAINT `id_test_in_openai` FOREIGN KEY (`id_test_openai`) REFERENCES `test` (`id_test`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:82
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(82): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('1', '4', 'Global Feedback', 'Qu\xC3\xA9 n\xC3\xBAmero es...', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('1', '4', 'Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 82
+[31-May-2023 13:06:55 Etc/GMT-1] PHP Warning:  Undefined property: PostController::$postModel in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 57
+[31-May-2023 13:06:55 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function getAnswerFromOpenAI() on null in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:57
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('4', '1', 'Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 57
+[31-May-2023 13:07:27 Etc/GMT-1] PHP Warning:  Undefined array key "userId" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 24
+[31-May-2023 13:07:27 Etc/GMT-1] PHP Warning:  Undefined array key "testId" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 24
+[31-May-2023 13:07:27 Etc/GMT-1] PHP Warning:  Undefined property: PostController::$postModel in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 57
+[31-May-2023 13:07:27 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function getAnswerFromOpenAI() on null in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:57
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', NULL, NULL)
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 57
+[31-May-2023 13:08:46 Etc/GMT-1] PHP Warning:  Undefined array key "testId" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 24
+[31-May-2023 13:08:46 Etc/GMT-1] PHP Warning:  Undefined property: PostController::$postModel in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 57
+[31-May-2023 13:08:46 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function getAnswerFromOpenAI() on null in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:57
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', NULL)
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 57
+[31-May-2023 13:08:51 Etc/GMT-1] PHP Warning:  Undefined property: PostController::$postModel in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 57
+[31-May-2023 13:08:51 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function getAnswerFromOpenAI() on null in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:57
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 57
+[31-May-2023 13:10:00 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Qué número es más emocionante' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:84
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(84): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 84
+[31-May-2023 13:11:08 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Qué número es más emocionante' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:84
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(84): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 84
+[31-May-2023 13:16:16 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Qué número es más emocionante' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:84
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(84): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 84
+[31-May-2023 13:16:50 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Qué número es más emocionante' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:84
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(84): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 84
+[31-May-2023 13:16:59 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Qué número es más emocionante' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:84
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(84): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 84
+[31-May-2023 13:17:31 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Qué número es más emocionante' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:17:57 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Global Feedback' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:18:50 Etc/GMT-1] PHP Warning:  Undefined variable $prompt in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 78
+[31-May-2023 13:18:50 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Qué número es más emocionante' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:20:02 Etc/GMT-1] PHP Warning:  Undefined variable $prompt in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 78
+[31-May-2023 13:20:02 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Qué número es más emocionante' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:20:12 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Qué número es más emocionante' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:20:26 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Qué número es más emocionante' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:21:32 Etc/GMT-1] PHP Warning:  Undefined variable $responseOpenAi in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 79
+[31-May-2023 13:21:32 Etc/GMT-1] PHP Warning:  Undefined variable $responseOpenAi in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:21:32 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`beapilot`.`openai`, CONSTRAINT `id_test_in_openai` FOREIGN KEY (`id_test_openai`) REFERENCES `test` (`id_test`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:22:50 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`beapilot`.`openai`, CONSTRAINT `id_test_in_openai` FOREIGN KEY (`id_test_openai`) REFERENCES `test` (`id_test`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:23:02 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`beapilot`.`openai`, CONSTRAINT `id_test_in_openai` FOREIGN KEY (`id_test_openai`) REFERENCES `test` (`id_test`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:24:42 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`beapilot`.`openai`, CONSTRAINT `id_test_in_openai` FOREIGN KEY (`id_test_openai`) REFERENCES `test` (`id_test`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:24:54 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`beapilot`.`openai`, CONSTRAINT `id_test_in_openai` FOREIGN KEY (`id_test_openai`) REFERENCES `test` (`id_test`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:25:20 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`beapilot`.`openai`, CONSTRAINT `id_test_in_openai` FOREIGN KEY (`id_test_openai`) REFERENCES `test` (`id_test`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:89
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(89): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '1', '4', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 89
+[31-May-2023 13:28:21 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Global Feedback' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:90
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(90): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('4', '1', 'Global Feedback', 'Qu\xC3\xA9 n\xC3\xBAmero es...', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 90
+[31-May-2023 13:28:37 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Global Feedback' for column 'id_user_openai' at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:90
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(90): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(62): PostModel::storePromptResult('4', '1', 'Global Feedback', 'Qu\xC3\xA9 n\xC3\xBAmero es...', NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(24): PostController->getAndStoreAnswer('Qu\xC3\xA9 n\xC3\xBAmero es...', 'Global Feedback', '4', '1')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 90
+[02-Jun-2023 19:43:57 Etc/GMT-1] PHP Warning:  Undefined array key "authEmail" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 23
+[02-Jun-2023 19:44:14 Etc/GMT-1] PHP Warning:  Undefined array key "authEmail" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 23
+[02-Jun-2023 19:44:45 Etc/GMT-1] PHP Warning:  Undefined array key "authEmail" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 23
+[02-Jun-2023 20:09:47 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:113
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 113
+[02-Jun-2023 20:20:00 Etc/GMT-1] PHP Warning:  Undefined variable $link in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 116
+[02-Jun-2023 20:20:00 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:116
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 116
+[02-Jun-2023 20:21:10 Etc/GMT-1] PHP Warning:  Undefined variable $sql in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 117
+[02-Jun-2023 20:21:10 Etc/GMT-1] PHP Deprecated:  PDO::prepare(): Passing null to parameter #1 ($query) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 117
+[02-Jun-2023 20:21:10 Etc/GMT-1] PHP Fatal error:  Uncaught ValueError: PDO::prepare(): Argument #1 ($query) cannot be empty in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:117
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(117): PDO->prepare('')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 117
+[02-Jun-2023 20:23:06 Etc/GMT-1] PHP Warning:  Undefined variable $sql in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 118
+[02-Jun-2023 20:23:06 Etc/GMT-1] PHP Deprecated:  PDO::prepare(): Passing null to parameter #1 ($query) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 118
+[02-Jun-2023 20:23:06 Etc/GMT-1] PHP Fatal error:  Uncaught ValueError: PDO::prepare(): Argument #1 ($query) cannot be empty in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:118
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(118): PDO->prepare('')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 118
+[02-Jun-2023 20:23:18 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_auth0' in 'field list' in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:123
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(123): PDOStatement->execute()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 123
+[02-Jun-2023 20:24:12 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:123
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(123): PDOStatement->execute()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 123
+[02-Jun-2023 20:25:37 Etc/GMT-1] PHP Warning:  Undefined variable $id_auth0 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 120
+[02-Jun-2023 20:25:37 Etc/GMT-1] PHP Warning:  Undefined variable $email_user in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 120
+[02-Jun-2023 20:25:37 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:120
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(120): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 120
+[02-Jun-2023 20:25:50 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:120
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(120): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 120
+[02-Jun-2023 20:29:03 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'datecreated_user' doesn't have a default value in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:121
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(121): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 121
+[02-Jun-2023 20:33:25 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:121
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(121): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 121
+[02-Jun-2023 20:34:17 Etc/GMT-1] PHP Warning:  Undefined variable $result in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 26
