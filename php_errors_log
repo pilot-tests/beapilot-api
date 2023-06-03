@@ -2132,3 +2132,112 @@ Stack trace:
 #5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
 #6 {main}
   thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 90
+[02-Jun-2023 19:43:57 Etc/GMT-1] PHP Warning:  Undefined array key "authEmail" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 23
+[02-Jun-2023 19:44:14 Etc/GMT-1] PHP Warning:  Undefined array key "authEmail" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 23
+[02-Jun-2023 19:44:45 Etc/GMT-1] PHP Warning:  Undefined array key "authEmail" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 23
+[02-Jun-2023 20:09:47 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:113
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 113
+[02-Jun-2023 20:20:00 Etc/GMT-1] PHP Warning:  Undefined variable $link in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 116
+[02-Jun-2023 20:20:00 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:116
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#1 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#5 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 116
+[02-Jun-2023 20:21:10 Etc/GMT-1] PHP Warning:  Undefined variable $sql in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 117
+[02-Jun-2023 20:21:10 Etc/GMT-1] PHP Deprecated:  PDO::prepare(): Passing null to parameter #1 ($query) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 117
+[02-Jun-2023 20:21:10 Etc/GMT-1] PHP Fatal error:  Uncaught ValueError: PDO::prepare(): Argument #1 ($query) cannot be empty in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:117
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(117): PDO->prepare('')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 117
+[02-Jun-2023 20:23:06 Etc/GMT-1] PHP Warning:  Undefined variable $sql in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 118
+[02-Jun-2023 20:23:06 Etc/GMT-1] PHP Deprecated:  PDO::prepare(): Passing null to parameter #1 ($query) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 118
+[02-Jun-2023 20:23:06 Etc/GMT-1] PHP Fatal error:  Uncaught ValueError: PDO::prepare(): Argument #1 ($query) cannot be empty in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:118
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(118): PDO->prepare('')
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 118
+[02-Jun-2023 20:23:18 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_auth0' in 'field list' in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:123
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(123): PDOStatement->execute()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 123
+[02-Jun-2023 20:24:12 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:123
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(123): PDOStatement->execute()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 123
+[02-Jun-2023 20:25:37 Etc/GMT-1] PHP Warning:  Undefined variable $id_auth0 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 120
+[02-Jun-2023 20:25:37 Etc/GMT-1] PHP Warning:  Undefined variable $email_user in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 120
+[02-Jun-2023 20:25:37 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:120
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(120): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 120
+[02-Jun-2023 20:25:50 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:120
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(120): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 120
+[02-Jun-2023 20:29:03 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'datecreated_user' doesn't have a default value in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:121
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(121): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 121
+[02-Jun-2023 20:33:25 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1 in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:121
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(121): PDOStatement->execute(Array)
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(33): PostModel::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(25): PostController::createOrUpdateUser('2', 'wakkos@gmail.co...')
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(31): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 121
+[02-Jun-2023 20:34:17 Etc/GMT-1] PHP Warning:  Undefined variable $result in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 26

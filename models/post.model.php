@@ -28,7 +28,7 @@
         // Commit transaction
         $link->commit();
 
-          return $lastInsertId;
+        return $lastInsertId;
       } catch (PDOException $e) {
         // Rollback transaction in case of an error
         $link->rollBack();
@@ -92,7 +92,6 @@
 
       // Prepara y ejecuta la consulta SQL
       $stmt = $link->prepare($sql);
-      // $stmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => $type, ':response_openai' => $responseOpenAi]);
 
       if($stmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => $type, ':response_openai' => $responseOpenAi])) {
         $response = array(
@@ -103,6 +102,54 @@
       }else {
         return $link->errorInfo();
       }
+    }
+
+
+
+
+
+  public static function createOrUpdateUser($authId, $authEmail) {
+
+    $link = Connection::connect();
+
+    $sql = 'INSERT INTO users (auth0_user_id, email_user)
+    VALUES (:id_auth0, :email_user)
+            ON DUPLICATE KEY UPDATE email_user = :email_user';
+
+    $stmt = $link->prepare($sql);
+
+    if($stmt->execute([':id_auth0' => $authId, ':email_user' => $authEmail])) {
+        $response = array(
+          "lastId" => $link->lastInsertId(),
+          "comment" => "User added successful =D"
+        );
+        return $response;
+      }else {
+        return $link->errorInfo();
+      }
+    }
+
+
+
+
+    public function userExists($auth0_user_id)
+    {
+      $query = "SELECT id_user FROM users WHERE auth0_user_id = ? LIMIT 0,1";
+m
+      $stmt = $this->conn->prepare($query);
+
+      $stmt->bindParam(1, $auth0_user_id);
+
+      $stmt->execute();
+
+      $num = $stmt->rowCount();
+
+      if($num > 0){
+          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+          return $row['id_user'];
+      }
+
+      return false;
     }
 
   }

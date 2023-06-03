@@ -9,18 +9,22 @@ require_once "controllers/post.controller.php";
   }
 
 
-// elseif(isset($_POST["prompt"])) {
-//   $controller = new PostController();
-//   $response = $controller->getAnswer($prompt);
-
-//   echo $response;
-// }
 
   //----> openAI
 elseif(isset($_POST["prompt"]) && isset($_POST["type"])) {
     $controller = new PostController();
     $response = $controller->getAndStoreAnswer($_POST["prompt"], $_POST["type"], $_POST["userId"], $_POST["testId"]);
 }
+
+
+
+
+  //----> VerifyUser
+elseif(isset($_POST["authId"]) && isset($_POST["authEmail"])) {
+    $post = new PostController();
+    $response = $post->createOrUpdateUser($_POST["authId"], $_POST["authEmail"]);
+}
+
 
 
 

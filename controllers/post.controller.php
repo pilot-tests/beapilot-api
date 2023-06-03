@@ -28,6 +28,17 @@ class PostController {
 
 
 
+    //-----> Post request to verify user
+  static public function  createOrUpdateUser($authId, $authEmail) {
+    $response = PostModel::createOrUpdateUser($authId, $authEmail);
+    $return = new PostController();
+    $return -> fncResponse($response);
+  }
+
+
+
+
+
   //-----> OpenAI resquest
   public function getAnswer($prompt) {
     $postModel = new PostModel();
