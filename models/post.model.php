@@ -130,7 +130,7 @@
         return $link->errorInfo();
       }
     } else {
-       return "Usuario: " . $userId;
+      return $userId;
     }
   }
 

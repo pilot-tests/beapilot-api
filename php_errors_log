@@ -2315,3 +2315,26 @@ Stack trace:
 #5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
 #6 {main}
   thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 141
+[05-Jun-2023 14:50:48 Etc/GMT-1] PHP Warning:  Undefined array key "authId" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 4
+[05-Jun-2023 15:09:55 Etc/GMT-1] PHP Warning:  Undefined array key "authId" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 6
+[05-Jun-2023 17:37:42 Etc/GMT-1] PHP Warning:  Undefined array key "authId" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 6
+[05-Jun-2023 17:37:42 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`beapilot`.`student_answers`, CONSTRAINT `test_in_student_answer` FOREIGN KEY (`id_test_student_answer`) REFERENCES `test` (`id_test`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:59
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(59): PDOStatement->execute()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(22): PostModel::postData('student_answers', Array)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(55): PostController::postData('student_answers', Array)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(30): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 59
+[05-Jun-2023 17:37:53 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`beapilot`.`student_answers`, CONSTRAINT `test_in_student_answer` FOREIGN KEY (`id_test_student_answer`) REFERENCES `test` (`id_test`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\Users\wakko\Documents\beapilot-api\models\post.model.php:59
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\post.model.php(59): PDOStatement->execute()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php(22): PostModel::postData('student_answers', Array)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(54): PostController::postData('student_answers', Array)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(30): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\post.model.php on line 59
