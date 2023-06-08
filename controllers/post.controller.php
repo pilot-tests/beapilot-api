@@ -1,5 +1,9 @@
 <?php
+require_once "models/get.model.php";
 require_once "models/post.model.php";
+
+
+
 class PostController {
 
  //-----> Post request to add new Test
@@ -13,7 +17,7 @@ class PostController {
     }
 
     $return = new PostController();
-    $return -> fncResponse($response);
+    $return -> fncResponse($response, null);
   }
 
 
@@ -22,7 +26,59 @@ class PostController {
     $response = PostModel::postData($table, $data);
 
     $return = new PostController();
-    $return -> fncResponse($response);
+    $return -> fncResponse($response, null);
+  }
+
+
+
+
+
+  //-----> Post request register user
+  static public function postRegister($table, $data) {
+
+    if(isset($data["password_user"]) && $data["password_user"] != null) {
+
+      //TODO Create a random salt per user, store it on DB and use it to decrypt pass.
+      // $salt = '$2a$07$' . substr(sha1(mt_rand()), 0, 22) . '$';
+      $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
+      $data["password_user"] = $crypt;
+      $response = PostModel::postData($table, $data);
+    }
+
+    $response = PostModel::postData($table, $data);
+
+    $return = new PostController();
+    $return -> fncResponse($response, null);
+  }
+
+
+
+
+  //-----> Post request login user
+  static public function postLogin($table, $data) {
+
+    //-----> Validate user on DB
+    $response = GetModel::getDataFilter($table, "*","email_user", $data["email_user"], null, null, null, null);
+
+
+    if(!empty($response)) {
+      //-----> Encrypt pass
+      $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
+
+      if($response[0]->password_user == $crypt) {
+        
+      }
+      else {
+        $response = null;
+        $return = new PostController();
+        $return -> fncResponse($response, "Wrong Password");
+      }
+    }
+    else {
+      $response = null;
+      $return = new PostController();
+      $return -> fncResponse($response, "Wrong Email");
+    }
   }
 
 
@@ -35,7 +91,7 @@ class PostController {
     $response = $postModel->createOrUpdateUser($authId, $authEmail);
 
     $return = new PostController();
-    $return -> fncResponse($response);
+    $return -> fncResponse($response, null);
   }
 
 
@@ -64,7 +120,7 @@ class PostController {
   }
 
   //-----> Controller response
-  public function fncResponse($response) {
+  public function fncResponse($response, $error) {
     if(!empty($response)) {
       $json = array(
         'status' => 200,
@@ -72,11 +128,20 @@ class PostController {
       );
     }
     else {
-      $json = array(
-        'status' => 404,
-        'results' => "Not Found",
-        "method" => "post"
-      );
+
+      if($error != null) {
+        $json = array(
+          'status' => 404,
+          'results' => $error
+        );
+      }
+      else {
+        $json = array(
+          'status' => 404,
+          'results' => "Not Found",
+          "method" => "post"
+        );
+      }
     }
 
     echo json_encode($json, http_response_code($json["status"]));

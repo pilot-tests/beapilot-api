@@ -11,19 +11,41 @@ require_once "controllers/post.controller.php";
 
 
   //----> openAI
-elseif(isset($_POST["prompt"]) && isset($_POST["type"])) {
+  elseif(isset($_POST["prompt"]) && isset($_POST["type"])) {
     $controller = new PostController();
     $response = $controller->getAndStoreAnswer($_POST["prompt"], $_POST["type"], $_POST["userId"], $_POST["testId"]);
-}
+  }
 
 
 
 
   //----> VerifyUser
-elseif(isset($_POST["authId"]) && isset($_POST["authEmail"])) {
-    $post = new PostController();
-    $response = $post->createOrUpdateUser($_POST["authId"], $_POST["authEmail"]);
-}
+  elseif(isset($_POST["authId"]) && isset($_POST["authEmail"])) {
+      $post = new PostController();
+      $response = $post->createOrUpdateUser($_POST["authId"], $_POST["authEmail"]);
+  }
+
+
+
+
+ //-----> Register User
+  else if(isset($_GET["register"]) && $_GET["register"] == true) {
+    $response = new PostController();
+    $response -> postRegister($table, $_POST);
+    echo '<pre>'; print_r("hola"); echo '</pre>';
+    return;
+  }
+
+
+
+
+
+  //-----> Login User
+  else if(isset($_GET["login"]) && $_GET["login"] == true) {
+    $response = new PostController();
+    $response -> postLogin($table, $_POST);
+    return;
+  }
 
 
 

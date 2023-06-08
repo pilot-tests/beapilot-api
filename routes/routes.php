@@ -5,14 +5,15 @@ $routesArray = explode('/', $_SERVER['REQUEST_URI']);
 $routesArray = array_filter($routesArray);
 
 
+
 //-----> No API request
 if(count($routesArray) == 0) {
-   $json = array(
-     'status' => 404,
-     'result' => 'Not Found'
-   );
-   echo json_encode($json, http_response_code($json["status"]));
-   return;
+  $json = array(
+    'status' => 404,
+    'result' => 'Not Found'
+  );
+  echo json_encode($json, http_response_code($json["status"]));
+  return;
 }
 
 
@@ -28,6 +29,7 @@ if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])) {
 
   //-----> POST Request Response
   if($_SERVER['REQUEST_METHOD'] == "POST") {
+
     include "services/post.php";
   }
 
