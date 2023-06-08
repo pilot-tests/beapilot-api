@@ -54,4 +54,23 @@ class Connection {
       return $sum == count($columns) ? $validate : null;
     }
   }
+
+
+
+
+  //-----> Create Auth Token
+  static public function jwt($id, $email) {
+
+    $time = time();
+
+    $token = array(
+      "iat" => $time, //Time token is creted
+      "exp" => date('Y-m-d H:i:s', time() + 60*60*24), // Token Expiration time (1day)
+      "data" => [
+        "id" => $id,
+        "email" => $email
+      ]
+    );
+    return $token;
+  }
 }

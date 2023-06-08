@@ -32,8 +32,6 @@ require_once "controllers/post.controller.php";
   else if(isset($_GET["register"]) && $_GET["register"] == true) {
     $response = new PostController();
     $response -> postRegister($table, $_POST);
-    echo '<pre>'; print_r("hola"); echo '</pre>';
-    return;
   }
 
 
