@@ -67,7 +67,7 @@ class PostController {
     else {
         $response = null;
         $return = new PostController();
-        $return -> fncResponse($response, "Email already exists");
+        $return -> fncResponse(null, "Email already exists.", 409);
     }
   }
 
@@ -108,13 +108,13 @@ class PostController {
       else {
         $response = null;
         $return = new PostController();
-        $return -> fncResponse($response, "Wrong Password");
+        $return -> fncResponse(null, "Incorrect password.", 401);
       }
     }
     else {
       $response = null;
       $return = new PostController();
-      $return -> fncResponse($response, "Wrong Email");
+      $return -> fncResponse(null, "Wrong Email", 401);
     }
   }
 
@@ -157,7 +157,9 @@ class PostController {
   }
 
   //-----> Controller response
-  public function fncResponse($response, $error) {
+  public function fncResponse($response, $error, $status = 200) {
+    $json = array();
+
     if(!empty($response)) {
       //-----> Remove password from the response
       if(isset($response[0]->password_user)) {
@@ -165,27 +167,18 @@ class PostController {
       }
 
       $json = array(
-        'status' => 200,
+        'status' => $status,
         'results' => $response
       );
     }
     else {
-
-      if($error != null) {
-        $json = array(
-          'status' => 404,
-          'results' => $error
-        );
-      }
-      else {
-        $json = array(
-          'status' => 404,
-          'results' => "Not Found",
-          "method" => "post"
-        );
-      }
+      $json = array(
+        'status' => $status,
+        'results' => $error ?? "Not Found"
+      );
     }
 
-    echo json_encode($json, http_response_code($json["status"]));
+    http_response_code($json["status"]);
+    echo json_encode($json);
   }
 }

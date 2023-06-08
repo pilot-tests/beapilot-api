@@ -3072,3 +3072,11 @@ Stack trace:
 #3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
 #4 {main}
   thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 64
+[08-Jun-2023 15:02:39 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Call to undefined function fncResponse() in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php:70
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\routes\services\post.php(34): PostController::postRegister('users', Array)
+#1 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(33): include('C:\\Users\\wakko\\...')
+#2 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#3 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
+#4 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 70
