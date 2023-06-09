@@ -1,5 +1,5 @@
 <?php
-
+require_once "get.model.php";
 
 class Connection {
   //-----> DB Info
@@ -72,5 +72,27 @@ class Connection {
       ]
     );
     return $token;
+  }
+
+
+  //-----> Validate security token
+
+  static public function tokenValidation($token) {
+    //-----> Retrieve user using that token
+    $user = GetModel::getDataFilter("users", "token_expiry_user", "token_user", $token, null, null, null, null);
+
+    if(!empty($user)) {
+      $currentDate = date('Y-m-d H:i:s');
+      if ($currentDate < $user[0]->token_expiry_user) {
+        return "ok";
+      }
+      else {
+        return "expired";
+      }
+    }
+    else {
+      return "no-auth";
+    }
+
   }
 }

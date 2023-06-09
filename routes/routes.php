@@ -29,7 +29,6 @@ if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])) {
 
   //-----> POST Request Response
   if($_SERVER['REQUEST_METHOD'] == "POST") {
-
     include "services/post.php";
   }
 
