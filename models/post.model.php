@@ -1,8 +1,5 @@
 <?php
 
-// $yourApiKey = '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';
-
-
   class PostModel {
 
     static public function postNewTest($addTest) {

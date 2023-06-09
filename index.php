@@ -6,10 +6,8 @@ header('Content-Type: application/x-www-form-urlencoded; charset=utf-8');
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    exit;  // termina el script después de devolver las cabeceras
+    exit;
 }
-
-// el resto de tu script aquí
 
 //-----> Show Errors
 ini_set('display_errors', 1);

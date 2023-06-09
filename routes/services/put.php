@@ -2,6 +2,35 @@
 require_once "models/connection.php";
 require_once "controllers/put.controller.php";
 
+// Handling the token verification first
+if(isset($_GET["token"])) {
+    $validate = Connection::tokenValidation($_GET["token"]);
+
+    if ($validate != "ok") {
+        if ($validate == "expired") {
+            $json = array(
+                'status' => 303,
+                'results' => "Error: Token has expired."
+            );
+        } elseif ($validate == "no-auth") {
+            $json = array(
+                'status' => 401,
+                'results' => "Error: user not Authorized."
+            );
+        }
+        echo json_encode($json, http_response_code($json["status"]));
+        exit;
+    }
+} else {
+    $json = array(
+        'status' => 401,
+        'results' => "Error: No token provided."
+    );
+    echo json_encode($json, http_response_code($json["status"]));
+    exit;
+}
+
+
 if(isset($_GET["id"]) && isset($_GET["nameId"])) {
 
   //-----> Get data from parameters

@@ -1,5 +1,5 @@
 <?php
-
+require_once "get.model.php";
 
 class Connection {
   //-----> DB Info
@@ -53,5 +53,52 @@ class Connection {
       }
       return $sum == count($columns) ? $validate : null;
     }
+  }
+
+
+
+
+  //-----> Create Auth Token
+  static public function jwt($id, $email) {
+
+    $time = time();
+
+    $token = array(
+      "iat" => $time, //Time token is creted
+      "exp" => date('Y-m-d H:i:s', time() + 60*60*24), // Token Expiration time (1day)
+      "data" => [
+        "id" => $id,
+        "email" => $email
+      ]
+    );
+    return $token;
+  }
+
+
+  //-----> Validate security token
+
+  static public function tokenValidation($token) {
+    //-----> Retrieve user using that token
+    $user = GetModel::getDataFilter("users", "token_expiry_user", "token_user", $token, null, null, null, null);
+
+    if(!empty($user)) {
+      $currentDate = date('Y-m-d H:i:s');
+      if ($currentDate < $user[0]->token_expiry_user) {
+        return "ok";
+      }
+      else {
+        return "expired";
+      }
+    }
+    else {
+      return "no-auth";
+    }
+
+  }
+
+
+  //-----> API key
+  static public function apikey() {
+    return "abc";
   }
 }
