@@ -95,4 +95,10 @@ class Connection {
     }
 
   }
+
+
+  //-----> API key
+  static public function apikey() {
+    return "abc";
+  }
 }

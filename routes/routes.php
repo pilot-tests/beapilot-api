@@ -1,5 +1,6 @@
-
 <?php
+
+include_once "models/connection.php";
 
 $routesArray = explode('/', $_SERVER['REQUEST_URI']);
 $routesArray = array_filter($routesArray);
@@ -21,6 +22,15 @@ if(count($routesArray) == 0) {
 if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])) {
 
   $table = explode("?", $routesArray[1])[0];
+
+  if(!isset(getallheaders()["Auth"]) || getallheaders()["Auth"] != Connection::apikey()) {
+    $json = array(
+      'status' => 400,
+      'result' => 'Not Authorized'
+    );
+    echo json_encode($json, http_response_code($json["status"]));
+    exit;
+  }
 
   //-----> Get Request Response
   if($_SERVER['REQUEST_METHOD'] == "GET") {

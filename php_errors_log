@@ -3202,3 +3202,14 @@ Stack trace:
 #2 C:\Users\wakko\Documents\beapilot-api\index.php(26): RoutesController->index()
 #3 {main}
   thrown in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 56
+[09-Jun-2023 12:52:20 Etc/GMT-1] PHP Fatal error:  Uncaught Error: Undefined constant Connection::apikey in C:\Users\wakko\Documents\beapilot-api\routes\routes.php:26
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include()
+#1 C:\Users\wakko\Documents\beapilot-api\index.php(24): RoutesController->index()
+#2 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 26
+[09-Jun-2023 13:52:11 Etc/GMT-1] PHP Warning:  Undefined array key "Leauthorizatione" in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 27
+[09-Jun-2023 13:56:17 Etc/GMT-1] PHP Warning:  Undefined array key "Leauthorizatione" in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 27
+[09-Jun-2023 13:56:56 Etc/GMT-1] PHP Warning:  Undefined array key "Leauthorizatione" in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 27
+[09-Jun-2023 13:57:04 Etc/GMT-1] PHP Warning:  Undefined array key "Auth" in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 27
+[09-Jun-2023 13:58:21 Etc/GMT-1] PHP Parse error:  syntax error, unexpected token "if", expecting "function" or "const" in C:\Users\wakko\Documents\beapilot-api\models\put.model.php on line 7
