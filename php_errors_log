@@ -3213,3 +3213,32 @@ Stack trace:
 [09-Jun-2023 13:56:56 Etc/GMT-1] PHP Warning:  Undefined array key "Leauthorizatione" in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 27
 [09-Jun-2023 13:57:04 Etc/GMT-1] PHP Warning:  Undefined array key "Auth" in C:\Users\wakko\Documents\beapilot-api\routes\routes.php on line 27
 [09-Jun-2023 13:58:21 Etc/GMT-1] PHP Parse error:  syntax error, unexpected token "if", expecting "function" or "const" in C:\Users\wakko\Documents\beapilot-api\models\put.model.php on line 7
+[09-Jun-2023 17:12:15 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:12:15 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:12:41 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:12:41 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:15:31 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:15:31 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:17:31 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:17:31 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:19:12 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:19:12 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:19:59 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:19:59 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:20:17 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:20:17 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:21:53 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:21:53 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:26:38 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:26:38 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:29:29 Etc/GMT-1] PHP Parse error:  syntax error, unexpected token "echo" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 8
+[09-Jun-2023 17:30:35 Etc/GMT-1] PHP Warning:  Undefined array key "email" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 8
+[09-Jun-2023 17:30:52 Etc/GMT-1] PHP Warning:  Undefined array key "username" in C:\Users\wakko\Documents\beapilot-api\routes\services\post.php on line 8
+[09-Jun-2023 17:33:32 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:33:32 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:33:54 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:33:54 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:34:05 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:34:05 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[09-Jun-2023 17:40:00 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
+[09-Jun-2023 17:40:00 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110

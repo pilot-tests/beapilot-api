@@ -25,7 +25,7 @@ if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])) {
 
   if(!isset(getallheaders()["Auth"]) || getallheaders()["Auth"] != Connection::apikey()) {
     $json = array(
-      'status' => 400,
+      'status' => 401,
       'result' => 'Not Authorized'
     );
     echo json_encode($json, http_response_code($json["status"]));
