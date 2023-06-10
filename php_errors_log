@@ -3242,3 +3242,13 @@ Stack trace:
 [09-Jun-2023 17:34:05 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
 [09-Jun-2023 17:40:00 Etc/GMT-1] PHP Warning:  Undefined array key "email_user" in C:\Users\wakko\Documents\beapilot-api\controllers\post.controller.php on line 81
 [09-Jun-2023 17:40:00 Etc/GMT-1] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 110
+[10-Jun-2023 19:07:34 Etc/GMT-1] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'string_answer' in 'field list' in C:\Users\wakko\Documents\beapilot-api\models\get.model.php:148
+Stack trace:
+#0 C:\Users\wakko\Documents\beapilot-api\models\get.model.php(148): PDOStatement->execute()
+#1 C:\Users\wakko\Documents\beapilot-api\controllers\get.controller.php(33): GetModel::getDataFilter('users', 'string_answer,i...', 'id_user,email_u...', '1,mauris.aliqua...', false, NULL, NULL, NULL)
+#2 C:\Users\wakko\Documents\beapilot-api\routes\services\get.php(59): GetController::getDataFilter('users', 'string_answer,i...', 'id_user,email_u...', '1,mauris.aliqua...', NULL, NULL, NULL, NULL)
+#3 C:\Users\wakko\Documents\beapilot-api\routes\routes.php(37): include('C:\\Users\\wakko\\...')
+#4 C:\Users\wakko\Documents\beapilot-api\controllers\routes.controller.php(5): include('C:\\Users\\wakko\\...')
+#5 C:\Users\wakko\Documents\beapilot-api\index.php(24): RoutesController->index()
+#6 {main}
+  thrown in C:\Users\wakko\Documents\beapilot-api\models\get.model.php on line 148

@@ -77,13 +77,17 @@ class Connection {
 
   //-----> Validate security token
 
-  static public function tokenValidation($token) {
-    //-----> Retrieve user using that token
-    $user = GetModel::getDataFilter("users", "token_expiry_user", "token_user", $token, null, null, null, null);
+ static public function tokenValidation($token) {
+    $sql = "SELECT token_expiry_user FROM users WHERE token_user = :token";
 
-    if(!empty($user)) {
+    $link = Connection::connect();
+    $stmt = $link->prepare($sql);
+    $stmt->bindParam(":token", $token, PDO::PARAM_STR);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_OBJ);
+    if ($user) {
       $currentDate = date('Y-m-d H:i:s');
-      if ($currentDate < $user[0]->token_expiry_user) {
+      if ($currentDate < $user->token_expiry_user) {
         return "ok";
       }
       else {
@@ -93,7 +97,6 @@ class Connection {
     else {
       return "no-auth";
     }
-
   }
 
 
