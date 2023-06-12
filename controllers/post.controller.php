@@ -153,7 +153,7 @@ class PostController {
 
     // return $storeResult;
     $return = new PostController();
-    $return -> fncResponse($storeResult);
+    $return -> fncResponse($storeResult, null);
   }
 
   //-----> Controller response

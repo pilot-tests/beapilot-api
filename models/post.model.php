@@ -65,8 +65,7 @@
     }
 
     static public function getAnswerFromOpenAI($prompt) {
-      require_once __DIR__.'/../vendor/autoload.php'; // Asegúrate de que este camino apunta a tu archivo autoload.php generado por Composer
-
+      require_once __DIR__.'/../vendor/autoload.php'; 
 
       $yourApiKey = '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';
       $client = OpenAI::client($yourApiKey);
