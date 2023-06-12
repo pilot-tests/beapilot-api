@@ -65,7 +65,7 @@
     }
 
     static public function getAnswerFromOpenAI($prompt) {
-      require_once __DIR__.'/../vendor/autoload.php'; 
+      require_once __DIR__.'/../vendor/autoload.php';
 
       $yourApiKey = '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';
       $client = OpenAI::client($yourApiKey);
@@ -80,25 +80,40 @@
     }
 
     static public function storePromptResult($prompt, $type, $userId, $testId, $responseOpenAi) {
-
+    try {
       // Aquí deberías abrir una conexión a tu base de datos
       $link = Connection::connect();
-      // Prepara la consulta SQL
-      $sql = "INSERT INTO openai (id_user_openai, id_test_openai, type_openai, response_openai) VALUES (:id_user_openai, :id_test_openai, :type_openai, :response_openai)";
 
-      // Prepara y ejecuta la consulta SQL
-      $stmt = $link->prepare($sql);
+      // Inicia una transacción
+      $link->beginTransaction();
 
-      if($stmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => $type, ':response_openai' => $responseOpenAi])) {
-        $response = array(
-          "lastId" => $link->lastInsertId(),
-          "comment" => "Sucess data entry"
-        );
-        return $response;
-      }else {
-        return $link->errorInfo();
-      }
+      // Prepara la consulta SQL para actualizar la tabla 'test'
+      $updateTestSql = 'UPDATE test SET finished_test = 1 WHERE id_test = :testId';
+      $updateTestStmt = $link->prepare($updateTestSql);
+      $updateTestStmt->execute([':testId' => $testId]);
+
+      // Prepara la consulta SQL para insertar en la tabla 'openai'
+      $insertOpenAiSql = "INSERT INTO openai (id_user_openai, id_test_openai, type_openai, response_openai) VALUES (:id_user_openai, :id_test_openai, :type_openai, :response_openai)";
+      $insertOpenAiStmt = $link->prepare($insertOpenAiSql);
+      $insertOpenAiStmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => $type, ':response_openai' => $responseOpenAi]);
+      $lastInsertId = $link->lastInsertId();
+      // Confirma la transacción
+      $link->commit();
+
+      $response = array(
+        "lastId" => $lastInsertId,
+        "comment" => "Success data entry"
+      );
+      return $response;
+
+    } catch (Exception $e) {
+      // Si hay un error, revierte la transacción
+      $link->rollBack();
+
+      return $link->errorInfo();
     }
+  }
+
 
 
 

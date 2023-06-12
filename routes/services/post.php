@@ -54,8 +54,7 @@ if (isset($_POST["newTest"])) {
 
 elseif (isset($_POST["prompt"]) && isset($_POST["type"])) {
     $controller = new PostController(); // Not ideal, since we already declares a $response = new PostController at begining of this file.
-    $response = $controller->getAndStoreAnswer($_POST["prompt"], $_POST["type"], $_POST["userId"], $_POST["testId"]);
-    echo '<pre>'; print_r($response); echo '</pre>';
+    $response = $controller->getAndStoreAnswer($_POST["prompt"], $_POST["type"], $_POST["userId"], $_POST["testId"], $_POST["type"]);
     return;
 }
 
