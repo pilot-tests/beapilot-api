@@ -50,14 +50,20 @@ if (isset($_GET["token"])) {
 
 if (isset($_POST["newTest"])) {
     $response->postNewTest($_POST);
-} elseif (isset($_POST["prompt"]) && isset($_POST["type"])) {
+}
+
+elseif (isset($_POST["prompt"]) && isset($_POST["type"])) {
     $response = $controller->getAndStoreAnswer($_POST["prompt"], $_POST["type"], $_POST["userId"], $_POST["testId"]);
-} elseif (isset($_POST["authId"]) && isset($_POST["authEmail"])) {
+}
+
+elseif (isset($_POST["authId"]) && isset($_POST["authEmail"])) {
     $post = new PostController();
     $response = $post->createOrUpdateUser($_POST["authId"], $_POST["authEmail"]);
-} elseif (isset($_POST)) {
+}
+
+elseif (isset($_POST)) {
     // Insert any POST
-     $columns = array();
+		$columns = array();
     foreach (array_keys($_POST) as $key => $value) {
       array_push($columns, $value);
     }
