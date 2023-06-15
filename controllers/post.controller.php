@@ -135,21 +135,65 @@ class PostController {
 
 
 
+  //-----> Get Prompt
+  static public function determinePrompt($type) {
+    switch($type) {
+      case 1:
+        return "El type del prompt es 1";
+      case 2:
+        return "El type del prompt es 2";
+      default:
+        return "Prompt por defecto";
+    }
+  }
+
+
+
+
+
+
   //-----> OpenAI resquest
-  public function getAnswer($prompt) {
+  public function getAnswer($userId, $testId) {
     $postModel = new PostModel();
+    $testDetailPrompt = $postModel->getTestPrompt($userId, $testId);
     $responseOpenAi = $postModel->getAnswerFromOpenAI($prompt);
     return $responseOpenAi;
   }
 
+
+
+
+
   public function getAndStoreAnswer($prompt, $type, $userId, $testId) {
     $postModel = new PostModel();
+    // Actualiza el puntaje final
+    $putModel = new PutModel();
+    PutModel::updateFinalScore($testId);
+
+    if($type == 1) {
+      $testPrompt = $postModel->getTestPrompt($userId, $testId);
+      $globalPrompt = $postModel->getGlobalPrompt($userId);
+    }
 
     // Obtiene la respuesta de la API de OpenAI
-    $responseOpenAi = $postModel->getAnswerFromOpenAI($prompt);
+    $timeStart = microtime(true);
+
+    $testResponseOpenAi = $postModel->getAnswerFromOpenAI($testPrompt);
+
+    $timeEnd = microtime(true);
+    $responseTime = $timeEnd - $timeStart;
+
+
+    $timeStartGlobal = microtime(true);
+    $globalResponseOpenAi = $postModel->getAnswerFromOpenAI($globalPrompt);
+
+    $timeEndGlobal = microtime(true);
+    $responseTimeGlobal = $timeEndGlobal - $timeStartGlobal;
 
     // Guarda la respuesta en la base de datos
-    $storeResult = $postModel->storePromptResult($prompt, $type, $userId, $testId, $responseOpenAi);
+    $storeResult = $postModel->storePromptResult($prompt, $type, $userId, $testId, $testResponseOpenAi, $globalResponseOpenAi);
+
+
 
     // return $storeResult;
     $return = new PostController();

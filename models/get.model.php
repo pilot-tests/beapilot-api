@@ -8,16 +8,37 @@
     //-----> Exams created by user
     static public function getUserExams($userId) {
       $sql = "SELECT
-              *
-            FROM
-              categories c
-            LEFT JOIN (
-                SELECT * FROM test where id_user_test = $userId) t
-            ON c.id_category = t.id_category_test";
+                *
+              FROM
+                categories c
+              LEFT JOIN (
+                SELECT
+                  t1.*
+                FROM
+                  test t1
+                WHERE
+                  t1.id_user_test = $userId
+                  AND
+                  t1.id_test = (
+                    SELECT
+                      t2.id_test
+                    FROM
+                      test t2
+                    WHERE
+                      t2.id_user_test = t1.id_user_test
+                      AND
+                      t2.id_category_test = t1.id_category_test
+                    ORDER BY
+                      t2.id_test DESC
+                    LIMIT 1
+                  )
+              ) t
+              ON c.id_category = t.id_category_test
+              ORDER BY
+                c.id_category
+              ";
       $stmt = Connection::connect()->prepare($sql);
-
       $stmt -> execute();
-
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
     }
 
@@ -188,6 +209,7 @@
         //-----> Limit, no Order query
         if($orderBy == null && $orderMode == null && $startAt != null && $endAt != null) {
           $sql = "SELECT $select FROM $relArray[0] $innerJoinText LIMIT $startAt, $endAt";
+          echo '<pre>'; print_r($sql); echo '</pre>';
         }
 
         $stmt = Connection::connect()->prepare($sql);
@@ -238,6 +260,7 @@
 
       //-----> No limit, no Order query
       $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] = :$linkToArray[0] $linkToText";
+      echo '<pre>'; print_r($sql); echo '</pre>';
 
 
       //-----> No Limit, Order query
