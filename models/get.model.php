@@ -209,7 +209,6 @@
         //-----> Limit, no Order query
         if($orderBy == null && $orderMode == null && $startAt != null && $endAt != null) {
           $sql = "SELECT $select FROM $relArray[0] $innerJoinText LIMIT $startAt, $endAt";
-          echo '<pre>'; print_r($sql); echo '</pre>';
         }
 
         $stmt = Connection::connect()->prepare($sql);
@@ -260,7 +259,6 @@
 
       //-----> No limit, no Order query
       $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] = :$linkToArray[0] $linkToText";
-      echo '<pre>'; print_r($sql); echo '</pre>';
 
 
       //-----> No Limit, Order query

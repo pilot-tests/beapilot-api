@@ -177,7 +177,12 @@ class PostController {
 
     // Obtiene la respuesta de la API de OpenAI
     $timeStart = microtime(true);
-
+    $noOpenAi = true;
+    if($noOpenAi == true) {
+      $globalResponseOpenAi = "Esta es la respuesta global de OpenAI";
+      $testResponseOpenAi = "Esta es la respuesta al test de OpenAI";
+    }
+    else {
     $testResponseOpenAi = $postModel->getAnswerFromOpenAI($testPrompt);
 
     $timeEnd = microtime(true);
@@ -189,6 +194,8 @@ class PostController {
 
     $timeEndGlobal = microtime(true);
     $responseTimeGlobal = $timeEndGlobal - $timeStartGlobal;
+
+    }
 
     // Guarda la respuesta en la base de datos
     $storeResult = $postModel->storePromptResult($prompt, $type, $userId, $testId, $testResponseOpenAi, $globalResponseOpenAi);

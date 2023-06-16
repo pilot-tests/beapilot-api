@@ -156,7 +156,7 @@ static public function getGlobalPrompt($userId) {
       return  $result['choices'][0]['text'];
     }
 
-  static public function storePromptResult($prompt, $userId, $testId, $testResponseOpenAi, $globalResponseOpenAi) {
+  static public function storePromptResult($prompt, $userId, $type, $testId, $testResponseOpenAi, $globalResponseOpenAi) {
     try {
       // Aquí deberías abrir una conexión a tu base de datos
       $link = Connection::connect();
@@ -171,6 +171,7 @@ static public function getGlobalPrompt($userId) {
 
       // Prepara la consulta SQL para insertar en la tabla 'openai' el resultado del test
       $insertOpenAiSql = "INSERT INTO openai (id_user_openai, id_test_openai, type_openai, response_openai) VALUES (:id_user_openai, :id_test_openai, :type_openai, :response_openai)";
+
       $insertOpenAiStmt = $link->prepare($insertOpenAiSql);
       $insertOpenAiStmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => 1, ':response_openai' => $testResponseOpenAi]);
 
