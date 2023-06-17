@@ -170,14 +170,14 @@ class PostController {
     $putModel = new PutModel();
     PutModel::updateFinalScore($testId);
 
-    if($type == 1) {
+    if($type == 1) { // Meh, $type is gonna be 1 always. but maybe not. Since I am paranoic about it, I will leave it as it is.
       $testPrompt = $postModel->getTestPrompt($userId, $testId);
       $globalPrompt = $postModel->getGlobalPrompt($userId);
     }
 
     // Obtiene la respuesta de la API de OpenAI
     $timeStart = microtime(true);
-    $noOpenAi = true;
+    $noOpenAi = false;
     if($noOpenAi == true) {
       $globalResponseOpenAi = "Esta es la respuesta global de OpenAI";
       $testResponseOpenAi = "Esta es la respuesta al test de OpenAI";

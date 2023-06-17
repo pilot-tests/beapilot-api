@@ -42,45 +42,69 @@
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
     }
 
+
+
+
+    static public function getAverageByCategory($userId) {
+      $sql = "SELECT
+                  c.name_category,
+                  ROUND(AVG(t.final_note), 2) AS average_note
+              FROM
+                  categories c
+              LEFT JOIN
+                  test t
+              ON
+                  c.id_category = t.id_category_test
+              WHERE
+                  t.finished_test = 1 AND t.id_user_test = $userId
+              GROUP BY
+                  c.name_category
+              ";
+      $stmt = Connection::connect()->prepare($sql);
+      $stmt -> execute();
+      return $stmt -> fetchAll(PDO::FETCH_CLASS);
+    }
+
+
     //-----> Get exam (Questions and answers)
-  static public function getExam($examId) {
-    $sql = "SELECT
-      q.*,
-      qt.id_test_questionintest,
-      MAX(CASE WHEN a.answer_number = 1 THEN a.id_answer END) AS answer_1_id,
-      MAX(CASE WHEN a.answer_number = 1 THEN a.string_answer END) AS answer_1_string,
-      MAX(CASE WHEN a.answer_number = 2 THEN a.id_answer END) AS answer_2_id,
-      MAX(CASE WHEN a.answer_number = 2 THEN a.string_answer END) AS answer_2_string,
-      MAX(CASE WHEN a.answer_number = 3 THEN a.id_answer END) AS answer_3_id,
-      MAX(CASE WHEN a.answer_number = 3 THEN a.string_answer END) AS answer_3_string,
-      MAX(CASE WHEN a.answer_number = 4 THEN a.id_answer END) AS answer_4_id,
-      MAX(CASE WHEN a.answer_number = 4 THEN a.string_answer END) AS answer_4_string,
-      MAX(sa.id_test_student_answer) AS id_test_student_answer
-    FROM
-      questions q
-      INNER JOIN questionintests qt ON q.id_question = qt.id_question_questionintest
-      INNER JOIN (
-        SELECT
-          a.*,
-          @rn := IF(@prev_q = a.id_question_answer, @rn + 1, 1) AS answer_number,
-          @prev_q := a.id_question_answer
-        FROM
-          answers a,
-          (SELECT @prev_q := NULL, @rn := 0) vars
-        ORDER BY
-          a.id_question_answer, a.id_answer
-      ) a ON q.id_question = a.id_question_answer
-      LEFT JOIN student_answers sa ON q.id_question = sa.id_question_student_answer
-    WHERE
-      qt.id_test_questionintest = $examId
-    GROUP BY
-      q.id_question";
-   $stmt = Connection::connect()->prepare($sql);
+    static public function getExam($examId) {
+      $sql = "SELECT
+        q.*,
+        qt.id_test_questionintest,
+        MAX(CASE WHEN a.answer_number = 1 THEN a.id_answer END) AS answer_1_id,
+        MAX(CASE WHEN a.answer_number = 1 THEN a.string_answer END) AS answer_1_string,
+        MAX(CASE WHEN a.answer_number = 2 THEN a.id_answer END) AS answer_2_id,
+        MAX(CASE WHEN a.answer_number = 2 THEN a.string_answer END) AS answer_2_string,
+        MAX(CASE WHEN a.answer_number = 3 THEN a.id_answer END) AS answer_3_id,
+        MAX(CASE WHEN a.answer_number = 3 THEN a.string_answer END) AS answer_3_string,
+        MAX(CASE WHEN a.answer_number = 4 THEN a.id_answer END) AS answer_4_id,
+        MAX(CASE WHEN a.answer_number = 4 THEN a.string_answer END) AS answer_4_string,
+        MAX(sa.id_test_student_answer) AS id_test_student_answer
+      FROM
+        questions q
+        INNER JOIN questionintests qt ON q.id_question = qt.id_question_questionintest
+        INNER JOIN (
+          SELECT
+            a.*,
+            @rn := IF(@prev_q = a.id_question_answer, @rn + 1, 1) AS answer_number,
+            @prev_q := a.id_question_answer
+          FROM
+            answers a,
+            (SELECT @prev_q := NULL, @rn := 0) vars
+          ORDER BY
+            a.id_question_answer, a.id_answer
+        ) a ON q.id_question = a.id_question_answer
+        LEFT JOIN student_answers sa ON q.id_question = sa.id_question_student_answer
+      WHERE
+        qt.id_test_questionintest = $examId
+      GROUP BY
+        q.id_question";
+    $stmt = Connection::connect()->prepare($sql);
 
-    $stmt -> execute();
+      $stmt -> execute();
 
-    return $stmt -> fetchAll(PDO::FETCH_CLASS);
-  }
+      return $stmt -> fetchAll(PDO::FETCH_CLASS);
+    }
 
     //-----> Get Request, no filter
     static public function getData($table, $select, $orderBy, $orderMode, $startAt, $endAt) {

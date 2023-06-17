@@ -71,6 +71,12 @@ else if(isset($_GET["rel"]) && isset($_GET["type"]) && $table == "relations" && 
   $response -> getRelDataFilter($_GET["rel"], $_GET["type"], $select, $_GET["linkTo"], $_GET["equalTo"], $orderBy, $orderMode, $startAt, $endAt);
 }
 
+//-----> Get Requests to get AVG user tests by category
+else if($table == "averageByCategory" && isset($_GET["userId"])) {
+  $response -> getAverageByCategory($_GET["userId"]);
+}
+
+
 else {
   //-----> Request WITHOUT filter
   $response -> getData($table, $select, $orderBy, $orderMode, $startAt, $endAt);

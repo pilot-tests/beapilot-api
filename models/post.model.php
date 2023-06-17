@@ -82,7 +82,16 @@
 
   // Primera extracción
   if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $details = 'Estoy sacándome el carnet de piloto TPL. Este es mi resultado:' . $row['final_note'] . '. Pongo las preguntas en las que fallé y las que acerté:';
+    $details = 'Te voy a hacer una consulta pero es importante que sigamos dos pautas:
+      - Háblame siempre de TU. No usted ni en tercera persona
+      - La respuesta debe ser en código HTML (Sólo necesito que uses la etqueta <p> y si hace falta <b> o <a> con su target="_blank").
+
+      Voy con la pregunta:
+      Estoy sacándome el carnet de piloto TPL. Este es mi resultado:' . $row['final_note'] . ' sobre 100.
+      ¿Podrías darme un análisis del test?, así como un análisis y estadísticas de las áreas que he fallado.
+
+      También me vendría bien bibliografía o links (sólo uno o dos) que puedas recomendar para mejorar en las áreas en las que he fallado.
+      Pongo las preguntas en las que fallé y las que acerté:';
     $countCorrect = 0; // Contador para las respuestas correctas
     $countWrong = 0; // Contador para las respuestas incorrectas
     do {
@@ -94,7 +103,6 @@
         $details .= "\n" . $countWrong . ". Fallé en la pregunta: " . $row['string_question'];
       }
     } while ($row = $stmt->fetch(PDO::FETCH_ASSOC));
-    $details .= ". \n ¿Podrías darme un análisis del test?, así como un análisis y estadísticas de las áreas que he fallado?";
 
     return $details;
   } else {

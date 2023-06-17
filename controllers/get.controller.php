@@ -53,6 +53,15 @@
       $return -> fncResponse($response);
     }
 
+    //-----> Get Requests to get AVG user tests by category
+    static public function getAverageByCategory($userId) {
+      $response = GetModel::getAverageByCategory($userId);
+
+
+      $return = new GetController();
+      $return -> fncResponse($response);
+    }
+
     //-----> Controller response
     public function fncResponse($response) {
       if(!empty($response)) {
