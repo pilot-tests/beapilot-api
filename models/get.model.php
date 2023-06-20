@@ -49,17 +49,19 @@
       $sql = "SELECT
                   c.id_category,
                   c.name_category,
-                  IFNULL(ROUND(AVG(t.final_note), 2), 0) AS average_note,
-                  COUNT(t.finished_test) > 0 AS has_finished_tests
+                  IF(COUNT(t.id_test) > 0, 1, 0) AS has_tests,
+                  IF(SUM(t.finished_test) > 0, 1, 0) AS has_finished_tests,
+                  ROUND(AVG(t.final_note), 2) AS average_note,
+                  IF(SUM(t.finished_test) < COUNT(t.id_test), 1, 0) AS has_inprogress_tests,
+                  COUNT(t.id_test) AS total_tests
               FROM
                   categories c
               LEFT JOIN
-                  test t
-              ON
-                  c.id_category = t.id_category_test AND t.finished_test = 1 AND t.id_user_test = :user_id
+                  test t ON c.id_category = t.id_category_test AND t.id_user_test = :user_id
               GROUP BY
                   c.id_category, c.name_category
-              ";
+              ORDER BY
+                  c.id_category";
       $stmt = Connection::connect()->prepare($sql);
       $stmt -> execute([':user_id' => $userId]);
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
