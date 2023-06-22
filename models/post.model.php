@@ -164,6 +164,26 @@ static public function getGlobalPrompt($userId) {
       return  $result['choices'][0]['text'];
     }
 
+    public static function createCheckoutSession() {
+      \Stripe\Stripe::setApiKey('sk_test_51NKksQLPLmlBWK6M3O6jPCsVbQVEGF87rG62LuTiIAPmrHUFS94sFVWxyztyMRjW6wpuheY5B4PzevAZqADgkON2005h8wNpbd');
+      $checkout_session = \Stripe\Checkout\Session::create([
+        'payment_method_types' => ['card'],
+        'line_items' => [[
+          'price' => 'price_1NLN8DLPLmlBWK6MsBgguQQm',  // sustituye con el ID de tu plan de suscripción
+          'quantity' => 1,
+        ]],
+        'mode' => 'subscription',
+        'success_url' => 'http://www.beapilot.local:82/exito?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url' => 'http://www.beapilot.local:82/cancelado',
+      ]);
+
+      echo json_encode(['id' => $checkout_session['id']]);
+    }
+
+
+
+
+
   static public function storePromptResult($prompt, $userId, $type, $testId, $testResponseOpenAi, $globalResponseOpenAi) {
     try {
       // Aquí deberías abrir una conexión a tu base de datos

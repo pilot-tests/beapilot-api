@@ -4,6 +4,9 @@ require_once "models/post.model.php";
 require_once "models/put.model.php";
 require_once "models/connection.php";
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require_once "vendor/autoload.php";
 use Firebase\JWT\JWT;
 
@@ -12,7 +15,7 @@ class PostController {
 
  //-----> Post request to add new Test
 
-   static public function postNewTest($addTest) {
+  static public function postNewTest($addTest) {
     $response = PostModel::postNewTest($addTest);
 
     if ($response === false) {
@@ -52,7 +55,43 @@ class PostController {
         // $salt = '$2a$07$' . substr(sha1(mt_rand()), 0, 22) . '$';
         $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
         $data["password_user"] = $crypt;
+
+        // Create a new customer in Stripe
+        \Stripe\Stripe::setApiKey('sk_test_51NKksQLPLmlBWK6M3O6jPCsVbQVEGF87rG62LuTiIAPmrHUFS94sFVWxyztyMRjW6wpuheY5B4PzevAZqADgkON2005h8wNpbd');
+        $stripeCustomer = \Stripe\Customer::create([
+            'email' => $data["email_user"],
+            'name'  => $data["name_user"]
+        ]);
+
+        // Add the Stripe customer ID to the user data
+        $data["stripe_customer_id"] = $stripeCustomer->id;
+
+        // Create a token for the email verification email
+        $token = Connection::jwt($data["name_user"], $data["email_user"]);
+        $jwt = JWT::encode($token, "d12sd124df3456dfw43w3fw34df", 'HS256');
+
+        $data["email_token_user"] = $jwt;
+
         $response = PostModel::postData($table, $data);
+        echo '<pre>'; print_r($response["comment"]); echo '</pre>';
+        if(isset($response["comment"]) && $response["comment"] == "Sucess data entry") {
+          // Create the verification link
+          $verifyLink = "https://tusitio.com/verify-email?token=$jwt";
+
+          // Send the verification email
+          $mail = new PHPMailer(true);
+          $mail->isSMTP();
+          $mail->Host = 'localhost';  // your host, could be localhost
+          $mail->Port = 1025;        // port for MailHog, could be different with real SMTP
+          $mail->SMTPAuth = false;   // MailHog doesn't need SMTP authentication
+
+          $mail->setFrom('noreply@tusitio.com', 'Tu Sitio');
+          $mail->addAddress($data["email_user"]); // Use the user's email
+          $mail->Subject = 'Por favor verifica tu correo electrónico';
+          $mail->Body    = "Hola,\n\nPor favor verifica tu correo electrónico haciendo clic en el siguiente enlace:\n\n$verifyLink";
+          $mail->send();
+        }
+
         $return = new PostController();
         $return -> fncResponse($response, null);
       }
@@ -135,17 +174,13 @@ class PostController {
 
 
 
-  //-----> Get Prompt
-  static public function determinePrompt($type) {
-    switch($type) {
-      case 1:
-        return "El type del prompt es 1";
-      case 2:
-        return "El type del prompt es 2";
-      default:
-        return "Prompt por defecto";
-    }
+  public function postSubscribe($table, $postData) {
+    $checkout_session = PostModel::createCheckoutSession();
+
+
+    // Resto de tu lógica para manejar la suscripción...
   }
+
 
 
 
