@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once "vendor/autoload.php";
 use Firebase\JWT\JWT;
+ \Stripe\Stripe::setApiKey('sk_test_51NKksQLPLmlBWK6M3O6jPCsVbQVEGF87rG62LuTiIAPmrHUFS94sFVWxyztyMRjW6wpuheY5B4PzevAZqADgkON2005h8wNpbd');
 
 
 class PostController {
@@ -57,7 +58,6 @@ class PostController {
         $data["password_user"] = $crypt;
 
         // Create a new customer in Stripe
-        \Stripe\Stripe::setApiKey('sk_test_51NKksQLPLmlBWK6M3O6jPCsVbQVEGF87rG62LuTiIAPmrHUFS94sFVWxyztyMRjW6wpuheY5B4PzevAZqADgkON2005h8wNpbd');
         $stripeCustomer = \Stripe\Customer::create([
             'email' => $data["email_user"],
             'name'  => $data["name_user"]
@@ -124,16 +124,25 @@ class PostController {
       $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
 
       if($response[0]->password_user == $crypt) {
+
+        $stripeCustomerId = $response[0]->stripe_customer_id;
+        $subscriptions = \Stripe\Subscription::all(['customer' => $stripeCustomerId]);
+        $activeSubscription = false;
+        foreach ($subscriptions->data as $subscription) {
+            if ($subscription->status === 'active') {
+                $activeSubscription = true;
+                break;
+            }
+        }
+
+        $response[0]->active_subscription = $activeSubscription;
         $token = Connection::jwt($response[0]->id_user, $response[0]->email_user);
-
         $jwt = JWT::encode($token, "d12sd124df3456dfw43w3fw34df", 'HS256');
-
         //-----> Update database with Token
         $data = array(
           "token_user" => $jwt,
           "token_expiry_user" => $token["exp"]
         );
-
         $update = PutModel::putData($table, $data, $response[0]->id_user, "id_user");
 
         if(isset($update["comment"]) && $update["comment"] == "Edit successful") {
