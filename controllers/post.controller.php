@@ -7,9 +7,11 @@ require_once "models/connection.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+
 require_once "vendor/autoload.php";
+use \Stripe\Exception\ApiErrorException;
 use Firebase\JWT\JWT;
- \Stripe\Stripe::setApiKey('sk_test_51NKksQLPLmlBWK6M3O6jPCsVbQVEGF87rG62LuTiIAPmrHUFS94sFVWxyztyMRjW6wpuheY5B4PzevAZqADgkON2005h8wNpbd');
+\Stripe\Stripe::setApiKey('sk_test_51NKksQLPLmlBWK6M3O6jPCsVbQVEGF87rG62LuTiIAPmrHUFS94sFVWxyztyMRjW6wpuheY5B4PzevAZqADgkON2005h8wNpbd');
 
 
 class PostController {
@@ -57,14 +59,24 @@ class PostController {
         $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
         $data["password_user"] = $crypt;
 
-        // Create a new customer in Stripe
-        $stripeCustomer = \Stripe\Customer::create([
-            'email' => $data["email_user"],
-            'name'  => $data["name_user"]
-        ]);
+        try {
+          // Create a new customer in Stripe
+          $stripeCustomer = \Stripe\Customer::create([
+              'email' => $data["email_user"],
+              'name'  => $data["name_user"]
+          ]);
 
-        // Add the Stripe customer ID to the user data
-        $data["stripe_customer_id"] = $stripeCustomer->id;
+          // Add the Stripe customer ID to the user data
+          $data["stripe_customer_id"] = $stripeCustomer->id;
+        } catch (\Stripe\Exception\ApiErrorException $e) {
+          // Log the error for debugging purposes
+          error_log($e->getMessage());
+
+          // Respond with an appropriate error message
+          $return = new PostController();
+          $return->fncResponse(null, "An error occurred while creating the Stripe customer.", 500);
+          return;
+        }
 
         // Create a token for the email verification email
         $token = Connection::jwt($data["name_user"], $data["email_user"]);
@@ -73,10 +85,10 @@ class PostController {
         $data["email_token_user"] = $jwt;
 
         $response = PostModel::postData($table, $data);
-        echo '<pre>'; print_r($response["comment"]); echo '</pre>';
+        $response["stripe_customer_id"] = $data["stripe_customer_id"];
         if(isset($response["comment"]) && $response["comment"] == "Sucess data entry") {
           // Create the verification link
-          $verifyLink = "https://tusitio.com/verify-email?token=$jwt";
+          $verifyLink = "http://www.beapilot.local:82/verify-email?token=$jwt";
 
           // Send the verification email
           $mail = new PHPMailer(true);
