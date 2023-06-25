@@ -177,7 +177,7 @@ static public function getGlobalPrompt($userId) {
         'cancel_url' => 'http://www.beapilot.local:82/cancelado',
       ]);
 
-      echo json_encode(['id' => $checkout_session['id']]);
+      return $checkout_session['id'];
     }
 
 

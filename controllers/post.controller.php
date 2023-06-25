@@ -85,7 +85,14 @@ class PostController {
         $data["email_token_user"] = $jwt;
 
         $response = PostModel::postData($table, $data);
+
+        // Add Stripe ID to the $response
         $response["stripe_customer_id"] = $data["stripe_customer_id"];
+
+        // Add Checkout Session to $response
+        $checkout_session = PostModel::createCheckoutSession();
+        $response['stripe_session_id'] = $checkout_session;
+
         if(isset($response["comment"]) && $response["comment"] == "Sucess data entry") {
           // Create the verification link
           $verifyLink = "http://www.beapilot.local:82/verify-email?token=$jwt";
@@ -197,9 +204,6 @@ class PostController {
 
   public function postSubscribe($table, $postData) {
     $checkout_session = PostModel::createCheckoutSession();
-
-
-    // Resto de tu lógica para manejar la suscripción...
   }
 
 
