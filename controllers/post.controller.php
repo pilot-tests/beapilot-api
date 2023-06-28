@@ -90,7 +90,7 @@ class PostController {
         $response["stripe_customer_id"] = $data["stripe_customer_id"];
 
         // Add Checkout Session to $response
-        $checkout_session = PostModel::createCheckoutSession();
+        $checkout_session = PostModel::createCheckoutSession($data["stripe_customer_id"]);
         $response['stripe_session_id'] = $checkout_session;
 
         if(isset($response["comment"]) && $response["comment"] == "Sucess data entry") {
@@ -148,10 +148,11 @@ class PostController {
         $subscriptions = \Stripe\Subscription::all(['customer' => $stripeCustomerId]);
         $activeSubscription = false;
         foreach ($subscriptions->data as $subscription) {
-            if ($subscription->status === 'active') {
-                $activeSubscription = true;
-                break;
-            }
+            // if ($subscription->status === 'active') {
+            //     $activeSubscription = true;
+            //     break;
+            // }
+            $activeSubscription = $subscription->status;
         }
 
         $response[0]->active_subscription = $activeSubscription;
@@ -182,6 +183,26 @@ class PostController {
       $response = null;
       $return = new PostController();
       $return -> fncResponse(null, "Wrong Email", 401);
+    }
+  }
+
+
+
+
+  static public function postResubscribe($table, $data) {
+    $customerId = $data["stripe_customer_id"];
+    $subscriptions = \Stripe\Subscription::all(['customer' => $customerId]);
+
+    $activeSubscriptions = [];
+    $canceledSubscriptions = [];
+
+    foreach ($subscriptions->autoPagingIterator() as $subscription) {
+      if ($subscription->status === 'active') {
+        array_push($activeSubscriptions, $subscription);
+      } elseif ($subscription->status === 'canceled') {
+        array_push($canceledSubscriptions, $subscription);
+      }
+
     }
   }
 
