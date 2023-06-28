@@ -47,21 +47,22 @@
 
     static public function getAverageByCategory($userId) {
       $sql = "SELECT
-                  c.id_category,
-                  c.name_category,
-                  IF(COUNT(t.id_test) > 0, 1, 0) AS has_tests,
-                  IF(SUM(t.finished_test) > 0, 1, 0) AS has_finished_tests,
-                  ROUND(AVG(t.final_note), 2) AS average_note,
-                  IF(SUM(t.finished_test) < COUNT(t.id_test), 1, 0) AS has_inprogress_tests,
-                  COUNT(t.id_test) AS total_tests
+                c.id_category,
+                c.name_category,
+                IF(COUNT(t.id_test) > 0, 1, 0) AS has_tests,
+                IF(SUM(t.finished_test) > 0, 1, 0) AS has_finished_tests,
+                ROUND(AVG(t.final_note), 2) AS average_note,
+                IF(SUM(t.finished_test) < COUNT(t.id_test), 1, 0) AS has_inprogress_tests,
+                COUNT(t.id_test) AS total_tests,
+                GROUP_CONCAT(IF(t.finished_test = 0, t.id_test, NULL)) AS inprogress_id_test
               FROM
-                  categories c
+                categories c
               LEFT JOIN
-                  test t ON c.id_category = t.id_category_test AND t.id_user_test = :user_id
+                test t ON c.id_category = t.id_category_test AND t.id_user_test = :user_id
               GROUP BY
-                  c.id_category, c.name_category
+                c.id_category, c.name_category
               ORDER BY
-                  c.id_category";
+                c.id_category";
       $stmt = Connection::connect()->prepare($sql);
       $stmt -> execute([':user_id' => $userId]);
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
