@@ -4,15 +4,21 @@ require_once "models/post.model.php";
 require_once "models/put.model.php";
 require_once "models/connection.php";
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
 require_once "vendor/autoload.php";
+use \Stripe\Exception\ApiErrorException;
 use Firebase\JWT\JWT;
+\Stripe\Stripe::setApiKey('sk_test_51NKksQLPLmlBWK6M3O6jPCsVbQVEGF87rG62LuTiIAPmrHUFS94sFVWxyztyMRjW6wpuheY5B4PzevAZqADgkON2005h8wNpbd');
 
 
 class PostController {
 
  //-----> Post request to add new Test
 
-   static public function postNewTest($addTest) {
+  static public function postNewTest($addTest) {
     $response = PostModel::postNewTest($addTest);
 
     if ($response === false) {
@@ -52,7 +58,59 @@ class PostController {
         // $salt = '$2a$07$' . substr(sha1(mt_rand()), 0, 22) . '$';
         $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
         $data["password_user"] = $crypt;
+
+        try {
+          // Create a new customer in Stripe
+          $stripeCustomer = \Stripe\Customer::create([
+              'email' => $data["email_user"],
+              'name'  => $data["name_user"]
+          ]);
+
+          // Add the Stripe customer ID to the user data
+          $data["stripe_customer_id"] = $stripeCustomer->id;
+        } catch (\Stripe\Exception\ApiErrorException $e) {
+          // Log the error for debugging purposes
+          error_log($e->getMessage());
+
+          // Respond with an appropriate error message
+          $return = new PostController();
+          $return->fncResponse(null, "An error occurred while creating the Stripe customer.", 500);
+          return;
+        }
+
+        // Create a token for the email verification email
+        $token = Connection::jwt($data["name_user"], $data["email_user"]);
+        $jwt = JWT::encode($token, "d12sd124df3456dfw43w3fw34df", 'HS256');
+
+        $data["email_token_user"] = $jwt;
+
         $response = PostModel::postData($table, $data);
+
+        // Add Stripe ID to the $response
+        $response["stripe_customer_id"] = $data["stripe_customer_id"];
+
+        // Add Checkout Session to $response
+        $checkout_session = PostModel::createCheckoutSession($data["stripe_customer_id"]);
+        $response['stripe_session_id'] = $checkout_session;
+
+        if(isset($response["comment"]) && $response["comment"] == "Sucess data entry") {
+          // Create the verification link
+          $verifyLink = "http://www.beapilot.local:82/verify-email?token=$jwt";
+
+          // Send the verification email
+          $mail = new PHPMailer(true);
+          $mail->isSMTP();
+          $mail->Host = 'localhost';  // your host, could be localhost
+          $mail->Port = 1025;        // port for MailHog, could be different with real SMTP
+          $mail->SMTPAuth = false;   // MailHog doesn't need SMTP authentication
+
+          $mail->setFrom('noreply@tusitio.com', 'Tu Sitio');
+          $mail->addAddress($data["email_user"]); // Use the user's email
+          $mail->Subject = 'Por favor verifica tu correo electrónico';
+          $mail->Body    = "Hola,\n\nPor favor verifica tu correo electrónico haciendo clic en el siguiente enlace:\n\n$verifyLink";
+          $mail->send();
+        }
+
         $return = new PostController();
         $return -> fncResponse($response, null);
       }
@@ -85,16 +143,26 @@ class PostController {
       $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
 
       if($response[0]->password_user == $crypt) {
+
+        $stripeCustomerId = $response[0]->stripe_customer_id;
+        $subscriptions = \Stripe\Subscription::all(['customer' => $stripeCustomerId]);
+        $activeSubscription = false;
+        foreach ($subscriptions->data as $subscription) {
+            // if ($subscription->status === 'active') {
+            //     $activeSubscription = true;
+            //     break;
+            // }
+            $activeSubscription = $subscription->status;
+        }
+
+        $response[0]->active_subscription = $activeSubscription;
         $token = Connection::jwt($response[0]->id_user, $response[0]->email_user);
-
         $jwt = JWT::encode($token, "d12sd124df3456dfw43w3fw34df", 'HS256');
-
         //-----> Update database with Token
         $data = array(
           "token_user" => $jwt,
           "token_expiry_user" => $token["exp"]
         );
-
         $update = PutModel::putData($table, $data, $response[0]->id_user, "id_user");
 
         if(isset($update["comment"]) && $update["comment"] == "Edit successful") {
@@ -121,6 +189,26 @@ class PostController {
 
 
 
+  static public function postResubscribe($table, $data) {
+    $customerId = $data["stripe_customer_id"];
+    $subscriptions = \Stripe\Subscription::all(['customer' => $customerId]);
+
+    $activeSubscriptions = [];
+    $canceledSubscriptions = [];
+
+    foreach ($subscriptions->autoPagingIterator() as $subscription) {
+      if ($subscription->status === 'active') {
+        array_push($activeSubscriptions, $subscription);
+      } elseif ($subscription->status === 'canceled') {
+        array_push($canceledSubscriptions, $subscription);
+      }
+
+    }
+  }
+
+
+
+
     //-----> Post request to verify user
   public function  createOrUpdateUser($authId, $authEmail) {
 
@@ -135,17 +223,10 @@ class PostController {
 
 
 
-  //-----> Get Prompt
-  static public function determinePrompt($type) {
-    switch($type) {
-      case 1:
-        return "El type del prompt es 1";
-      case 2:
-        return "El type del prompt es 2";
-      default:
-        return "Prompt por defecto";
-    }
+  public function postSubscribe($table, $postData) {
+    $checkout_session = PostModel::createCheckoutSession();
   }
+
 
 
 
@@ -164,16 +245,16 @@ class PostController {
 
 
 
-  public function getAndStoreAnswer($prompt, $type, $userId, $testId) {
+  public function finishTest($prompt, $type, $userId, $testId) {
     $postModel = new PostModel();
-    // Actualiza el puntaje final
     $putModel = new PutModel();
+
     PutModel::updateFinalScore($testId);
 
-    if($type == 1) { // Meh, $type is gonna be 1 always. but maybe not. Since I am paranoic about it, I will leave it as it is.
-      $testPrompt = $postModel->getTestPrompt($userId, $testId);
-      $globalPrompt = $postModel->getGlobalPrompt($userId);
-    }
+
+    $testPrompt = $postModel->getTestPrompt($userId, $testId);
+    $globalPrompt = $postModel->getGlobalPrompt($userId);
+
 
     // Obtiene la respuesta de la API de OpenAI
     $timeStart = microtime(true);
@@ -186,7 +267,7 @@ class PostController {
     $testResponseOpenAi = $postModel->getAnswerFromOpenAI($testPrompt);
 
     $timeEnd = microtime(true);
-    $responseTime = $timeEnd - $timeStart;
+    $responseTimeTest = $timeEnd - $timeStart;
 
 
     $timeStartGlobal = microtime(true);
@@ -198,7 +279,7 @@ class PostController {
     }
 
     // Guarda la respuesta en la base de datos
-    $storeResult = $postModel->storePromptResult($prompt, $type, $userId, $testId, $testResponseOpenAi, $globalResponseOpenAi);
+    $storeResult = $postModel->storePromptResult($prompt, $type, $userId, $testId, $testResponseOpenAi, $globalResponseOpenAi, $responseTimeTest, $responseTimeGlobal);
 
 
 

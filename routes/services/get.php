@@ -1,10 +1,16 @@
 <?php
 require_once "models/connection.php";
 require_once "controllers/get.controller.php";
+$response = new GetController();
 
+
+if($table == "verify-email" && isset($_GET["token"])) {
+  $response -> verifyEmail($_GET["token"]);
+  exit;
+}
 // At this point, login and register have been handled and are no longer needed.
 // So, we will now handle the token verification.
-if (isset($_GET["token"])) {
+if (isset($_GET["token"]) && $table != "verify-email") {
     $validate = Connection::tokenValidation($_GET["token"]);
 
     if ($validate != "ok") {
@@ -34,7 +40,7 @@ if (isset($_GET["token"])) {
 // If we get to this point, we know that a valid token has been provided.
 // So, we can now safely handle the other GET actions.
 
-$response = new GetController();
+
 $select = $_GET["select"] ?? "*";
 $orderBy = $_GET["orderBy"] ?? null;
 $orderMode = $_GET["orderMode"] ?? null;
