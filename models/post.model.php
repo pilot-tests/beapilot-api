@@ -184,7 +184,7 @@ static public function getGlobalPrompt($userId) {
 
 
 
-  static public function storePromptResult($prompt, $userId, $type, $testId, $testResponseOpenAi, $globalResponseOpenAi) {
+  static public function storePromptResult($prompt, $type, $userId, $testId, $testResponseOpenAi, $globalResponseOpenAi, $responseTimeTest, $responseTimeGlobal) {
     try {
       // Aquí deberías abrir una conexión a tu base de datos
       $link = Connection::connect();
@@ -198,15 +198,15 @@ static public function getGlobalPrompt($userId) {
       $updateTestStmt->execute([':testId' => $testId]);
 
       // Prepara la consulta SQL para insertar en la tabla 'openai' el resultado del test
-      $insertOpenAiSql = "INSERT INTO openai (id_user_openai, id_test_openai, type_openai, response_openai) VALUES (:id_user_openai, :id_test_openai, :type_openai, :response_openai)";
+      $insertOpenAiSql = "INSERT INTO openai (id_user_openai, id_test_openai, type_openai, response_openai, response_time) VALUES (:id_user_openai, :id_test_openai, :type_openai, :response_openai, :response_time)";
 
       $insertOpenAiStmt = $link->prepare($insertOpenAiSql);
-      $insertOpenAiStmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => 1, ':response_openai' => $testResponseOpenAi]);
+      $insertOpenAiStmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => 1, ':response_openai' => $testResponseOpenAi, ':response_time' => $responseTimeTest]);
 
       // Prepara la consulta SQL para insertar en la tabla 'openai' el resultado global
-      $insertOpenAiGlobalSql = "INSERT INTO openai (id_user_openai, type_openai, response_openai) VALUES (:id_user_openai, :type_openai, :response_openai)";
+      $insertOpenAiGlobalSql = "INSERT INTO openai (id_user_openai, type_openai, response_openai, response_time) VALUES (:id_user_openai, :type_openai, :response_openai, :response_time)";
       $insertOpenAiGlobalStmt = $link->prepare($insertOpenAiGlobalSql);
-      $insertOpenAiGlobalStmt->execute([':id_user_openai' => $userId, ':type_openai' => 2, ':response_openai' => $globalResponseOpenAi]);
+      $insertOpenAiGlobalStmt->execute([':id_user_openai' => $userId, ':type_openai' => 2, ':response_openai' => $globalResponseOpenAi, ':response_time' => $responseTimeGlobal]);
 
       // Confirma la transacción
       $link->commit();
@@ -219,7 +219,6 @@ static public function getGlobalPrompt($userId) {
     } catch (Exception $e) {
       // Si hay un error, revierte la transacción
       $link->rollBack();
-
       return $link->errorInfo();
     }
   }

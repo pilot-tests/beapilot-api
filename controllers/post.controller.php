@@ -245,16 +245,16 @@ class PostController {
 
 
 
-  public function getAndStoreAnswer($prompt, $type, $userId, $testId) {
+  public function finishTest($prompt, $type, $userId, $testId) {
     $postModel = new PostModel();
-    // Actualiza el puntaje final
     $putModel = new PutModel();
+
     PutModel::updateFinalScore($testId);
 
-    if($type == 1) { // Meh, $type is gonna be 1 always. but maybe not. Since I am paranoic about it, I will leave it as it is.
-      $testPrompt = $postModel->getTestPrompt($userId, $testId);
-      $globalPrompt = $postModel->getGlobalPrompt($userId);
-    }
+
+    $testPrompt = $postModel->getTestPrompt($userId, $testId);
+    $globalPrompt = $postModel->getGlobalPrompt($userId);
+
 
     // Obtiene la respuesta de la API de OpenAI
     $timeStart = microtime(true);
@@ -267,7 +267,7 @@ class PostController {
     $testResponseOpenAi = $postModel->getAnswerFromOpenAI($testPrompt);
 
     $timeEnd = microtime(true);
-    $responseTime = $timeEnd - $timeStart;
+    $responseTimeTest = $timeEnd - $timeStart;
 
 
     $timeStartGlobal = microtime(true);
@@ -279,7 +279,7 @@ class PostController {
     }
 
     // Guarda la respuesta en la base de datos
-    $storeResult = $postModel->storePromptResult($prompt, $type, $userId, $testId, $testResponseOpenAi, $globalResponseOpenAi);
+    $storeResult = $postModel->storePromptResult($prompt, $type, $userId, $testId, $testResponseOpenAi, $globalResponseOpenAi, $responseTimeTest, $responseTimeGlobal);
 
 
 
