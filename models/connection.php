@@ -5,9 +5,10 @@ class Connection {
   //-----> DB Info
   static public function infoDatabase() {
     $infoDB = array(
-      "database" => "beapilot",
-      "user" => "root",
-      "pass" => "root"
+      "host" => getenv('DB_HOST'),
+      "database" => getenv('DB_NAME'),
+      "user" => getenv('DB_USER'),
+      "pass" => getenv('DB_PASS')
     );
 
     return $infoDB;
@@ -17,7 +18,7 @@ class Connection {
   static public function connect() {
     try {
       $link = new PDO(
-        "mysql:host=localhost;dbname=".Connection::infoDatabase()["database"],
+        "mysql:host=".Connection::infoDatabase()["host"].";dbname=".Connection::infoDatabase()["database"],
         Connection::infoDatabase()["user"],
         Connection::infoDatabase()["pass"]
       );

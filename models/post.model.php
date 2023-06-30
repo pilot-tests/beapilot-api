@@ -152,7 +152,7 @@ static public function getGlobalPrompt($userId) {
     static public function getAnswerFromOpenAI($prompt) {
       require_once __DIR__.'/../vendor/autoload.php';
       set_time_limit(0);
-      $yourApiKey = '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';
+      $yourApiKey = getenv('OPENAI_API_KEY');
       $client = OpenAI::client($yourApiKey);
 
       $result = $client->completions()->create([
@@ -165,16 +165,16 @@ static public function getGlobalPrompt($userId) {
     }
 
     public static function createCheckoutSession() {
-      \Stripe\Stripe::setApiKey('sk_test_51NKksQLPLmlBWK6M3O6jPCsVbQVEGF87rG62LuTiIAPmrHUFS94sFVWxyztyMRjW6wpuheY5B4PzevAZqADgkON2005h8wNpbd');
+      \Stripe\Stripe::setApiKey(getenv('STRIPE_KEY'));
       $checkout_session = \Stripe\Checkout\Session::create([
         'payment_method_types' => ['card'],
         'line_items' => [[
-          'price' => 'price_1NLN8DLPLmlBWK6MsBgguQQm',  // sustituye con el ID de tu plan de suscripción
+          'price' => getenv('STRIPE_SUBSCRIPTION_PLAN_ID'),  // sustituye con el ID de tu plan de suscripción
           'quantity' => 1,
         ]],
         'mode' => 'subscription',
-        'success_url' => 'http://www.beapilot.local:82/exito?session_id={CHECKOUT_SESSION_ID}',
-        'cancel_url' => 'http://www.beapilot.local:82/cancelado',
+        'success_url' => getenv('API_URL') . '/exito?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url' => getenv('API_URL') . '/cancelado',
       ]);
 
       return $checkout_session['id'];

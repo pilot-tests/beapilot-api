@@ -11,7 +11,7 @@ use PHPMailer\PHPMailer\Exception;
 require_once "vendor/autoload.php";
 use \Stripe\Exception\ApiErrorException;
 use Firebase\JWT\JWT;
-\Stripe\Stripe::setApiKey('sk_test_51NKksQLPLmlBWK6M3O6jPCsVbQVEGF87rG62LuTiIAPmrHUFS94sFVWxyztyMRjW6wpuheY5B4PzevAZqADgkON2005h8wNpbd');
+\Stripe\Stripe::setApiKey(getenv('STRIPE_KEY'));
 
 
 class PostController {
@@ -95,13 +95,13 @@ class PostController {
 
         if(isset($response["comment"]) && $response["comment"] == "Sucess data entry") {
           // Create the verification link
-          $verifyLink = "http://www.beapilot.local:82/verify-email?token=$jwt";
+          $verifyLink = getenv('API_URL') . "/verify-email?token=$jwt";
 
           // Send the verification email
           $mail = new PHPMailer(true);
           $mail->isSMTP();
-          $mail->Host = 'localhost';  // your host, could be localhost
-          $mail->Port = 1025;        // port for MailHog, could be different with real SMTP
+          $mail->Host = getenv('MAIL_HOST');  // your host, could be localhost
+          $mail->Port = getenv('MAIL_PORT');        // port for MailHog, could be different with real SMTP
           $mail->SMTPAuth = false;   // MailHog doesn't need SMTP authentication
 
           $mail->setFrom('noreply@tusitio.com', 'Tu Sitio');
