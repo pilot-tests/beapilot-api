@@ -1,2 +1,4 @@
 /vendor
 php_errors_log
+*.env
+localhost.env
