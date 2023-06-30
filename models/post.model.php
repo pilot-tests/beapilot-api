@@ -150,9 +150,8 @@ static public function getGlobalPrompt($userId) {
 
 
     static public function getAnswerFromOpenAI($prompt) {
-      require_once __DIR__.'/../vendor/autoload.php';
       set_time_limit(0);
-      $yourApiKey = getenv('OPENAI_API_KEY');
+      $yourApiKey = $_ENV['OPENAI_API_KEY'];
       $client = OpenAI::client($yourApiKey);
 
       $result = $client->completions()->create([
@@ -165,16 +164,16 @@ static public function getGlobalPrompt($userId) {
     }
 
     public static function createCheckoutSession() {
-      \Stripe\Stripe::setApiKey(getenv('STRIPE_KEY'));
+      \Stripe\Stripe::setApiKey($_ENV['STRIPE_KEY']);
       $checkout_session = \Stripe\Checkout\Session::create([
         'payment_method_types' => ['card'],
         'line_items' => [[
-          'price' => getenv('STRIPE_SUBSCRIPTION_PLAN_ID'),  // sustituye con el ID de tu plan de suscripción
+          'price' => $_ENV['STRIPE_SUBSCRIPTION_PLAN_ID'],  // sustituye con el ID de tu plan de suscripción
           'quantity' => 1,
         ]],
         'mode' => 'subscription',
-        'success_url' => getenv('API_URL') . '/exito?session_id={CHECKOUT_SESSION_ID}',
-        'cancel_url' => getenv('API_URL') . '/cancelado',
+        'success_url' => $_ENV['API_URL'] . '/exito?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url' => $_ENV['API_URL'] . '/cancelado',
       ]);
 
       return $checkout_session['id'];

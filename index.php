@@ -4,6 +4,9 @@ header("Access-Control-Allow-Headers: Content-Type, Auth");
 header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS");
 header('Content-Type: application/x-www-form-urlencoded; charset=utf-8');
 
+require_once "vendor/autoload.php";
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit;

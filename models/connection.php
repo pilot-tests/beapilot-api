@@ -5,10 +5,10 @@ class Connection {
   //-----> DB Info
   static public function infoDatabase() {
     $infoDB = array(
-      "host" => getenv('DB_HOST'),
-      "database" => getenv('DB_NAME'),
-      "user" => getenv('DB_USER'),
-      "pass" => getenv('DB_PASS')
+      "host" => $_ENV['DB_HOST'],
+      "database" => $_ENV['DB_NAME'],
+      "user" => $_ENV['DB_USER'],
+      "pass" => $_ENV['DB_PASS']
     );
 
     return $infoDB;
