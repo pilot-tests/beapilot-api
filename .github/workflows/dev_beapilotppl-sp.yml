@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'BeaPilotPPL-SP'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B63CE402C9314A96AAD9F7BB78D583B9 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0C684ADF483544CEA1A1AB893FDC4E89 }}
           package: .
