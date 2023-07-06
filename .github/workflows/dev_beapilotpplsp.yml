@@ -52,13 +52,13 @@ jobs:
       
       - name: Write environment variables to .env file
         run: |
-          echo "DB_HOST=${{ env.DB_HOST }}" >> .env
-          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
-          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
-          echo "DB_PASS=${{ secrets.DB_PASS }}" >> .env
-          echo "STRIPE_KEY=${{ secrets.STRIPE_KEY }}" >> .env
-          echo "STRIPE_SUBSCRIPTION_PLAN_ID=${{ secrets.STRIPE_SUBSCRIPTION_PLAN_ID }}" >> .env
-          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env
+          echo "DB_HOST=${{ vars.DB_HOST }}" >> .env
+          echo "DB_NAME=${{ vars.DB_NAME }}" >> .env
+          echo "DB_USER=${{ vars.DB_USER }}" >> .env
+          echo "DB_PASS=${{ vars.DB_PASS }}" >> .env
+          echo "STRIPE_KEY=${{ vars.STRIPE_KEY }}" >> .env
+          echo "STRIPE_SUBSCRIPTION_PLAN_ID=${{ vars.STRIPE_SUBSCRIPTION_PLAN_ID }}" >> .env
+          echo "OPENAI_API_KEY=${{ vars.OPENAI_API_KEY }}" >> .env
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
