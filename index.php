@@ -15,13 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 //-----> Show Errors
 ini_set('display_errors', 1);
 ini_set('show_errors', 1);
-ini_set('error_log', 'C:/Users/wakko/Documents/beapilot-api/php_errors_log');
+ini_set('error_log', './logs/php_errors_log');
 
 
 //-----> Requirements
 
 require_once "controllers/routes.controller.php";
-
 
 $index = new RoutesController();
 $index -> index();
