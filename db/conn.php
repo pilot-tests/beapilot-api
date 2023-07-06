@@ -5,11 +5,13 @@ $username = "dbbeapilotpplsp";
 $password = "57J7ADT368KA31AN";
 $bd = "beapilot";
 
-
+$options = array(
+  PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false
+);
 
 function connectToDB() {
   try {
-    $GLOBALS['pdo']=new PDO("mysql:host=".$GLOBALS['servername'].";dbname=".$GLOBALS['bd']."", $GLOBALS['username'], $GLOBALS['password']);
+    $GLOBALS['pdo']=new PDO("mysql:host=".$GLOBALS['servername'].";dbname=".$GLOBALS['bd']."", $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['options']);
     $GLOBALS['pdo']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }catch (PDOException $e) {
     print "Error! No se pudo conectar a la BD ".$GLOBALS["bd"]."<br/>";
