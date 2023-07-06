@@ -18,7 +18,8 @@ class Connection {
   static public function connect() {
     try {            
       $options = array(
-        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false
+        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+        PDO::MYSQL_ATTR_SSL_CA => "./DigiCertGlobalRootCA.crt.pem"
       );
       $link = new PDO(
         "mysql:host=".Connection::infoDatabase()["host"].";dbname=".Connection::infoDatabase()["database"],
