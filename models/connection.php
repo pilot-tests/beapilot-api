@@ -16,11 +16,15 @@ class Connection {
 
   //-----> DB Connect
   static public function connect() {
-    try {
+    try {            
+      $options = array(
+        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false
+      );
       $link = new PDO(
         "mysql:host=".Connection::infoDatabase()["host"].";dbname=".Connection::infoDatabase()["database"],
         Connection::infoDatabase()["user"],
-        Connection::infoDatabase()["pass"]
+        Connection::infoDatabase()["pass"],
+        $options
       );
       $link->exec("set names utf8");
 
