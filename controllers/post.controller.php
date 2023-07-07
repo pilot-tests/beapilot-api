@@ -99,15 +99,24 @@ class PostController {
           // Send the verification email
           $mail = new PHPMailer(true);
           $mail->isSMTP();
-          $mail->Host = $_ENV['MAIL_HOST'];  // your host, could be localhost
-          $mail->Port = $_ENV['MAIL_PORT'];        // port for MailHog, could be different with real SMTP
-          $mail->SMTPAuth = false;   // MailHog doesn't need SMTP authentication
+          $mail->Host = $_ENV['MAIL_HOST'];
+          $mail->Port = $_ENV['MAIL_PORT'];
+          $mail->SMTPAuth = 587;
+          $mail->Username = 'apikey';
+          $mail->Password = $_ENV['SENDGRID_API_KEY'];
+          $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 
           $mail->setFrom('noreply@tusitio.com', 'Tu Sitio');
-          $mail->addAddress($data["email_user"]); // Use the user's email
+          $mail->addAddress($data["email_user"]);
           $mail->Subject = 'Por favor verifica tu correo electrónico';
           $mail->Body    = "Hola,\n\nPor favor verifica tu correo electrónico haciendo clic en el siguiente enlace:\n\n$verifyLink";
-          $mail->send();
+          if($mail->send()){
+              echo 'Message has been sent';
+          }else{
+              echo 'Message could not be sent.';
+              echo 'Mailer Error: ' . $mail->ErrorInfo;
+          }
+
         }
 
         $return = new PostController();
