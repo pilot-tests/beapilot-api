@@ -49,9 +49,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: php-app
-      
+
       - name: Write environment variables to .env file
         run: |
+          echo "API_URL=${{ vars.API_URL }}" >> .env
           echo "DB_HOST=${{ vars.DB_HOST }}" >> .env
           echo "DB_NAME=${{ vars.DB_NAME }}" >> .env
           echo "DB_USER=${{ vars.DB_USER }}" >> .env
