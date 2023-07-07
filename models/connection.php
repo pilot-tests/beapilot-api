@@ -16,11 +16,15 @@ class Connection {
 
   //-----> DB Connect
   static public function connect() {
-    try {            
-      $options = array(
-        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
-        PDO::MYSQL_ATTR_SSL_CA => "./DigiCertGlobalRootCA.crt.pem"
-      );
+    try {
+
+      $options = array();
+      if ($_ENV['APP_ENV'] != 'local') {
+        $options = array(
+          PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+          PDO::MYSQL_ATTR_SSL_CA => "./DigiCertGlobalRootCA.crt.pem"
+        );
+      }
       $link = new PDO(
         "mysql:host=".Connection::infoDatabase()["host"].";dbname=".Connection::infoDatabase()["database"],
         Connection::infoDatabase()["user"],
