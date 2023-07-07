@@ -99,9 +99,9 @@ class PostController {
           // Send the verification email
           $mail = new PHPMailer(true);
           $mail->isSMTP();
-          $mail->Host = $_ENV['MAIL_HOST'];
-          $mail->Port = $_ENV['MAIL_PORT'];
-          $mail->SMTPAuth = 587;
+          $mail->Host = 'smtp.sendgrid.net';
+          $mail->Port = 587;
+          $mail->SMTPAuth = true;
           $mail->Username = 'apikey';
           $mail->Password = $_ENV['SENDGRID_API_KEY'];
           $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
