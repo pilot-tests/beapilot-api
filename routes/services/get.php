@@ -8,7 +8,7 @@ if($table == "verify-email" && isset($_GET["token"])) {
   $response -> verifyEmail($_GET["token"]);
   exit;
 }
-// At this point, login and register have been handled and are no longer needed.
+// At this point, verify email has been handled and is no longer needed.
 // So, we will now handle the token verification.
 if (isset($_GET["token"]) && $table != "verify-email") {
     $validate = Connection::tokenValidation($_GET["token"]);

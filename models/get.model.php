@@ -1,8 +1,34 @@
 <?php
   // TODO: Refactor all variables in any SQL query into params
   require_once "connection.php";
+    require_once "vendor/autoload.php";
+  use Firebase\JWT\JWT;
+  use \Firebase\JWT\Key;
 
   class GetModel {
+
+    static public function verifyEmail($token) {
+      $decoded = JWT::decode($token, new Key("d12sd124df3456dfw43w3fw34df", 'HS256'));
+       try {
+
+        // Get the user email from the decoded token
+        $userEmail = $decoded->data->email;
+
+        // Update the email_verified field in the database for this user
+        $stmt = Connection::connect()->prepare("UPDATE users SET verified_user = 1 WHERE email_user = :email");
+        $stmt->bindParam(':email', $userEmail, PDO::PARAM_STR);
+        $stmt->execute();
+        // Return the response
+        if ($stmt->rowCount() > 0) {
+          return ['message' => 'Email verified successfully!', 'status' => 200];
+        } else {
+          return ['message' => 'Tu email ya ha sido verificado', 'status' => 404];
+        }
+      } catch (Exception $e) {
+        return ['message' => 'The verification link is not valid.', 'status' => 400];
+      }
+
+    }
 
     //-----> Get categories and the user's exams on that category
     //-----> Exams created by user

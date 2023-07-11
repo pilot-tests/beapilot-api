@@ -61,6 +61,7 @@ jobs:
           echo "STRIPE_SUBSCRIPTION_PLAN_ID=${{ vars.STRIPE_SUBSCRIPTION_PLAN_ID }}" >> .env
           echo "OPENAI_API_KEY=${{ vars.OPENAI_API_KEY }}" >> .env
           echo "SENDGRID_API_KEY=${{ vars.SENDGRID_API_KEY }}" >> .env
+          echo "FRONTEND_URL=${{ vars.FRONTEND_URL }}" >> .env
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2

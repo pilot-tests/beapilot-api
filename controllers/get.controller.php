@@ -7,36 +7,13 @@
 
   class GetController {
 
-    //-----> Verify Email
+        //-----> Verify Email
     public static function verifyEmail($token) {
-      // Verify the JWT
-      try {
-        $decoded = JWT::decode($token, new Key("d12sd124df3456dfw43w3fw34df", 'HS256'));
+      $response = GetModel::verifyEmail($token);
 
-        // Get the user email from the decoded token
-        $userEmail = $decoded->data->email;
-
-
-        // Update the email_verified field in the database for this user
-        $stmt = Connection::connect()->prepare("UPDATE users SET verified_user = 1 WHERE email_user = :email");
-        $stmt->bindParam(':email', $userEmail, PDO::PARAM_STR);
-        $stmt->execute();
-
-        //TODO: You might want to handle the case where no rows were affected (e.g. the user doesn't exist)
-
-        echo "Email verified successfully!";
-      } catch (Exception $e) {
-        // The token was not valid, show an error message
-        // The token was not valid, show an error message
-        echo "The verification link is not valid.";
-        // Print the actual exception message
-        echo 'Caught exception: ',  $e->getMessage(), "\n";
-      }
+      $return = new GetController();
+      $return -> fncResponse($response);
     }
-
-
-
-
 
     static public function getUserExams($userId) {
       $response = GetModel::getUserExams($userId);
@@ -45,7 +22,7 @@
       $return -> fncResponse($response);
     }
 
-     static public function getExam($examId) {
+    static public function getExam($examId) {
       $response = GetModel::getExam($examId);
 
       $return = new GetController();

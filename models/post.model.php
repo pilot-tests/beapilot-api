@@ -163,7 +163,7 @@ static public function getGlobalPrompt($userId) {
       return  $result['choices'][0]['text'];
     }
 
-    public static function createCheckoutSession() {
+    public static function createCheckoutSession( $customer_id) {
       \Stripe\Stripe::setApiKey($_ENV['STRIPE_KEY']);
       $checkout_session = \Stripe\Checkout\Session::create([
         'payment_method_types' => ['card'],
@@ -172,8 +172,9 @@ static public function getGlobalPrompt($userId) {
           'quantity' => 1,
         ]],
         'mode' => 'subscription',
-        'success_url' => $_ENV['API_URL'] . '/exito?session_id={CHECKOUT_SESSION_ID}',
-        'cancel_url' => $_ENV['API_URL'] . '/cancelado',
+        'success_url' => $_ENV['FRONTEND_URL'] . 'register/success/{CHECKOUT_SESSION_ID}',
+        'cancel_url' => $_ENV['FRONTEND_URL'] . 'register/cancel',
+        'customer' => $customer_id
       ]);
 
       return $checkout_session['id'];
