@@ -53,8 +53,6 @@ class PostController {
       //-----> We create token based on if password is present.
       if(isset($data["password_user"]) && $data["password_user"] != null) {
 
-        //TODO Create a random salt per user, store it on DB and use it to decrypt pass.
-        // $salt = '$2a$07$' . substr(sha1(mt_rand()), 0, 22) . '$';
         $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
         $data["password_user"] = $crypt;
 
@@ -94,29 +92,23 @@ class PostController {
 
         if(isset($response["comment"]) && $response["comment"] == "Sucess data entry") {
           // Create the verification link
-          $verifyLink = $_ENV['API_URL'] . "/verify-email?token=$jwt";
+          $verifyLink = $_ENV['FRONTEND_URL'] . "verify-email?token=$jwt";
 
           // Send the verification email
-          $mail = new PHPMailer(true);
-          $mail->isSMTP();
-          $mail->Host = 'smtp.sendgrid.net';
-          $mail->Port = 587;
-          $mail->SMTPAuth = true;
-          $mail->Username = 'apikey';
-          $mail->Password = $_ENV['SENDGRID_API_KEY'];
-          $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-
-          $mail->setFrom('noreply@tusitio.com', 'Tu Sitio');
-          $mail->addAddress($data["email_user"]);
-          $mail->Subject = 'Por favor verifica tu correo electrónico';
-          $mail->Body    = "Hola,\n\nPor favor verifica tu correo electrónico haciendo clic en el siguiente enlace:\n\n$verifyLink";
-          if($mail->send()){
-              echo 'Message has been sent';
-          }else{
-              echo 'Message could not be sent.';
-              echo 'Mailer Error: ' . $mail->ErrorInfo;
+          $email = new \SendGrid\Mail\Mail();
+          $email->setFrom("d@wakkos.com", "Daniel Martínez");
+          $email->setSubject("Por favor verifica tu correo electrónico");
+          $email->addTo($data["email_user"], "Example User");
+          // $email->addContent("text/plain", "Verifica tu corre haciendo click en el enlace: " . $verifyLink);
+          $email->addContent(
+              "text/html", "<a clicktracking=off href=\"". $verifyLink . "\">". $verifyLink . "</a>"
+          );
+          $sendgrid = new \SendGrid($_ENV['SENDGRID_API_KEY']);
+          try {
+            $responseSG = $sendgrid->send($email);
+          } catch (Exception $e) {
+              echo 'Caught exception: '. $e->getMessage() ."\n";
           }
-
         }
 
         $return = new PostController();

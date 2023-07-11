@@ -14,7 +14,8 @@
         "firebase/php-jwt": "^6.5",
         "stripe/stripe-php": "^10.15.0",
         "phpmailer/phpmailer": "^6.8",
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+        "sendgrid/sendgrid": "^8.0"
     },
     "config": {
         "allow-plugins": {
