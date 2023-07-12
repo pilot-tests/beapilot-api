@@ -68,10 +68,20 @@ class PostController {
         } catch (\Stripe\Exception\ApiErrorException $e) {
           // Log the error for debugging purposes
           error_log($e->getMessage());
+          error_log($e->getHttpStatus());
+          error_log($e->getStripeCode());
+          error_log($e->getError()->message);
+
+          $stripeCode = $e->getStripeCode();
+          $errorMessage = "An error occurred while creating the Stripe customer.";
+
+          if ($stripeCode === 'email_invalid') {
+              $errorMessage = "Email inválido, necesitamos un email en formato jon@doe.me";
+          }
 
           // Respond with an appropriate error message
           $return = new PostController();
-          $return->fncResponse(null, "An error occurred while creating the Stripe customer.", 500);
+          $return->fncResponse(null, $errorMessage, 500);
           return;
         }
 
