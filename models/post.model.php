@@ -168,7 +168,7 @@ static public function getGlobalPrompt($userId) {
       $checkout_session = \Stripe\Checkout\Session::create([
         'payment_method_types' => ['card'],
         'line_items' => [[
-          'price' => $_ENV['STRIPE_SUBSCRIPTION_PLAN_ID'],  // sustituye con el ID de tu plan de suscripción
+          'price' => $_ENV['STRIPE_SUBSCRIPTION_PLAN_ID'],
           'quantity' => 1,
         ]],
         'mode' => 'subscription',

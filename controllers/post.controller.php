@@ -135,7 +135,7 @@ class PostController {
     else {
         $response = null;
         $return = new PostController();
-        $return -> fncResponse(null, "Email already exists.", 409);
+        $return -> fncResponse(null, "Ya existe ese email.", 409);
     }
   }
 

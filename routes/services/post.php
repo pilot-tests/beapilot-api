@@ -18,8 +18,12 @@ if (isset($_GET["login"]) && $_GET["login"] == true) {
 
 // At this point, login and register have been handled and are no longer needed.
 // So, we will now handle the token verification.
-if (isset($_GET["token"])) {
-    $validate = Connection::tokenValidation($_GET["token"]);
+
+// We lowercase all headers inc ase server (Apache sometimes does it) converts it into Capital word
+$headers = array_change_key_case(getallheaders(), CASE_LOWER);
+
+if (isset($headers["token"])) {
+    $validate = Connection::tokenValidation($headers["token"]);
 
     if ($validate != "ok") {
         if ($validate == "expired") {
