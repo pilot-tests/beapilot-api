@@ -61,7 +61,7 @@ if (isset($_GET["subscribe"]) && $_GET["subscribe"] == true) {
 if (isset($_POST)) {
 
 	if (isset($_POST["newTest"])) {
-		$response->postNewTest($_POST);
+		$response->postNewTest($table, $_POST);
 		exit;
 	}
 

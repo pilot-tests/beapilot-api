@@ -17,7 +17,8 @@ class PostController {
 
  //-----> Post request to add new Test
 
-  static public function postNewTest($addTest) {
+  static public function postNewTest($table,$addTest) {
+
     $response = PostModel::postNewTest($addTest);
 
     if ($response === false) {
