@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Auth, Token");
-header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, HEAD");
+header("Access-Control-Allow-Methods: PUT, POST, GET, HEAD");
 header('Content-Type: application/x-www-form-urlencoded; charset=utf-8');
 
 require_once "vendor/autoload.php";
