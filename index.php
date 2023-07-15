@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type, Origin, Accept, Auth, Token");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Auth, Token");
 header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS");
 header('Content-Type: application/x-www-form-urlencoded; charset=utf-8');
 
