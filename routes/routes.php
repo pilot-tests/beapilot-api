@@ -2,10 +2,13 @@
 
 include_once "models/connection.php";
 echo '<pre>'; print_r($_SERVER['REQUEST_URI']); echo '</pre>';
-$routesArray = explode('/', $_SERVER['REQUEST_URI']);
-echo '<pre>'; print_r($routesArray); echo '</pre>';
+
+$fullRoute = ltrim($_SERVER['REQUEST_URI'], '/');
+if(isset($_SERVER['QUERY_STRING'])) {
+    $fullRoute .= '?'.$_SERVER['QUERY_STRING'];
+}
+$routesArray = explode('/', $fullRoute);
 $routesArray = array_filter($routesArray);
-echo '<pre>'; print_r($routesArray); echo '</pre>';
 
 
 
