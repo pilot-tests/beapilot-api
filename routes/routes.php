@@ -21,14 +21,6 @@ if(count($routesArray) == 0) {
 
 //-----> Some Request
 if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])) {
-  echo '<pre>'; print_r($routesArray[1]); echo '</pre>';
-  error_log('routesArray[1]: ' . $routesArray[1]);
-    if (strpos($routesArray[1], '?') !== false) {
-        $table = explode("?", $routesArray[1])[0];
-    } else {
-        echo '<pre>'; print_r($routesArray[1]); echo '</pre>';
-        echo '<pre>'; print_r($routesArray[0]); echo '</pre>';
-    }
 
   $table = explode("?", $routesArray[1])[0];
 
