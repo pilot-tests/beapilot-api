@@ -4,11 +4,14 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 header("Access-Control-Allow-Methods: PUT, POST, GET, HEAD");
 header('Content-Type: application/x-www-form-urlencoded; charset=utf-8');
 if ($_SERVER['REQUEST_METHOD'] === "OPTIONS") {
-   die();
- }
+    die();
+}
 require_once "vendor/autoload.php";
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+
+if (file_exists(__DIR__ . '/.env')) {
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit;
