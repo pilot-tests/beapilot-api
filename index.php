@@ -1,11 +1,8 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     header("Access-Control-Allow-Origin: https://beapilot-q2lyc.ondigitalocean.app");
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Auth, Token");
-    header("Access-Control-Allow-Methods: PUT, POST, GET, HEAD");
+    header("Access-Control-Allow-Methods: PUT, OPTIONS, POST, GET, HEAD");
     header('Content-Type: application/x-www-form-urlencoded; charset=utf-8');
-    exit;
-}
 
 require_once "vendor/autoload.php";
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
