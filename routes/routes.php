@@ -23,6 +23,9 @@ if(count($routesArray) == 0) {
 if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])) {
 
   $table = explode("?", $routesArray[1])[0];
+  echo '<pre>'; print_r("routesArray 1: " . $routesArray[1]); echo '</pre>';
+  echo '<pre>'; print_r("routesArray 0: " . $routesArray[0]); echo '</pre>';
+  echo '<pre>'; print_r("Tabla: " . $table); echo '</pre>';
 
   if(!isset(getallheaders()["Auth"]) || getallheaders()["Auth"] != Connection::apikey()) {
     $json = array(
