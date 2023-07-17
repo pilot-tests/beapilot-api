@@ -10,6 +10,7 @@ class Connection {
       "user" => $_ENV['DB_USER'],
       "pass" => $_ENV['DB_PASS']
     );
+
     return $infoDB;
   }
 
@@ -25,23 +26,15 @@ class Connection {
         );
       }
       $link = new PDO(
-        $link = new PDO(
           "mysql:host=".Connection::infoDatabase()["host"].";dbname=".Connection::infoDatabase()["database"],
-          Connection::infoDatabase()["user"],
-          Connection::infoDatabase()["pass"],
-          array(
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
-            PDO::MYSQL_ATTR_SSL_CA => "./ca-certificate.crt"
-          )
-        );
-
+            Connection::infoDatabase()["user"],
+            Connection::infoDatabase()["pass"],
+            array(
+              PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+              PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
+              PDO::MYSQL_ATTR_SSL_CA => "./ca-certificate.crt"
+            )
       );
-
-      if (!$link) {
-        echo '<pre>'; print_r('Este error lo suelta errorInfo: ' . $link->errorInfo() ); echo '</pre>';
-        print_r($link->errorInfo());
-      }
 
       $link->exec("set names utf8");
 
