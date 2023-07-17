@@ -10,6 +10,7 @@ class Connection {
       "user" => $_ENV['DB_USER'],
       "pass" => $_ENV['DB_PASS']
     );
+    echo '<pre>'; print_r($infoDB); echo '</pre>';
 
     return $infoDB;
   }
