@@ -26,11 +26,17 @@ class Connection {
         );
       }
       $link = new PDO(
-        "mysql:host=".Connection::infoDatabase()["host"]."port=25060;dbname=".Connection::infoDatabase()["database"],
+        sprintf(
+            'mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4',
+            Connection::infoDatabase()["host"],
+            25060,
+            Connection::infoDatabase()["database"]
+        ),
         Connection::infoDatabase()["user"],
         Connection::infoDatabase()["pass"],
         $options
       );
+
       $link->exec("set names utf8");
 
     }catch(PDOException $e) {
