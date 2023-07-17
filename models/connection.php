@@ -26,14 +26,15 @@ class Connection {
         );
       }
       $link = new PDO(
-          "mysql:host=".Connection::infoDatabase()["host"].";dbname=".Connection::infoDatabase()["database"],
-            Connection::infoDatabase()["user"],
-            Connection::infoDatabase()["pass"],
-            array(
-              PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-              PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
-              PDO::MYSQL_ATTR_SSL_CA => "./ca-certificate.crt"
-            )
+          sprintf(
+              'mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4',
+              Connection::infoDatabase()["host"],
+              25060,
+              Connection::infoDatabase()["database"]
+          ),
+          Connection::infoDatabase()["user"],
+          Connection::infoDatabase()["pass"],
+          $options
       );
 
       $link->exec("set names utf8");
