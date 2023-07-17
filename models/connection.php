@@ -26,7 +26,7 @@ class Connection {
         );
       }
       $link = new PDO(
-        "mysql:host=".Connection::infoDatabase()["host"].";dbname=".Connection::infoDatabase()["database"],
+        "mysql:host=".Connection::infoDatabase()["host"]."port=25060;dbname=".Connection::infoDatabase()["database"],
         Connection::infoDatabase()["user"],
         Connection::infoDatabase()["pass"],
         $options

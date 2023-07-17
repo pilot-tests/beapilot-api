@@ -54,6 +54,7 @@ class PostController {
       //-----> We create token based on if password is present.
       if(isset($data["password_user"]) && $data["password_user"] != null) {
 
+        //Change for password_hash().
         $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
         $data["password_user"] = $crypt;
 
@@ -150,7 +151,7 @@ class PostController {
     $response = GetModel::getDataFilter($table, "*","email_user", $data["email_user"], null, null, null, null);
     if(!empty($response)) {
 
-      //-----> Encrypt pass
+      //-----> Encrypt pass- TODO: Change for password_hash().
       $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
 
       if($response[0]->password_user == $crypt) {
