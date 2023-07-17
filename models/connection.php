@@ -38,6 +38,10 @@ class Connection {
         $options
       );
 
+      if (!$link) {
+          print_r($link->errorInfo());
+      }
+
       $link->exec("set names utf8");
 
     }catch(PDOException $e) {
