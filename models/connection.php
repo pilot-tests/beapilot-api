@@ -41,13 +41,7 @@ class Connection {
     }catch(PDOException $e) {
       $response = array(
         "error" => $e->getMessage(),
-        "environment" => $_ENV['APP_ENV'],
-         "host" => $_ENV['DB_HOST'],
-      "database" => $_ENV['DB_NAME'],
-      "user" => $_ENV['DB_USER'],
-      "pass" => $_ENV['DB_PASS'],
-        "isNonLocalEnvironment" => $_ENV['APP_ENV'] != 'local',
-        "cert_path" => realpath("./ca-certificate.crt")
+        "environment" => $_ENV['APP_ENV']
       );
       echo json_encode($response);
       die();
