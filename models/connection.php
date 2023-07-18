@@ -45,6 +45,7 @@ class Connection {
         "environment" => $_ENV['APP_ENV'],
         "isNonLocalEnvironment" => $_ENV['APP_ENV'] != 'local'
       );
+      echo json_encode($response);
       die();
     }
 
