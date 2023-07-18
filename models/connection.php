@@ -19,12 +19,11 @@ class Connection {
     try {
 
       $options = array();
-      if ($_ENV['APP_ENV'] != 'local') {
+
         $options = array(
-          PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+          PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
           PDO::MYSQL_ATTR_SSL_CA => "./ca-certificate.crt"
         );
-      }
       $link = new PDO(
           sprintf(
               'mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4',
