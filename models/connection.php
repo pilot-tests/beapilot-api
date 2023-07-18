@@ -48,7 +48,7 @@ class Connection {
       "user" => $_ENV['DB_USER'],
       "pass" => $_ENV['DB_PASS'],
         "isNonLocalEnvironment" => $_ENV['APP_ENV'] != 'local',
-        $cert_path => realpath("./ca-certificate.crt")
+        "cert_path" => realpath("./ca-certificate.crt")
       );
       echo json_encode($response);
       die();
