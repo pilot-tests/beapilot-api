@@ -40,7 +40,8 @@ class Connection {
       $link->exec("set names utf8");
 
     }catch(PDOException $e) {
-      die("Error: ".$e->getMessage());
+      echo json_encode(array("error" => $e->getMessage()));
+      die();
     }
 
     return $link;
