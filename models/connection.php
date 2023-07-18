@@ -43,6 +43,10 @@ class Connection {
       $response = array(
         "error" => $e->getMessage(),
         "environment" => $_ENV['APP_ENV'],
+         "host" => $_ENV['DB_HOST'],
+      "database" => $_ENV['DB_NAME'],
+      "user" => $_ENV['DB_USER'],
+      "pass" => $_ENV['DB_PASS'],
         "isNonLocalEnvironment" => $_ENV['APP_ENV'] != 'local'
       );
       echo json_encode($response);
