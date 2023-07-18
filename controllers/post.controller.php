@@ -146,6 +146,10 @@ class PostController {
 
   //-----> Post request login user
   static public function postLogin($table, $data) {
+     $response = null;
+        $return = new PostController();
+        $return -> fncResponse(null, $data, 401);
+        exit;
 
     //-----> Validate user on DB
     $response = GetModel::getDataFilter($table, "*","email_user", $data["email_user"], null, null, null, null);

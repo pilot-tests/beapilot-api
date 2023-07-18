@@ -5,10 +5,10 @@ class Connection {
   //-----> DB Info
   static public function infoDatabase() {
     $infoDB = array(
-      "host" => $_ENV['DB_HOST'],
-      "database" => $_ENV['DB_NAME'],
-      "user" => $_ENV['DB_USER'],
-      "pass" => $_ENV['DB_PASS']
+      "host" => "db-beapilot-sp-ppl-do-user-14307371-0.b.db.ondigitalocean.com",
+      "database" => "beapilot",
+      "user" => "doadmin",
+      "pass" => "AVNS_adqRuFabaVtdVgqMgPf"
     );
 
     return $infoDB;
@@ -45,6 +45,9 @@ class Connection {
 
     return $link;
   }
+
+  //Resto del código...
+
 
   // -----> Validate that table exists
 
