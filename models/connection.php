@@ -5,10 +5,10 @@ class Connection {
   //-----> DB Info
   static public function infoDatabase() {
     $infoDB = array(
-      "host" => "db-beapilot-sp-ppl-do-user-14307371-0.b.db.ondigitalocean.com",
-      "database" => "beapilot",
-      "user" => "doadmin",
-      "pass" => "AVNS_adqRuFabaVtdVgqMgPf"
+      "host" => $_ENV['DB_HOST'],
+      "database" => $_ENV['DB_NAME'],
+      "user" => $_ENV['DB_USER'],
+      "pass" => $_ENV['DB_PASS']
     );
 
     return $infoDB;
@@ -40,7 +40,11 @@ class Connection {
       $link->exec("set names utf8");
 
     }catch(PDOException $e) {
-      echo json_encode(array("error" => $e->getMessage()));
+      $response = array(
+        "error" => $e->getMessage(),
+        "environment" => $_ENV['APP_ENV'],
+        "isNonLocalEnvironment" => $_ENV['APP_ENV'] != 'local'
+      );
       die();
     }
 
