@@ -8,7 +8,8 @@ class Connection {
       "host" => $_ENV['DB_HOST'],
       "database" => $_ENV['DB_NAME'],
       "user" => $_ENV['DB_USER'],
-      "pass" => $_ENV['DB_PASS']
+      "pass" => $_ENV['DB_PASS'],
+      "port" => $_ENV['DB_PORT']
     );
 
     return $infoDB;
@@ -19,16 +20,17 @@ class Connection {
     try {
 
       $options = array();
-
-        $options = array(
-          PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
-          PDO::MYSQL_ATTR_SSL_CA => "./ca-certificate.crt"
-        );
+        if ($_ENV['APP_ENV'] != 'local') {
+          $options = array(
+            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
+            PDO::MYSQL_ATTR_SSL_CA => "./ca-certificate.crt"
+          );
+        }
       $link = new PDO(
           sprintf(
               'mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4',
               Connection::infoDatabase()["host"],
-              25060,
+              Connection::infoDatabase()["port"],
               Connection::infoDatabase()["database"]
           ),
           Connection::infoDatabase()["user"],
