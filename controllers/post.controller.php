@@ -22,8 +22,8 @@ class PostController {
     $response = PostModel::postNewTest($addTest);
 
     if ($response === false) {
-      // Handle error here
-      // You could throw an Exception or return a special response
+      $return = new PostController();
+      $return -> fncResponse("El test no se ha creado", null);
     }
 
     $return = new PostController();

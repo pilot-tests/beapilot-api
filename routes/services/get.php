@@ -50,14 +50,22 @@ $userID = $_GET["userID"] ?? null;
 
 //----> Get users exams
 
-if(isset($_GET["userID"])) {
+if(isset($_GET["userID"]) && !$_GET["testResult"]) {
   $response -> getUserExams($_GET["userID"]);
 }
 
 //----> Get Exam by ID
 
-else if(isset($_GET["examId"])) {
+else if(isset($_GET["examId"]) && $table != "testResult") {
+  echo '<pre>'; print_r($table); echo '</pre>';
+  echo '<pre>'; print_r($_GET); echo '</pre>';
   $response -> getExam($_GET["examId"]);
+}
+
+//----> Get Test Results
+
+else if($table == "testResult" && isset($_GET["userId"])) {
+  $response -> getTestResult($_GET["examId"], $_GET["userId"]);
 }
 
 //-----> Request with filter

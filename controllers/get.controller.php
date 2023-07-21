@@ -12,21 +12,29 @@
       $response = GetModel::verifyEmail($token);
 
       $return = new GetController();
-      $return -> fncResponse($response);
+      $return -> fncResponse($response, "verifyEmail");
     }
 
     static public function getUserExams($userId) {
       $response = GetModel::getUserExams($userId);
 
       $return = new GetController();
-      $return -> fncResponse($response);
+      $return -> fncResponse($response, "getUserExams");
     }
 
     static public function getExam($examId) {
       $response = GetModel::getExam($examId);
 
       $return = new GetController();
-      $return -> fncResponse($response);
+      $return -> fncResponse($response, "getExam");
+    }
+
+    //-----> Get test data
+    static public function getTestResult($examId, $userId) {
+      $response = GetModel::getTestResult($examId, $userId);
+
+      $return = new GetController();
+      $return -> fncResponse($response, "getTestResult");
     }
 
 
@@ -35,7 +43,7 @@
       $response = GetModel::getData($table, $select, $orderBy, $orderMode, $startAt, $endAt);
 
       $return = new GetController();
-      $return -> fncResponse($response);
+      $return -> fncResponse($response, "getData");
     }
 
     //-----> Get request, with Filter
@@ -43,7 +51,7 @@
       $response = GetModel::getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt);
 
       $return = new GetController();
-      $return -> fncResponse($response);
+      $return -> fncResponse($response, "getDataFilter");
     }
 
     //-----> Get Requests WITHOUT filter among RELATED TABLES
@@ -51,7 +59,7 @@
       $response = GetModel::getRelData($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt);
 
       $return = new GetController();
-      $return -> fncResponse($response);
+      $return -> fncResponse($response, "getRelData");
     }
 
     //-----> Get Requests WITH filter among RELATED TABLES
@@ -60,7 +68,7 @@
 
 
       $return = new GetController();
-      $return -> fncResponse($response);
+      $return -> fncResponse($response, "getRelDataFilter");
     }
 
     //-----> Get Requests to get AVG user tests by category
@@ -69,15 +77,16 @@
 
 
       $return = new GetController();
-      $return -> fncResponse($response);
+      $return -> fncResponse($response, "getAverageByCategory");
     }
 
     //-----> Controller response
-    public function fncResponse($response) {
+    public function fncResponse($response, $endpoint) {
       if(!empty($response)) {
         $json = array(
           'status' => 200,
           'total' => count($response),
+          'endpoint' => $endpoint,
           'results' => $response
         );
       }
@@ -85,6 +94,7 @@
         $json = array(
           'status' => 404,
           'total' => count((is_countable($response)?$response:[])),
+          'endpoint' => $endpoint,
           'results' => "Not Found"
         );
       }
