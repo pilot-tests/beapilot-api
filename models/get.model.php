@@ -346,7 +346,6 @@
       if($orderBy == null && $orderMode == null && $startAt != null && $endAt != null) {
         $sql = "SELECT $select FROM $relArray[0] $innerJoinText LIMIT $startAt, $endAt";
       }
-      echo '<pre>'; print_r($sql); echo '</pre>';
       $stmt = Connection::connect()->prepare($sql);
 
       foreach ($linkToArray as $key => $value) {

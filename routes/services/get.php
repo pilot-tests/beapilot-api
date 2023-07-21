@@ -57,8 +57,6 @@ if(isset($_GET["userID"]) && !$_GET["testResult"]) {
 //----> Get Exam by ID
 
 else if(isset($_GET["examId"]) && $table != "testResult") {
-  echo '<pre>'; print_r($table); echo '</pre>';
-  echo '<pre>'; print_r($_GET); echo '</pre>';
   $response -> getExam($_GET["examId"]);
 }
 
