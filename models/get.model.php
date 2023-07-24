@@ -8,13 +8,14 @@
   class GetModel {
 
     static public function getTestResult($examId, $userId) {
-      $sql = "SELECT a.id_question_answer, a.istrue_answer, sa.id_answer_student_answer, q.string_question, c.name_category, t.final_note
-        FROM student_answers sa
-        INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
-        INNER JOIN questions q ON a.id_question_answer = q.id_question
-        INNER JOIN test t ON sa.id_test_student_answer = t.id_test
-        INNER JOIN categories c ON t.id_category_test = c.id_category
-        WHERE sa.id_user_student_answer =:user_id AND sa.id_test_student_answer = :exam_id";
+      $sql = "SELECT a.id_question_answer, a.istrue_answer, sa.id_answer_student_answer, q.string_question, c.name_category, t.final_note, a.string_answer
+    FROM student_answers sa
+    INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
+    INNER JOIN questions q ON a.id_question_answer = q.id_question
+    INNER JOIN test t ON sa.id_test_student_answer = t.id_test
+    INNER JOIN categories c ON t.id_category_test = c.id_category
+    WHERE sa.id_user_student_answer = :user_id AND sa.id_test_student_answer = :exam_id
+";
       $stmt = Connection::connect()->prepare($sql);
       $stmt -> execute([':user_id' => $userId, ':exam_id' => $examId]);
       return $stmt -> fetchAll(PDO::FETCH_CLASS);

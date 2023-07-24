@@ -50,7 +50,7 @@ $userID = $_GET["userID"] ?? null;
 
 //----> Get users exams
 
-if(isset($_GET["userID"]) && !$_GET["testResult"]) {
+if(isset($_GET["userID"]) && $table !="testResult") {
   $response -> getUserExams($_GET["userID"]);
 }
 
@@ -62,7 +62,7 @@ else if(isset($_GET["examId"]) && $table != "testResult") {
 
 //----> Get Test Results
 
-else if($table == "testResult" && isset($_GET["userId"])) {
+else if($table === "testResult" && isset($_GET["userId"])) {
   $response -> getTestResult($_GET["examId"], $_GET["userId"]);
 }
 
