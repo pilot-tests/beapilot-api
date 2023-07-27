@@ -28,6 +28,28 @@
         $stmt2 = $link->prepare($sql2);
         $stmt2->execute([':last_insert_id' => $lastInsertId, ':id_category_test' => $addTest['id_category_test'], ':id_user_test' => $addTest['id_user_test']]);
 
+        // Get the questions for the newly created test
+        $sql3 = "SELECT id_question_questionintest FROM questionintests WHERE id_test_questionintest = :last_insert_id";
+        $stmt3 = $link->prepare($sql3);
+        $stmt3->execute([':last_insert_id' => $lastInsertId]);
+        $questions = $stmt3->fetchAll(PDO::FETCH_COLUMN);
+
+        // For each question, get the answers and insert them in questionintests_order with a random order
+        foreach ($questions as $question) {
+          $sql4 = "SELECT id_answer FROM answers WHERE id_question_answer = :question ORDER BY RAND()";
+          $stmt4 = $link->prepare($sql4);
+          $stmt4->execute([':question' => $question]);
+          $answers = $stmt4->fetchAll(PDO::FETCH_COLUMN);
+
+          foreach ($answers as $index => $answer) {
+            $sql5 = "INSERT INTO questionintests_order (id_test, id_question, id_answer, answer_order) VALUES (:id_test, :id_question, :id_answer, :answer_order)";
+            $stmt5 = $link->prepare($sql5);
+            $stmt5->execute([':id_test' => $lastInsertId, ':id_question' => $question, ':id_answer' => $answer, ':answer_order' => $index + 1]);
+          }
+        }
+
+
+
         // Commit transaction
         $link->commit();
 
@@ -73,48 +95,48 @@
 
     static public function getTestPrompt($userId, $testId) {
 
-  $link = Connection::connect();
+    $link = Connection::connect();
 
-  $sql = "SELECT a.id_question_answer, a.istrue_answer, sa.id_answer_student_answer, q.string_question, c.name_category, t.final_note
-    FROM student_answers sa
-    INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
-    INNER JOIN questions q ON a.id_question_answer = q.id_question
-    INNER JOIN test t ON sa.id_test_student_answer = t.id_test
-    INNER JOIN categories c ON t.id_category_test = c.id_category
-    WHERE sa.id_user_student_answer = $userId AND sa.id_test_student_answer = $testId";
+    $sql = "SELECT a.id_question_answer, a.istrue_answer, sa.id_answer_student_answer, q.string_question, c.name_category, t.final_note
+      FROM student_answers sa
+      INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
+      INNER JOIN questions q ON a.id_question_answer = q.id_question
+      INNER JOIN test t ON sa.id_test_student_answer = t.id_test
+      INNER JOIN categories c ON t.id_category_test = c.id_category
+      WHERE sa.id_user_student_answer = $userId AND sa.id_test_student_answer = $testId";
 
-  $stmt = $link->prepare($sql);
-  $stmt->execute();
+    $stmt = $link->prepare($sql);
+    $stmt->execute();
 
-  // Primera extracción
-  if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $details = 'Te voy a hacer una consulta pero es importante que sigamos dos pautas:
-      - Háblame siempre de TU. No usted ni en tercera persona
-      - La respuesta debe ser en código HTML (Sólo necesito que uses la etqueta <p> y si hace falta <b> o <a> con su target="_blank").
+    // Primera extracción
+    if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      $details = 'Te voy a hacer una consulta pero es importante que sigamos dos pautas:
+        - Háblame siempre de TU. No usted ni en tercera persona
+        - La respuesta debe ser en código HTML (Sólo necesito que uses la etqueta <p> y si hace falta <b> o <a> con su target="_blank").
 
-      Voy con la pregunta:
-      Estoy sacándome el carnet de piloto TPL. Este es mi resultado:' . $row['final_note'] . ' sobre 100.
-      ¿Podrías darme un análisis del test?, así como un análisis y estadísticas de las áreas que he fallado.
+        Voy con la pregunta:
+        Estoy sacándome el carnet de piloto TPL. Este es mi resultado:' . $row['final_note'] . ' sobre 100.
+        ¿Podrías darme un análisis del test?, así como un análisis y estadísticas de las áreas que he fallado.
 
-      También me vendría bien bibliografía o links (sólo uno o dos) que puedas recomendar para mejorar en las áreas en las que he fallado.
-      Pongo las preguntas en las que fallé y las que acerté:';
-    $countCorrect = 0; // Contador para las respuestas correctas
-    $countWrong = 0; // Contador para las respuestas incorrectas
-    do {
-      if($row['istrue_answer']){
-        $countCorrect++;
-        $details .= "\n" . $countCorrect . ". Acerté la pregunta: " . $row['string_question'];
-      } else {
-        $countWrong++;
-        $details .= "\n" . $countWrong . ". Fallé en la pregunta: " . $row['string_question'];
-      }
-    } while ($row = $stmt->fetch(PDO::FETCH_ASSOC));
+        También me vendría bien bibliografía o links (sólo uno o dos) que puedas recomendar para mejorar en las áreas en las que he fallado.
+        Pongo las preguntas en las que fallé y las que acerté:';
+      $countCorrect = 0; // Contador para las respuestas correctas
+      $countWrong = 0; // Contador para las respuestas incorrectas
+      do {
+        if($row['istrue_answer']){
+          $countCorrect++;
+          $details .= "\n" . $countCorrect . ". Acerté la pregunta: " . $row['string_question'];
+        } else {
+          $countWrong++;
+          $details .= "\n" . $countWrong . ". Fallé en la pregunta: " . $row['string_question'];
+        }
+      } while ($row = $stmt->fetch(PDO::FETCH_ASSOC));
 
-    return $details;
-  } else {
-    // Si no hay ninguna fila, se puede manejar la situación aquí, por ejemplo, retornando un mensaje de error
-    return "No se encontraron resultados.";
-  }
+      return $details;
+    } else {
+      // Si no hay ninguna fila, se puede manejar la situación aquí, por ejemplo, retornando un mensaje de error
+      return "No se encontraron resultados.";
+    }
 }
 
 
