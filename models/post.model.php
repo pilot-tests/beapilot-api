@@ -16,9 +16,15 @@
         $stmt1->execute([':id_category_test' => $addTest['id_category_test'], ':id_user_test' => $addTest['id_user_test']]);
         $lastInsertId = $link->lastInsertId();
 
+        // Retrieve the limit for the second query
+        $sqlLimit = "SELECT numberquestions_category FROM categories WHERE id_category = :id_category_test";
+        $stmtLimit = $link->prepare($sqlLimit);
+        $stmtLimit->execute([':id_category_test' => $addTest['id_category_test']]);
+        $limit = $stmtLimit->fetchColumn();
+
         // Second query
         $sql2 = "INSERT INTO questionintests (id_test_questionintest, id_question_questionintest, id_user_questionintest)
-            SELECT :last_insert_id, id_question, :id_user_test FROM beapilot.questions WHERE id_category_question = :id_category_test ORDER BY RAND() LIMIT 20";
+        SELECT :last_insert_id, id_question, :id_user_test FROM beapilot.questions WHERE id_category_question = :id_category_test ORDER BY RAND() LIMIT $limit";
         $stmt2 = $link->prepare($sql2);
         $stmt2->execute([':last_insert_id' => $lastInsertId, ':id_category_test' => $addTest['id_category_test'], ':id_user_test' => $addTest['id_user_test']]);
 

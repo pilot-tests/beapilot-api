@@ -126,7 +126,7 @@
     MAX(CASE WHEN a.answer_number = 4 THEN a.id_answer END) AS answer_4_id,
     MAX(CASE WHEN a.answer_number = 4 THEN a.string_answer END) AS answer_4_string,
     MAX(sa.id_test_student_answer) AS id_test_student_answer,
-    MAX(CASE WHEN sa.id_test_student_answer = 22 AND sa.id_question_student_answer = q.id_question THEN sa.id_student_answer END) AS id_student_answer
+    MAX(CASE WHEN sa.id_test_student_answer = $examId AND sa.id_question_student_answer = q.id_question THEN sa.id_student_answer END) AS id_student_answer
 FROM
     questions q
     INNER JOIN questionintests qt ON q.id_question = qt.id_question_questionintest
