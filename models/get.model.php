@@ -119,12 +119,16 @@
     qt.id_test_questionintest,
     MAX(CASE WHEN a.answer_number = 1 THEN a.id_answer END) AS answer_1_id,
     MAX(CASE WHEN a.answer_number = 1 THEN a.string_answer END) AS answer_1_string,
+    MAX(CASE WHEN a.answer_number = 1 THEN qo.answer_order END) AS answer_1_order,
     MAX(CASE WHEN a.answer_number = 2 THEN a.id_answer END) AS answer_2_id,
     MAX(CASE WHEN a.answer_number = 2 THEN a.string_answer END) AS answer_2_string,
+    MAX(CASE WHEN a.answer_number = 2 THEN qo.answer_order END) AS answer_2_order,
     MAX(CASE WHEN a.answer_number = 3 THEN a.id_answer END) AS answer_3_id,
     MAX(CASE WHEN a.answer_number = 3 THEN a.string_answer END) AS answer_3_string,
+    MAX(CASE WHEN a.answer_number = 3 THEN qo.answer_order END) AS answer_3_order,
     MAX(CASE WHEN a.answer_number = 4 THEN a.id_answer END) AS answer_4_id,
     MAX(CASE WHEN a.answer_number = 4 THEN a.string_answer END) AS answer_4_string,
+    MAX(CASE WHEN a.answer_number = 4 THEN qo.answer_order END) AS answer_4_order,
     MAX(sa.id_test_student_answer) AS id_test_student_answer,
     MAX(CASE WHEN sa.id_test_student_answer = $examId AND sa.id_question_student_answer = q.id_question THEN sa.id_student_answer END) AS id_student_answer
 FROM
@@ -141,11 +145,13 @@ FROM
         ORDER BY
             a.id_question_answer, a.id_answer
     ) a ON q.id_question = a.id_question_answer
+    LEFT JOIN questionintests_order qo ON a.id_answer = qo.id_answer AND qt.id_test_questionintest = qo.id_test
     LEFT JOIN student_answers sa ON q.id_question = sa.id_question_student_answer
 WHERE
     qt.id_test_questionintest = $examId
 GROUP BY
-    q.id_question";
+    q.id_question
+";
     $stmt = Connection::connect()->prepare($sql);
 
       $stmt -> execute();
