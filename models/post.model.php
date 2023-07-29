@@ -34,17 +34,26 @@
         $stmt3->execute([':last_insert_id' => $lastInsertId]);
         $questions = $stmt3->fetchAll(PDO::FETCH_COLUMN);
 
+        $letters = ['A', 'B', 'C', 'D'];
         // For each question, get the answers and insert them in questionintests_order with a random order
         foreach ($questions as $question) {
-          $sql4 = "SELECT id_answer FROM answers WHERE id_question_answer = :question ORDER BY RAND()";
+          $sql4 = "SELECT id_answer FROM answers WHERE id_question_answer = :question";
           $stmt4 = $link->prepare($sql4);
           $stmt4->execute([':question' => $question]);
           $answers = $stmt4->fetchAll(PDO::FETCH_COLUMN);
 
-          foreach ($answers as $index => $answer) {
-            $sql5 = "INSERT INTO questionintests_order (id_test, id_question, id_answer, answer_order) VALUES (:id_test, :id_question, :id_answer, :answer_order)";
-            $stmt5 = $link->prepare($sql5);
-            $stmt5->execute([':id_test' => $lastInsertId, ':id_question' => $question, ':id_answer' => $answer, ':answer_order' => $index + 1]);
+          try {
+            foreach ($answers as $index => $answer) {
+
+              $letter = $letters[$index];
+
+              $sql5 = "INSERT INTO questionintests_order (id_test, id_question, id_answer, answer_order) VALUES (:id_test, :id_question, :id_answer, :answer_order)";
+              $stmt5 = $link->prepare($sql5);
+              $stmt5->execute([':id_test' => $lastInsertId, ':id_question' => $question, ':id_answer' => $answer, ':answer_order' => $letter]);
+
+            }
+          } catch(Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
           }
         }
 
@@ -52,8 +61,8 @@
 
         // Commit transaction
         $link->commit();
-
         return $lastInsertId;
+
       } catch (PDOException $e) {
         // Rollback transaction in case of an error
         $link->rollBack();

@@ -24,6 +24,7 @@ class PostController {
     if ($response === false) {
       $return = new PostController();
       $return -> fncResponse("El test no se ha creado", null);
+      exit;
     }
 
     $return = new PostController();
