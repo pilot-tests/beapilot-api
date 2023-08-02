@@ -24,7 +24,7 @@
 
     static public function getExam($examId) {
       $questions = GetModel::getExam($examId);
-      $examDetails = GetModel::getDataFilter('test', '*', 'id_test', $examId, null, null, null, null);
+      $examDetails = GetModel::getRelDataFilter('test,categories', 'id_category_test,id_category', '*', 'id_test', $examId, null, null, null, null);
 
       $response = array(
         'examDetails' => $examDetails,
