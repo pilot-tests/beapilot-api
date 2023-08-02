@@ -154,7 +154,7 @@
           GROUP BY
               q.id_question
           ";
-    $stmt = Connection::connect()->prepare($sql);
+      $stmt = Connection::connect()->prepare($sql);
 
       $stmt -> execute();
 

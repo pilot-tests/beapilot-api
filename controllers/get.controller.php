@@ -23,7 +23,13 @@
     }
 
     static public function getExam($examId) {
-      $response = GetModel::getExam($examId);
+      $questions = GetModel::getExam($examId);
+      $examDetails = GetModel::getDataFilter('test', '*', 'id_test', $examId, null, null, null, null);
+
+      $response = array(
+        'examDetails' => $examDetails,
+        'questions' => $questions
+      );
 
       $return = new GetController();
       $return -> fncResponse($response, "getExam");
@@ -83,12 +89,23 @@
     //-----> Controller response
     public function fncResponse($response, $endpoint) {
       if(!empty($response)) {
-        $json = array(
+        if($endpoint === "getExam") {
+          $json = array(
+            'status' => 200,
+            'total' => count($response['questions']),
+            'endpoint' => $endpoint,
+            'examDetails' => $response['examDetails'],
+            'results' => $response['questions']
+          );
+        }
+        else {
+          $json = array(
           'status' => 200,
           'total' => count($response),
           'endpoint' => $endpoint,
           'results' => $response
-        );
+          );
+        }
       }
       else {
         $json = array(
