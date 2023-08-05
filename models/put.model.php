@@ -37,6 +37,26 @@ class PutModel {
   }
 
   static public function updateFinalScore($id_test) {
+    // Consulta para contar el número de respuestas del estudiante
+    $sqlCount = "SELECT COUNT(*) AS numResponses
+                 FROM student_answers
+                 WHERE id_test_student_answer = :id_test";
+
+    $link = Connection::connect();
+    $stmtCount = $link->prepare($sqlCount);
+    $stmtCount->bindParam(":id_test", $id_test, PDO::PARAM_INT);
+    $stmtCount->execute();
+
+    // Fetch the count result
+    $countResult = $stmtCount->fetch(PDO::FETCH_ASSOC);
+
+    // Check if student has answered any questions
+    if ($countResult['numResponses'] == 0) {
+        // Return a special response to indicate no questions were answered
+        return array("comment" => "No questions answered");
+    }
+
+
     $sql = "UPDATE
         test t
         INNER JOIN (

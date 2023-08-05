@@ -262,7 +262,15 @@ class PostController {
     $postModel = new PostModel();
     $putModel = new PutModel();
 
-    PutModel::updateFinalScore($testId);
+    $updateScoreResult = PutModel::updateFinalScore($testId);
+    // Check if no questions were answered
+    if ($updateScoreResult['comment'] == 'No questions answered') {
+        // Here your code to return a message to frontend
+        // return $storeResult;
+      $return = new PostController();
+      $return -> fncResponse("Cannot finish test, no questions were answered", null);
+      exit;
+    }
 
 
     $testPrompt = $postModel->getTestPrompt($userId, $testId);

@@ -8,14 +8,28 @@
   class GetModel {
 
     static public function getTestResult($examId, $userId) {
-      $sql = "SELECT a.id_question_answer, a.istrue_answer, sa.id_answer_student_answer, q.string_question, c.name_category, t.final_note, a.string_answer
-    FROM student_answers sa
-    INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
-    INNER JOIN questions q ON a.id_question_answer = q.id_question
-    INNER JOIN test t ON sa.id_test_student_answer = t.id_test
-    INNER JOIN categories c ON t.id_category_test = c.id_category
-    WHERE sa.id_user_student_answer = :user_id AND sa.id_test_student_answer = :exam_id
-";
+      $sql = "SELECT
+                q.id_question,
+                a.id_answer AS correct_answer_id,
+                sa.id_answer_student_answer AS student_answer_id,
+                CASE
+                    WHEN a.id_answer = sa.id_answer_student_answer THEN 1
+                    ELSE 0
+                END AS correct_answered
+            FROM
+                questionintests qt
+            LEFT JOIN
+                student_answers sa ON qt.id_question_questionintest = sa.id_question_student_answer AND qt.id_test_questionintest = sa.id_test_student_answer AND sa.id_user_student_answer = :user_id
+            INNER JOIN
+                questions q ON qt.id_question_questionintest = q.id_question
+            INNER JOIN
+                answers a ON q.id_question = a.id_question_answer AND a.istrue_answer = 1
+            WHERE
+                qt.id_user_questionintest = :user_id AND qt.id_test_questionintest = :exam_id
+            ORDER BY
+                qt.id_questionintest
+      ";
+
       $stmt = Connection::connect()->prepare($sql);
       $stmt -> execute([':user_id' => $userId, ':exam_id' => $examId]);
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
@@ -338,7 +352,6 @@
       }
       //-----> No limit, no Order query
       $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] = :$linkToArray[0] $linkToText";
-
 
       //-----> No Limit, Order query
       if($orderBy != null && $orderMode != null && $startAt == null && $endAt == null) {

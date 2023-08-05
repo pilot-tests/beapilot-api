@@ -24,7 +24,12 @@
 
     static public function getExam($examId) {
       $questions = GetModel::getExam($examId);
-      $examDetails = GetModel::getRelDataFilter('test,categories', 'id_category_test,id_category', '*', 'id_test', $examId, null, null, null, null);
+      $examDetails = GetModel::getRelDataFilter('test,categories,openai', 'id_category_test,id_category,id_test_openai', '*', 'id_test', $examId, null, null, null, null);
+
+      if(empty($examDetails)) {
+        $examDetails = GetModel::getRelDataFilter('test,categories', 'id_category_test,id_category', '*', 'id_test', $examId, null, null, null, null);
+      }
+
 
       $response = array(
         'examDetails' => $examDetails,
