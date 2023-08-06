@@ -241,7 +241,9 @@ static public function getGlobalPrompt($userId) {
       $insertOpenAiStmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => 1, ':response_openai' => $testResponseOpenAi, ':response_time' => $responseTimeTest]);
 
       // Prepara la consulta SQL para insertar en la tabla 'openai' el resultado global
-      $insertOpenAiGlobalSql = "INSERT INTO openai (id_user_openai, id_test_openai, type_openai, response_openai, response_time) VALUES (:id_user_openai, :type_openai, :response_openai, :response_time)";
+      $insertOpenAiGlobalSql = "INSERT INTO openai (id_user_openai, id_test_openai, type_openai, response_openai, response_time)
+        VALUES (:id_user_openai, :id_test_openai, :type_openai, :response_openai, :response_time)
+        ON DUPLICATE KEY UPDATE response_openai = :response_openai";
       $insertOpenAiGlobalStmt = $link->prepare($insertOpenAiGlobalSql);
       $insertOpenAiGlobalStmt->execute([':id_user_openai' => $userId, ':id_test_openai' => $testId, ':type_openai' => 2, ':response_openai' => $globalResponseOpenAi, ':response_time' => $responseTimeGlobal]);
 

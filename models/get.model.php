@@ -317,6 +317,8 @@
 
 
     //-----> Get Request, WITH filter among related tables
+
+    //
     static public function getRelDataFilter($rel, $type, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt) {
 
       //-----> Organise filters
