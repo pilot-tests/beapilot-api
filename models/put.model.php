@@ -37,7 +37,7 @@ class PutModel {
   }
 
   static public function updateFinalScore($id_test) {
-    // Consulta para contar el número de respuestas del estudiante
+    // Count students answer
     $sqlCount = "SELECT COUNT(*) AS numResponses
                  FROM student_answers
                  WHERE id_test_student_answer = :id_test";
@@ -58,24 +58,26 @@ class PutModel {
 
 
     $sql = "UPDATE
-        test t
-        INNER JOIN (
-            SELECT
-                sa.id_user_student_answer,
-                (SUM(COALESCE(a.istrue_answer, 0)) / COUNT(*)) * 100 AS final_score
-            FROM
-                student_answers sa
-                INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
-            WHERE
-                sa.id_test_student_answer = :id_test
-            GROUP BY
-                sa.id_user_student_answer
-        ) scores ON t.id_user_test = scores.id_user_student_answer
-    SET
-        t.final_note = scores.final_score,
-        t.finished_test = true
-    WHERE
-        t.id_test = :id_test";
+    test t
+    INNER JOIN (
+        SELECT
+            sa.id_user_student_answer,
+            (SUM(COALESCE(a.istrue_answer, 0)) /
+            (SELECT COUNT(*) FROM questionintests qt WHERE qt.id_test_questionintest = sa.id_test_student_answer)) * 100 AS final_score
+                FROM
+                    student_answers sa
+                    INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
+                WHERE
+                    sa.id_test_student_answer = :id_test
+                GROUP BY
+                    sa.id_user_student_answer
+            ) scores ON t.id_user_test = scores.id_user_student_answer
+        SET
+            t.final_note = scores.final_score,
+            t.finished_test = true
+        WHERE
+            t.id_test = :id_test;
+        ";
 
     $link = Connection::connect();
     $stmt = $link->prepare($sql);

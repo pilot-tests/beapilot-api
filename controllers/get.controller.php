@@ -24,10 +24,15 @@
 
     static public function getExam($examId) {
       $questions = GetModel::getExam($examId);
-      $examDetails = GetModel::getRelDataFilter('test,categories,openai', 'id_test, id_category,id_test_openai', '*', 'id_test,type_openai', '' . $examId . ',global', null, null, null, null);
+      $examDetails = GetModel::getFinishedTestData($examId);
 
       if(empty($examDetails)) {
         $examDetails = GetModel::getRelDataFilter('test,categories', 'id_category_test, id_category', '*', 'id_test', $examId, null, null, null, null);
+      }
+
+      $currentTime = date('Y-m-d H:i:s');
+      if (isset($examDetails[0])) {
+          $examDetails[0]->serverTime = $currentTime;
       }
 
 

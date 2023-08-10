@@ -355,6 +355,7 @@
       //-----> No limit, no Order query
       $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] = :$linkToArray[0] $linkToText";
 
+
       //-----> No Limit, Order query
       if($orderBy != null && $orderMode != null && $startAt == null && $endAt == null) {
         $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] = :$linkToArray[0] $linkToText ORDER BY $orderBy $orderMode";
@@ -378,7 +379,17 @@
       }
 
       $stmt -> execute();
+      return $stmt -> fetchAll(PDO::FETCH_CLASS);
+    }
 
+    static public function getFinishedTestData($examId) {
+      $sql = "SELECT * FROM test
+              INNER JOIN categories ON test.id_category_test = categories.id_category
+              INNER JOIN openai ON test.id_test = openai.id_test_openai
+              WHERE id_test = :examId AND type_openai = :type_openai";
+
+      $stmt = Connection::connect()->prepare($sql);
+      $stmt -> execute([':examId' => $examId, ':type_openai' => 'global']);
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
     }
   }
