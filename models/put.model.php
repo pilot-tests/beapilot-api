@@ -50,34 +50,26 @@ class PutModel {
     // Fetch the count result
     $countResult = $stmtCount->fetch(PDO::FETCH_ASSOC);
 
-    // Check if student has answered any questions
-    if ($countResult['numResponses'] == 0) {
-        // Return a special response to indicate no questions were answered
-        return array("comment" => "No questions answered");
-    }
 
-
-    $sql = "UPDATE
-    test t
-    INNER JOIN (
-        SELECT
-            sa.id_user_student_answer,
-            (SUM(COALESCE(a.istrue_answer, 0)) /
-            (SELECT COUNT(*) FROM questionintests qt WHERE qt.id_test_questionintest = sa.id_test_student_answer)) * 100 AS final_score
-                FROM
-                    student_answers sa
-                    INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
-                WHERE
-                    sa.id_test_student_answer = :id_test
-                GROUP BY
-                    sa.id_user_student_answer
-            ) scores ON t.id_user_test = scores.id_user_student_answer
-        SET
-            t.final_note = scores.final_score,
-            t.finished_test = true
-        WHERE
-            t.id_test = :id_test;
-        ";
+    $sql = "UPDATE test t
+      LEFT JOIN (
+          SELECT
+              sa.id_user_student_answer,
+              (SUM(COALESCE(a.istrue_answer, 0)) /
+              (SELECT COUNT(*) FROM questionintests qt WHERE qt.id_test_questionintest = sa.id_test_student_answer)) * 100 AS final_score
+          FROM
+              student_answers sa
+              INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
+          WHERE
+              sa.id_test_student_answer = :id_test
+          GROUP BY
+              sa.id_user_student_answer
+      ) scores ON t.id_user_test = scores.id_user_student_answer
+      SET
+          t.final_note = COALESCE(scores.final_score, 0), -- set to 0 if no answers
+          t.finished_test = true
+      WHERE
+          t.id_test = :id_test;";
 
     $link = Connection::connect();
     $stmt = $link->prepare($sql);
