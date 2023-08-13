@@ -392,4 +392,112 @@
       $stmt -> execute([':examId' => $examId, ':type_openai' => 'global']);
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
     }
+
+    static public function AddAIReasoning() {
+      try {
+        $link = Connection::connect();
+
+        // Obtén el número total de registros
+        $total_query = "SELECT COUNT(*) AS total FROM questions";
+        $total_stmt = $link->prepare($total_query);
+        $total_stmt->execute();
+        $total_row = $total_stmt->fetch(PDO::FETCH_ASSOC);
+        $total = $total_row['total'];
+
+        // Define el tamaño del lote y el tiempo de pausa
+        $batch_size = 5; // Cambia a cuántos registros quieras procesar a la vez
+        $pause_seconds = 150; // Cambia a cuántos segundos quieras pausar entre los lotes
+
+        // Calcula el número de lotes
+        $batches = ceil($total / $batch_size);
+
+        // Procesa cada lote
+        for ($i = 0; $i < $batches; $i++) {
+          // Calcula el límite y el offset para la consulta SQL
+          $limit = $batch_size;
+
+          $sql = "
+            SELECT
+                q.id_question,
+                q.string_question,
+                c.name_category,
+                MAX(CASE WHEN a.answer_number = 1 THEN a.id_answer END) AS answer_1_id,
+                MAX(CASE WHEN a.answer_number = 1 THEN a.string_answer END) AS answer_1_string,
+                MAX(CASE WHEN a.answer_number = 2 THEN a.id_answer END) AS answer_2_id,
+                MAX(CASE WHEN a.answer_number = 2 THEN a.string_answer END) AS answer_2_string,
+                MAX(CASE WHEN a.answer_number = 3 THEN a.id_answer END) AS answer_3_id,
+                MAX(CASE WHEN a.answer_number = 3 THEN a.string_answer END) AS answer_3_string,
+                MAX(CASE WHEN a.answer_number = 4 THEN a.id_answer END) AS answer_4_id,
+                MAX(CASE WHEN a.answer_number = 4 THEN a.string_answer END) AS answer_4_string,
+                MAX(sa.id_test_student_answer) AS id_test_student_answer
+              FROM
+                questions q
+                INNER JOIN (
+                  SELECT
+                    a.*,
+                    @rn := IF(@prev_q = a.id_question_answer, @rn + 1, 1) AS answer_number,
+                    @prev_q := a.id_question_answer
+                  FROM
+                    answers a,
+                    (SELECT @prev_q := NULL, @rn := 0) vars
+                  ORDER BY
+                    a.id_question_answer, a.id_answer
+                ) a ON q.id_question = a.id_question_answer
+                LEFT JOIN student_answers sa ON q.id_question = sa.id_question_student_answer
+                INNER JOIN categories c ON q.id_category_question = c.id_category
+              WHERE
+              q.ai_reasoning_questions IS NULL OR q.ai_reasoning_questions = ''
+            GROUP BY
+                q.id_question, c.name_category, q.string_question
+            LIMIT 5";
+
+          $stmt = $link->prepare($sql);
+          $stmt->execute();
+
+          while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $id_question = $row['id_question'];
+            $category = $row["name_category"]; // reemplaza por el nombre de tu columna de categoría
+            $question = $row["string_question"]; // reemplaza por el nombre de tu columna de texto de pregunta
+            $option_1 = $row["answer_1_string"]; // reemplaza por el nombre de tu columna de la primera respuesta
+            $option_2 = $row["answer_2_string"]; // reemplaza por el nombre de tu columna de la segunda respuesta
+            $option_3 = $row["answer_3_string"]; // reemplaza por el nombre de tu columna de la tercera respuesta
+            $option_4 = $row["answer_4_string"]; // reemplaza por el nombre de tu columna de la cuarta respuesta
+
+
+            $question_text = "Estoy haciendo un test para la licencia PPL, en la categoría $category, me preguntan lo siguiente:\n$question\n\nLas opciones de respuesta son\n$option_1\n$option_2\n$option_3\n$option_4\n\nPon una etiqueta h4 cual es la respuesta correcta con el formato \'Respuesta correcta: X\' donde X es la letra de la respuesta. Luego razona detalladamente el por qué. Necesito que tu respuesta esté toda en entiquetas y formato HTML.";
+            echo '<pre>'; print_r($question_text); echo '</pre>';
+
+
+
+            set_time_limit(0);
+            try {
+              $yourApiKey = $_ENV['OPENAI_API_KEY'];
+              $client = OpenAI::client($yourApiKey);
+
+              $result = $client->completions()->create([
+                  'model' => 'text-davinci-003',
+                  'prompt' => $question_text,
+                  'max_tokens' => 2000,
+              ]);
+
+              $openai_response = $result['choices'][0]['text'];
+            } catch (Exception $e) {
+                echo 'Caught exception: ',  $e->getMessage(), "\n";
+            }
+
+
+            // Ahora guardamos el razonamiento en la base de datos.
+            $update_query = "UPDATE questions SET ai_reasoning_questions = :reasoning WHERE id_question = :id_question";
+
+            $update_stmt = $link->prepare($update_query);
+            $update_stmt->execute([':reasoning' => $openai_response, ':id_question' => $id_question]);
+
+          }
+        }
+      } catch (PDOException $e) {
+          echo "Error: " . $e->getMessage();
+      } catch (Exception $e) {
+          echo "Error: " . $e->getMessage();
+      }
+    }
   }
