@@ -371,7 +371,7 @@
 
         // Define el tamaño del lote y el tiempo de pausa
         $batch_size = 5; // Cambia a cuántos registros quieras procesar a la vez
-        $pause_seconds = 30; // Cambia a cuántos segundos quieras pausar entre los lotes
+        $pause_seconds = 150; // Cambia a cuántos segundos quieras pausar entre los lotes
 
         // Calcula el número de lotes
         $batches = ceil($total / $batch_size);
@@ -380,7 +380,6 @@
         for ($i = 0; $i < $batches; $i++) {
           // Calcula el límite y el offset para la consulta SQL
           $limit = $batch_size;
-          $offset = $i * $batch_size;
 
           $sql = "
             SELECT
@@ -411,25 +410,27 @@
                 ) a ON q.id_question = a.id_question_answer
                 LEFT JOIN student_answers sa ON q.id_question = sa.id_question_student_answer
                 INNER JOIN categories c ON q.id_category_question = c.id_category
-              GROUP BY
+              WHERE
+              q.ai_reasoning_questions IS NULL OR q.ai_reasoning_questions = ''
+            GROUP BY
                 q.id_question, c.name_category, q.string_question
-              LIMIT $limit OFFSET $offset";
+            LIMIT 5";
 
           $stmt = $link->prepare($sql);
           $stmt->execute();
 
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-          $id_question = $row['id_question'];
-          $category = $row["name_category"]; // reemplaza por el nombre de tu columna de categoría
-          $question = $row["string_question"]; // reemplaza por el nombre de tu columna de texto de pregunta
-          $option_1 = $row["answer_1_string"]; // reemplaza por el nombre de tu columna de la primera respuesta
-          $option_2 = $row["answer_2_string"]; // reemplaza por el nombre de tu columna de la segunda respuesta
-          $option_3 = $row["answer_3_string"]; // reemplaza por el nombre de tu columna de la tercera respuesta
-          $option_4 = $row["answer_4_string"]; // reemplaza por el nombre de tu columna de la cuarta respuesta
+          while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $id_question = $row['id_question'];
+            $category = $row["name_category"]; // reemplaza por el nombre de tu columna de categoría
+            $question = $row["string_question"]; // reemplaza por el nombre de tu columna de texto de pregunta
+            $option_1 = $row["answer_1_string"]; // reemplaza por el nombre de tu columna de la primera respuesta
+            $option_2 = $row["answer_2_string"]; // reemplaza por el nombre de tu columna de la segunda respuesta
+            $option_3 = $row["answer_3_string"]; // reemplaza por el nombre de tu columna de la tercera respuesta
+            $option_4 = $row["answer_4_string"]; // reemplaza por el nombre de tu columna de la cuarta respuesta
 
 
-          $question_text = "Estoy haciendo un test para la licencia PPL, en la categoría $category, me preguntan lo siguiente:\n$question\n\nLas opciones de respuesta son\n$option_1\n$option_2\n$option_3\n$option_4\n\nPuedes ayudarme con la respuesta y razonarlo? Necesito que tu respuesta esté toda en entiquetas y formato HTML.";
-          echo '<pre>'; print_r($question_text); echo '</pre>';
+            $question_text = "Estoy haciendo un test para la licencia PPL, en la categoría $category, me preguntan lo siguiente:\n$question\n\nLas opciones de respuesta son\n$option_1\n$option_2\n$option_3\n$option_4\n\nPon una etiqueta h4 cual es la respuesta correcta con el formato \'Respuesta correcta: X\' donde X es la letra de la respuesta. Luego razona detalladamente el por qué. Necesito que tu respuesta esté toda en entiquetas y formato HTML.";
+            echo '<pre>'; print_r($question_text); echo '</pre>';
 
 
 
@@ -450,19 +451,14 @@
             }
 
 
-          // Ahora guardamos el razonamiento en la base de datos.
-          $update_query = "UPDATE questions SET ai_reasoning_questions = :reasoning WHERE id_question = :id_question";
+            // Ahora guardamos el razonamiento en la base de datos.
+            $update_query = "UPDATE questions SET ai_reasoning_questions = :reasoning WHERE id_question = :id_question";
 
-          $update_stmt = $link->prepare($update_query);
-          $update_stmt->execute([':reasoning' => $openai_response, ':id_question' => $id_question]);
+            $update_stmt = $link->prepare($update_query);
+            $update_stmt->execute([':reasoning' => $openai_response, ':id_question' => $id_question]);
 
-        }
-        // Pausa antes de procesar el siguiente lote
-          if ($i < $batches - 1) {
-              sleep($pause_seconds);
           }
         }
-
       } catch (PDOException $e) {
           echo "Error: " . $e->getMessage();
       } catch (Exception $e) {
