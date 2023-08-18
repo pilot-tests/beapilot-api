@@ -104,83 +104,124 @@
 
     static public function getTestPrompt($userId, $testId) {
 
+      $link = Connection::connect();
+
+      $sql = "SELECT a.id_question_answer, a.istrue_answer, sa.id_answer_student_answer, q.string_question, c.name_category, c.testtime_category, t.final_note, t.creationdate_test, t.updatedate_test, c.numberquestions_category
+        FROM student_answers sa
+        INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
+        INNER JOIN questions q ON a.id_question_answer = q.id_question
+        INNER JOIN test t ON sa.id_test_student_answer = t.id_test
+        INNER JOIN categories c ON t.id_category_test = c.id_category
+        WHERE sa.id_user_student_answer = $userId AND sa.id_test_student_answer = $testId";
+
+      $stmt = $link->prepare($sql);
+      $stmt->execute();
+
+      // Primera extracción
+      if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+       $details = '<p><b>Contexto:</b> Imagina que eres un instructor de vuelo experimentado. Yo soy tu alumno y he completado un examen. Mi objetivo es obtener el permiso PPL.</p>';
+       // Información sobre el examen
+        $details .= "<p><b>Detalles del Examen:</b> Se aprueba con un 75% de la nota y mi porcentaje fue de {$row['final_note']}%. Tenía un total de {$row['numberquestions_category']} preguntas. El tiempo asignado para el examen era de <b>{$row['testtime_category']}</b> minutos.</p>";
+
+        // Tiempo tomado para el examen
+        $timeTaken = strtotime($row['updatedate_test']) - strtotime($row['creationdate_test']);
+        $minutesTaken = round($timeTaken / 60);
+        $details .= "<p><b>Tiempo Empleado:</b> Tomé <b>{$minutesTaken}</b> minutos para completarlo. ¿Qué opinas del tiempo que empleé en relación al tiempo asignado?</p>";
+
+        // Resultado
+        $details .= "<p><b>Resultado:</b> Mi nota final es <b>{$row['final_note']} / 100</b>. ¿Cumplí con el requisito del 75%?</p>";
+
+        $countCorrect = 0;
+        $countWrong = 0;
+        $questionsDetails = "<p><b>Análisis de Respuestas:</b></p>";
+        do {
+          if ($row['istrue_answer']) {
+              $countCorrect++;
+              $questionsDetails .= "<p><b>Correcta $countCorrect:</b> {$row['string_question']}</p>";
+          } else {
+              $countWrong++;
+              $questionsDetails .= "<p><b>Incorrecta $countWrong:</b> {$row['string_question']} ¿Puedes darme retroalimentación sobre esta pregunta en particular y cómo podría haberla abordado mejor?</p>";
+          }
+        } while ($row = $stmt->fetch(PDO::FETCH_ASSOC));
+
+        $details .= $questionsDetails;
+
+        $details .= "<p>Basado en mi desempeño y los detalles proporcionados, ¿qué recomendaciones me darías? ¿Hay áreas específicas en las que necesite mejorar? ¿Tienes recursos o consejos adicionales que me puedan ayudar a prepararme mejor la próxima vez? Necesito que toda la respuesta sea en formato HTML, usa sólo las etiquetas <a>, <li>, <ul>, <b> o cualquier etiqueta de texto apra formatear la respuesta,</p>";
+
+        return $details;
+
+
+      } else {
+        // Si no hay ninguna fila, se puede manejar la situación aquí, por ejemplo, retornando un mensaje de error
+        return "No se encontraron resultados.";
+      }
+    }
+
+
+
+
+
+    static public function getGlobalPrompt($userId) {
     $link = Connection::connect();
 
-    $sql = "SELECT a.id_question_answer, a.istrue_answer, sa.id_answer_student_answer, q.string_question, c.name_category, t.final_note
-      FROM student_answers sa
-      INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
-      INNER JOIN questions q ON a.id_question_answer = q.id_question
-      INNER JOIN test t ON sa.id_test_student_answer = t.id_test
-      INNER JOIN categories c ON t.id_category_test = c.id_category
-      WHERE sa.id_user_student_answer = $userId AND sa.id_test_student_answer = $testId";
+    // 1. Rendimiento General del Estudiante
+    $sql_general = "SELECT COUNT(id_test) AS total_tests, AVG(final_note) AS average_score FROM test WHERE id_user_test = $userId AND finished_test = 1";
+    $result_general = $link->query($sql_general)->fetch(PDO::FETCH_ASSOC);
 
+    // 2. Rendimiento por Categoría
+    $sql = "SELECT c.name_category, AVG(t.final_note) AS average_note, COUNT(sa.id_answer_student_answer) AS total_questions,
+            SUM(a.istrue_answer) AS total_correct
+            FROM student_answers sa
+            INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
+            INNER JOIN test t ON sa.id_test_student_answer = t.id_test
+            INNER JOIN categories c ON t.id_category_test = c.id_category
+            WHERE sa.id_user_student_answer = $userId
+            GROUP BY c.name_category";
     $stmt = $link->prepare($sql);
     $stmt->execute();
 
-    // Primera extracción
+    // 3. Preguntas problemáticas
+    $sql_problemas = "SELECT id_question_student_answer, COUNT(id_student_answer) AS errors_count
+                      FROM student_answers
+                      WHERE id_user_student_answer = $userId
+                      GROUP BY id_question_student_answer
+                      HAVING errors_count > 1
+                      ORDER BY errors_count DESC LIMIT 5";
+    $result_problemas = $link->query($sql_problemas)->fetchAll(PDO::FETCH_ASSOC);
+
+    // Construyendo el mensaje para la IA
+    $details = "Contexto: Estoy trabajando para obtener el carnet de piloto TPL y he tomado varios tests para evaluar mis habilidades y conocimientos en diferentes áreas.";
+
+    // Rendimiento General
+    $details .= "\n\nRendimiento General:\n";
+    $details .= "Tests Tomados: {$result_general['total_tests']}\n";
+    $details .= "Nota Media: {$result_general['average_score']} / 100\n";
+
+    // Rendimiento por Categoría
     if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      $details = 'Te voy a hacer una consulta pero es importante que sigamos dos pautas:
-        - Háblame siempre de TU. No usted ni en tercera persona
-        - La respuesta debe ser en código HTML (Sólo necesito que uses la etqueta <p> y si hace falta <b> o <a> con su target="_blank").
+        $details .= "\n\nRendimiento por Categoría:";
 
-        Voy con la pregunta:
-        Estoy sacándome el carnet de piloto TPL. Este es mi resultado:' . $row['final_note'] . ' sobre 100.
-        ¿Podrías darme un análisis del test?, así como un análisis y estadísticas de las áreas que he fallado.
-
-        También me vendría bien bibliografía o links (sólo uno o dos) que puedas recomendar para mejorar en las áreas en las que he fallado.
-        Pongo las preguntas en las que fallé y las que acerté:';
-      $countCorrect = 0; // Contador para las respuestas correctas
-      $countWrong = 0; // Contador para las respuestas incorrectas
-      do {
-        if($row['istrue_answer']){
-          $countCorrect++;
-          $details .= "\n" . $countCorrect . ". Acerté la pregunta: " . $row['string_question'];
-        } else {
-          $countWrong++;
-          $details .= "\n" . $countWrong . ". Fallé en la pregunta: " . $row['string_question'];
-        }
-      } while ($row = $stmt->fetch(PDO::FETCH_ASSOC));
-
-      return $details;
-    } else {
-      // Si no hay ninguna fila, se puede manejar la situación aquí, por ejemplo, retornando un mensaje de error
-      return "No se encontraron resultados.";
+        do {
+            $percentageCorrect = round(($row['total_correct'] / $row['total_questions']) * 100, 2);
+            $details .= "\n\nCategoría: {$row['name_category']}\n";
+            $details .= "Preguntas Correctas: {$row['total_correct']} / {$row['total_questions']} ({$percentageCorrect}% correcto).\n";
+            $details .= "¿Cómo se compara este porcentaje con el promedio necesario para aprobar en esta categoría? ¿En qué áreas específicas de esta categoría debería concentrarme más?";
+        } while ($row = $stmt->fetch(PDO::FETCH_ASSOC));
     }
-}
 
+    // Preguntas Problemáticas
+    if (!empty($result_problemas)) {
+        $details .= "\n\nPreguntas Problemáticas:";
+        foreach ($result_problemas as $row) {
+            $details .= "\n\nPregunta ID: {$row['id_question_student_answer']}, Errores: {$row['errors_count']}\n";
+        }
+    }
 
+    $details .= "\n\nBasándote en mi rendimiento general y específico, ¿qué áreas son mis puntos fuertes y cuáles son mis áreas de mejora? ¿Tienes recomendaciones específicas o recursos que puedan ayudarme a mejorar en las áreas donde mi rendimiento es más bajo? Tu respuesta debe estar en etiquetas HTML, no uses div ni HTML ni body, sólo etiquetas para formatear el texto.";
 
-
-
-static public function getGlobalPrompt($userId) {
-  $link = Connection::connect();
-
-  $sql = "SELECT c.name_category, AVG(t.final_note) AS average_note, COUNT(sa.id_answer_student_answer) AS total_questions,
-        SUM(a.istrue_answer) AS total_correct
-        FROM student_answers sa
-        INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
-        INNER JOIN test t ON sa.id_test_student_answer = t.id_test
-        INNER JOIN categories c ON t.id_category_test = c.id_category
-        WHERE sa.id_user_student_answer = $userId
-        GROUP BY c.name_category";
-
-  $stmt = $link->prepare($sql);
-  $stmt->execute();
-
-  // Primera extracción
-  if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $details = 'Estoy sacándome el carnet de piloto TPL. Aquí está mi rendimiento por categoría:';
-    do {
-      $details .= "\n En la categoría " . $row['name_category'] . ", respondí correctamente a "
-                  . $row['total_correct'] . " de " . $row['total_questions'] . " preguntas.";
-    } while ($row = $stmt->fetch(PDO::FETCH_ASSOC));
-    $details .= "\n ¿Podrías darme un análisis global de mi rendimiento y sugerencias sobre las áreas en las que debería concentrarme más?";
     return $details;
-  } else {
-    // Si no hay ninguna fila, se puede manejar la situación aquí, por ejemplo, retornando un mensaje de error
-    return "No se encontraron resultados.";
-  }
 }
+
 
 
 

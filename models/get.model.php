@@ -394,7 +394,7 @@
               WHERE id_test = :examId AND type_openai = :type_openai";
 
       $stmt = Connection::connect()->prepare($sql);
-      $stmt -> execute([':examId' => $examId, ':type_openai' => 'global']);
+      $stmt -> execute([':examId' => $examId, ':type_openai' => 'test']);
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
     }
 
