@@ -505,4 +505,37 @@
           echo "Error: " . $e->getMessage();
       }
     }
+
+    static public function listAllQuestions() {
+    $sql = "SELECT
+                *
+            FROM
+                questions q
+            JOIN
+                answers a ON q.id_question = a.id_question_answer
+            JOIN categories c ON q.id_category_question = c.id_category
+            ORDER BY
+                q.id_question, a.id_answer;
+    ";
+    $stmt = Connection::connect()->prepare($sql);
+    $stmt->execute();
+
+    $questions = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        if (!isset($questions[$row['id_question']])) {
+            $questions[$row['id_question']] = [
+                'question' => $row['string_question'],
+                'category' => $row['name_category'],
+                'answers'  => []
+            ];
+        }
+        $questions[$row['id_question']]['answers'][] = [
+            'id'    => $row['id_answer'],
+            'text'  => $row['string_answer'],
+            'isTrue'=> $row['istrue_answer']
+        ];
+    }
+    return $questions;
+}
+
   }
