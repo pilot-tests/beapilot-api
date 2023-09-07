@@ -109,9 +109,9 @@ class PostController {
 
           // Send the verification email
           $email = new \SendGrid\Mail\Mail();
-          $email->setFrom("d@wakkos.com", "Daniel Martínez");
+          $email->setFrom("noreply@testpilotpro.ai", "Daniel Martínez");
           $email->setSubject("Por favor verifica tu correo electrónico");
-          $email->addTo($data["email_user"], "Example User");
+          $email->addTo($data["email_user"], $data["email_user"]);
           // $email->addContent("text/plain", "Verifica tu corre haciendo click en el enlace: " . $verifyLink);
           $email->addContent(
               "text/html", "<a clicktracking=off href=\"". $verifyLink . "\">". $verifyLink . "</a>"
