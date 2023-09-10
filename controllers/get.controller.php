@@ -53,6 +53,15 @@
       $return -> fncResponse($response, "getTestResult");
     }
 
+    //-----> Get Stripe user Data
+    static public function getUserStripeData($customerNumber) {
+      $response = GetModel::getUserStripeData($customerNumber);
+
+      $return = new GetController();
+      $return -> fncResponse($response, "getUserStripeData");
+    }
+
+
 
     //-----> Get request
     static public function getData($table, $select, $orderBy, $orderMode, $startAt, $endAt) {

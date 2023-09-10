@@ -49,7 +49,6 @@ $endAt = $_GET["endAt"] ?? null;
 $userID = $_GET["userID"] ?? null;
 
 //----> Get users exams
-
 if(isset($_GET["userID"]) && $table !="testResult") {
   $response -> getUserExams($_GET["userID"]);
 }
@@ -66,7 +65,14 @@ else if($table === "testResult" && isset($_GET["userId"])) {
   $response -> getTestResult($_GET["examId"], $_GET["userId"]);
 }
 
+//----> Get Stripe user Data
+
+else if(isset($_GET["getStripeData"])) {
+  $response -> getUserStripeData($_GET["customerNumber"]);
+}
+
 //-----> Request with filter
+
 else if(isset($_GET["linkTo"]) && isset($_GET["equalTo"]) && !isset($_GET["rel"]) && !isset($_GET["type"])) {
   $response -> getDataFilter($table, $select, $_GET["linkTo"], $_GET["equalTo"], $orderBy, $orderMode, $startAt, $endAt);
 }

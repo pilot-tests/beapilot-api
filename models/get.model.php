@@ -4,6 +4,7 @@
     require_once "vendor/autoload.php";
   use Firebase\JWT\JWT;
   use \Firebase\JWT\Key;
+  \Stripe\Stripe::setApiKey($_ENV['STRIPE_KEY']);
 
   class GetModel {
 
@@ -33,6 +34,25 @@
       $stmt = Connection::connect()->prepare($sql);
       $stmt -> execute([':user_id' => $userId, ':exam_id' => $examId]);
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
+    }
+
+
+
+
+    static public function getUserStripeData($customerNumber) {
+      $response = array();
+
+     // Obtener todas las suscripciones del cliente
+    $subscriptions = \Stripe\Subscription::all(['customer' => $customerNumber]);
+
+      // Si el cliente tiene suscripciones, tomar la primera (ajusta esto si esperas múltiples suscripciones)
+      if (count($subscriptions->data) > 0) {
+          $firstSubscription = $subscriptions->data[0];
+          $response['next_billing_date'] = $firstSubscription->current_period_end;
+          $response['status'] = $firstSubscription->status;
+      }
+
+      return $response;
     }
 
 
@@ -507,7 +527,7 @@
     }
 
     static public function listAllQuestions() {
-    $sql = "SELECT
+      $sql = "SELECT
                 *
             FROM
                 questions q
@@ -516,26 +536,26 @@
             JOIN categories c ON q.id_category_question = c.id_category
             ORDER BY
                 q.id_question, a.id_answer;
-    ";
-    $stmt = Connection::connect()->prepare($sql);
-    $stmt->execute();
+      ";
+      $stmt = Connection::connect()->prepare($sql);
+      $stmt->execute();
 
-    $questions = [];
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        if (!isset($questions[$row['id_question']])) {
-            $questions[$row['id_question']] = [
-                'question' => $row['string_question'],
-                'category' => $row['name_category'],
-                'answers'  => []
-            ];
-        }
-        $questions[$row['id_question']]['answers'][] = [
-            'id'    => $row['id_answer'],
-            'text'  => $row['string_answer'],
-            'isTrue'=> $row['istrue_answer']
-        ];
+      $questions = [];
+      while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+          if (!isset($questions[$row['id_question']])) {
+              $questions[$row['id_question']] = [
+                  'question' => $row['string_question'],
+                  'category' => $row['name_category'],
+                  'answers'  => []
+              ];
+          }
+          $questions[$row['id_question']]['answers'][] = [
+              'id'    => $row['id_answer'],
+              'text'  => $row['string_answer'],
+              'isTrue'=> $row['istrue_answer']
+          ];
+      }
+      return $questions;
     }
-    return $questions;
-}
 
   }
