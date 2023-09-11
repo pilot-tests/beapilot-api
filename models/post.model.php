@@ -162,65 +162,65 @@
 
 
     static public function getGlobalPrompt($userId) {
-    $link = Connection::connect();
+      $link = Connection::connect();
 
-    // 1. Rendimiento General del Estudiante
-    $sql_general = "SELECT COUNT(id_test) AS total_tests, AVG(final_note) AS average_score FROM test WHERE id_user_test = $userId AND finished_test = 1";
-    $result_general = $link->query($sql_general)->fetch(PDO::FETCH_ASSOC);
+      // 1. Rendimiento General del Estudiante
+      $sql_general = "SELECT COUNT(id_test) AS total_tests, AVG(final_note) AS average_score FROM test WHERE id_user_test = $userId AND finished_test = 1";
+      $result_general = $link->query($sql_general)->fetch(PDO::FETCH_ASSOC);
 
-    // 2. Rendimiento por Categoría
-    $sql = "SELECT c.name_category, AVG(t.final_note) AS average_note, COUNT(sa.id_answer_student_answer) AS total_questions,
-            SUM(a.istrue_answer) AS total_correct
-            FROM student_answers sa
-            INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
-            INNER JOIN test t ON sa.id_test_student_answer = t.id_test
-            INNER JOIN categories c ON t.id_category_test = c.id_category
-            WHERE sa.id_user_student_answer = $userId
-            GROUP BY c.name_category";
-    $stmt = $link->prepare($sql);
-    $stmt->execute();
+      // 2. Rendimiento por Categoría
+      $sql = "SELECT c.name_category, AVG(t.final_note) AS average_note, COUNT(sa.id_answer_student_answer) AS total_questions,
+              SUM(a.istrue_answer) AS total_correct
+              FROM student_answers sa
+              INNER JOIN answers a ON sa.id_answer_student_answer = a.id_answer
+              INNER JOIN test t ON sa.id_test_student_answer = t.id_test
+              INNER JOIN categories c ON t.id_category_test = c.id_category
+              WHERE sa.id_user_student_answer = $userId
+              GROUP BY c.name_category";
+      $stmt = $link->prepare($sql);
+      $stmt->execute();
 
-    // 3. Preguntas problemáticas
-    $sql_problemas = "SELECT id_question_student_answer, COUNT(id_student_answer) AS errors_count
-                      FROM student_answers
-                      WHERE id_user_student_answer = $userId
-                      GROUP BY id_question_student_answer
-                      HAVING errors_count > 1
-                      ORDER BY errors_count DESC LIMIT 5";
-    $result_problemas = $link->query($sql_problemas)->fetchAll(PDO::FETCH_ASSOC);
+      // 3. Preguntas problemáticas
+      $sql_problemas = "SELECT id_question_student_answer, COUNT(id_student_answer) AS errors_count
+                        FROM student_answers
+                        WHERE id_user_student_answer = $userId
+                        GROUP BY id_question_student_answer
+                        HAVING errors_count > 1
+                        ORDER BY errors_count DESC LIMIT 5";
+      $result_problemas = $link->query($sql_problemas)->fetchAll(PDO::FETCH_ASSOC);
 
-    // Construyendo el mensaje para la IA
-    $details = "Contexto: Estoy trabajando para obtener el carnet de piloto TPL y he tomado varios tests para evaluar mis habilidades y conocimientos en diferentes áreas.";
+      // Construyendo el mensaje para la IA
+      $details = "Contexto: Estoy trabajando para obtener el carnet de piloto TPL y he tomado varios tests para evaluar mis habilidades y conocimientos en diferentes áreas.";
 
-    // Rendimiento General
-    $details .= "\n\nRendimiento General:\n";
-    $details .= "Tests Tomados: {$result_general['total_tests']}\n";
-    $details .= "Nota Media: {$result_general['average_score']} / 100\n";
+      // Rendimiento General
+      $details .= "\n\nRendimiento General:\n";
+      $details .= "Tests Tomados: {$result_general['total_tests']}\n";
+      $details .= "Nota Media: {$result_general['average_score']} / 100\n";
 
-    // Rendimiento por Categoría
-    if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $details .= "\n\nRendimiento por Categoría:";
+      // Rendimiento por Categoría
+      if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+          $details .= "\n\nRendimiento por Categoría:";
 
-        do {
-            $percentageCorrect = round(($row['total_correct'] / $row['total_questions']) * 100, 2);
-            $details .= "\n\nCategoría: {$row['name_category']}\n";
-            $details .= "Preguntas Correctas: {$row['total_correct']} / {$row['total_questions']} ({$percentageCorrect}% correcto).\n";
-            $details .= "¿Cómo se compara este porcentaje con el promedio necesario para aprobar en esta categoría? ¿En qué áreas específicas de esta categoría debería concentrarme más?";
-        } while ($row = $stmt->fetch(PDO::FETCH_ASSOC));
-    }
+          do {
+              $percentageCorrect = round(($row['total_correct'] / $row['total_questions']) * 100, 2);
+              $details .= "\n\nCategoría: {$row['name_category']}\n";
+              $details .= "Preguntas Correctas: {$row['total_correct']} / {$row['total_questions']} ({$percentageCorrect}% correcto).\n";
+              $details .= "¿Cómo se compara este porcentaje con el promedio necesario para aprobar en esta categoría? ¿En qué áreas específicas de esta categoría debería concentrarme más?";
+          } while ($row = $stmt->fetch(PDO::FETCH_ASSOC));
+      }
 
-    // Preguntas Problemáticas
-    if (!empty($result_problemas)) {
-        $details .= "\n\nPreguntas Problemáticas:";
-        foreach ($result_problemas as $row) {
-            $details .= "\n\nPregunta ID: {$row['id_question_student_answer']}, Errores: {$row['errors_count']}\n";
-        }
-    }
+      // Preguntas Problemáticas
+      if (!empty($result_problemas)) {
+          $details .= "\n\nPreguntas Problemáticas:";
+          foreach ($result_problemas as $row) {
+              $details .= "\n\nPregunta ID: {$row['id_question_student_answer']}, Errores: {$row['errors_count']}\n";
+          }
+      }
 
-    $details .= "\n\nBasándote en mi rendimiento general y específico, ¿qué áreas son mis puntos fuertes y cuáles son mis áreas de mejora? ¿Tienes recomendaciones específicas o recursos que puedan ayudarme a mejorar en las áreas donde mi rendimiento es más bajo? Tu respuesta debe estar en etiquetas HTML, no uses div ni HTML ni body, sólo etiquetas para formatear el texto.";
+      $details .= "\n\nBasándote en mi rendimiento general y específico, ¿qué áreas son mis puntos fuertes y cuáles son mis áreas de mejora? ¿Tienes recomendaciones específicas o recursos que puedan ayudarme a mejorar en las áreas donde mi rendimiento es más bajo? Tu respuesta debe estar en etiquetas HTML, no uses div ni HTML ni body, sólo etiquetas para formatear el texto.";
 
-    return $details;
-}
+      return $details;
+  }
 
 
 
@@ -300,6 +300,43 @@
       // Si hay un error, revierte la transacción
       $link->rollBack();
       return $link->errorInfo();
+    }
+  }
+
+
+
+
+  static public function cancelSubscription($customerNumber) {
+    try {
+      $subscriptions = \Stripe\Subscription::all(['customer' => $customerNumber]);
+      if (count($subscriptions->data) > 0) {
+        $subscriptionId = $subscriptions->data[0]->id;
+
+        $canceledSubscription = \Stripe\Subscription::retrieve($subscriptionId);
+        $canceledSubscription->cancel();
+        return [
+          'status' => 'success',
+          'message' => 'La suscripción ha sido cancelada exitosamente.',
+          'data' => $canceledSubscription
+        ];
+      } else {
+        return [
+          'status' => 'error',
+          'message' => 'No se encontró una suscripción para este cliente.'
+        ];
+      }
+    } catch (\Stripe\Exception\StripeException $e) {
+    // Algo salió mal con la solicitud a Stripe
+      return [
+        'status' => 'error',
+        'message' => $e->getMessage()
+      ];
+    } catch (Exception $e) {
+      // Alguna otra cosa salió mal
+      return [
+        'status' => 'error',
+        'message' => 'Hubo un error al procesar la solicitud.'
+      ];
     }
   }
 

@@ -215,15 +215,25 @@ class PostController {
       } elseif ($subscription->status === 'canceled') {
         array_push($canceledSubscriptions, $subscription);
       }
-
     }
   }
 
 
 
 
+  //-----> Post request to cancel subscription
+  public function cancelSubscription($customerNumber) {
+    $postModel = new PostModel();
+    $cancelSubscription = $postModel->cancelSubscription($customerNumber);
+    $return = new PostController();
+    $return -> fncResponse($cancelSubscription, null);
+  }
+
+
+
+
     //-----> Post request to verify user
-  public function  createOrUpdateUser($authId, $authEmail) {
+  public function createOrUpdateUser($authId, $authEmail) {
 
     $postModel = new PostModel();
     $response = $postModel->createOrUpdateUser($authId, $authEmail);
