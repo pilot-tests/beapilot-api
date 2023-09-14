@@ -160,15 +160,18 @@ class PostController {
         $stripeCustomerId = $response[0]->stripe_customer_id;
         $subscriptions = \Stripe\Subscription::all(['customer' => $stripeCustomerId]);
         $activeSubscription = false;
+        $endOfSubscriptionPeriod = false;
         foreach ($subscriptions->data as $subscription) {
             // if ($subscription->status === 'active') {
             //     $activeSubscription = true;
             //     break;
             // }
             $activeSubscription = $subscription->status;
+            $endOfSubscriptionPeriod = $subscription->current_period_end;
         }
 
         $response[0]->active_subscription = $activeSubscription;
+        $response[0]->subscription_ends = $endOfSubscriptionPeriod;
         $token = Connection::jwt($response[0]->id_user, $response[0]->email_user);
         $jwt = JWT::encode($token, "d12sd124df3456dfw43w3fw34df", 'HS256');
         //-----> Update database with Token
@@ -202,20 +205,12 @@ class PostController {
 
 
 
-  static public function postResubscribe($table, $data) {
-    $customerId = $data["stripe_customer_id"];
-    $subscriptions = \Stripe\Subscription::all(['customer' => $customerId]);
+  static public function resubscribe($customerID) {
 
-    $activeSubscriptions = [];
-    $canceledSubscriptions = [];
+    $response = PostModel::resubscribe($customerID);
 
-    foreach ($subscriptions->autoPagingIterator() as $subscription) {
-      if ($subscription->status === 'active') {
-        array_push($activeSubscriptions, $subscription);
-      } elseif ($subscription->status === 'canceled') {
-        array_push($canceledSubscriptions, $subscription);
-      }
-    }
+    $return = new PostController();
+    $return -> fncResponse($response, null);
   }
 
 

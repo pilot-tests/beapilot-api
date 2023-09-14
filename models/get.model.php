@@ -41,19 +41,40 @@
 
     static public function getUserStripeData($customerNumber) {
       $response = array();
+      $response['stripeCustomerID'] = $customerNumber;
 
-     // Obtener todas las suscripciones del cliente
-    $subscriptions = \Stripe\Subscription::all(['customer' => $customerNumber]);
+      // Obtener todas las suscripciones del cliente
+      $subscriptions = \Stripe\Subscription::all(['customer' => $customerNumber]);
 
-      // Si el cliente tiene suscripciones, tomar la primera (ajusta esto si esperas múltiples suscripciones)
       if (count($subscriptions->data) > 0) {
           $firstSubscription = $subscriptions->data[0];
           $response['next_billing_date'] = $firstSubscription->current_period_end;
           $response['status'] = $firstSubscription->status;
+      } else {
+          // Si no hay suscripciones activas, buscar suscripciones canceladas
+          $canceledSubscriptions = \Stripe\Subscription::all([
+              'customer' => $customerNumber,
+              'status' => 'canceled'
+          ]);
+
+
+          if (count($canceledSubscriptions->data) > 0) {
+              $response['status'] = 'canceled';
+          } else {
+              $response['status'] = 'No Subscription Found';
+          }
       }
 
+      // Verificar métodos de pago
+      $paymentMethods = \Stripe\PaymentMethod::all([
+          'customer' => $customerNumber,
+          'type' => 'card',
+      ]);
+      $response['has_payment_method'] = count($paymentMethods->data) > 0;
+
       return $response;
-    }
+  }
+
 
 
 
@@ -490,7 +511,7 @@
 
 
             $question_text = "Estoy haciendo un test para la licencia PPL, en la categoría $category, me preguntan lo siguiente:\n$question\n\nLas opciones de respuesta son\n$option_1\n$option_2\n$option_3\n$option_4\n\nPon una etiqueta h4 cual es la respuesta correcta con el formato \'Respuesta correcta: X\' donde X es la letra de la respuesta. Luego razona detalladamente el por qué. Necesito que tu respuesta esté toda en entiquetas y formato HTML.";
-            echo '<pre>'; print_r($question_text); echo '</pre>';
+
 
 
 

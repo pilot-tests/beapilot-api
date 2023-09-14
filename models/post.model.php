@@ -1,5 +1,8 @@
 <?php
-
+  use \Stripe\Exception\ApiErrorException;
+  \Stripe\Stripe::setApiKey($_ENV['STRIPE_KEY']);
+  use \Stripe\PaymentMethod;
+  use \Stripe\Subscription;
   class PostModel {
 
     static public function postNewTest($addTest) {
@@ -259,6 +262,32 @@
     }
 
 
+    static public function resubscribe($customerID) {
+      $planID = $_ENV['STRIPE_SUBSCRIPTION_PLAN_ID'];
+      $paymentMethods = PaymentMethod::all([
+          'customer' => $customerID,
+          'type' => 'card',
+      ]);
+
+      if (count($paymentMethods->data) == 0) {
+        return [
+          'status' => 'no_payment_method',
+          'message' => 'El cliente no tiene un método de pago.'
+        ];
+      }
+
+      $subscription = Subscription::create([
+        'customer' => $customerID,
+        'items' => [['plan' => $planID]],
+      ]);
+
+      $response = array(
+        'subscription_status' => $subscription->status,
+        'current_period_end' => $subscription->current_period_end,
+        'stripe_customer_id' => $customerID
+      );
+      return $response;
+    }
 
 
 
@@ -314,29 +343,25 @@
 
         $canceledSubscription = \Stripe\Subscription::retrieve($subscriptionId);
         $canceledSubscription->cancel();
-        return [
-          'status' => 'success',
-          'message' => 'La suscripción ha sido cancelada exitosamente.',
-          'data' => $canceledSubscription
-        ];
+
+        $response = array(
+          'subscription_status' => $canceledSubscription>status,
+          'current_period_end' => $subscription->current_period_end,
+          'stripe_user_id' => $customerNumber
+        );
+        return $response;
       } else {
-        return [
-          'status' => 'error',
-          'message' => 'No se encontró una suscripción para este cliente.'
-        ];
+        $response = "No se encontró una suscripción para este cliente.";
+        return $response;
       }
     } catch (\Stripe\Exception\StripeException $e) {
     // Algo salió mal con la solicitud a Stripe
-      return [
-        'status' => 'error',
-        'message' => $e->getMessage()
-      ];
+      $response = $e->getMessage();
+      return $response;
     } catch (Exception $e) {
       // Alguna otra cosa salió mal
-      return [
-        'status' => 'error',
-        'message' => 'Hubo un error al procesar la solicitud.'
-      ];
+      $response = "Hubo un error al procesar la solicitud.";
+        return $response;
     }
   }
 
