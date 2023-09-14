@@ -50,96 +50,95 @@ class PostController {
     $response = GetModel::getDataFilter($table, "*","email_user", $data["email_user"], null, null, null, null);
 
     //-----> Check if the email exists or not.
-    if(empty($response[0]->email_user)) {
+    if (!empty($response[0]->email_user)) {
+      $response = null;
+      $return = new PostController();
+      $return->fncResponse(null, "Ya existe ese email.", 409);
+      return;
+    }
 
-      //-----> We create token based on if password is present.
-      if(isset($data["password_user"]) && $data["password_user"] != null) {
 
-        //Change for password_hash().
-        $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
-        $data["password_user"] = $crypt;
+    //-----> We make sure we have password.
+    if(isset($data["password_user"]) && $data["password_user"] != null) {
+      $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
+      $data["password_user"] = $crypt;
 
-        try {
-          // Create a new customer in Stripe
-          $stripeCustomer = \Stripe\Customer::create([
-              'email' => $data["email_user"],
-              'name'  => $data["name_user"]
-          ]);
+      try {
+        // Create a new customer in Stripe
+        $stripeCustomer = \Stripe\Customer::create([
+            'email' => $data["email_user"],
+            'name'  => $data["name_user"]
+        ]);
+        // Add the Stripe customer ID to the user data
+        $data["stripe_customer_id"] = $stripeCustomer->id;
 
-          // Add the Stripe customer ID to the user data
-          $data["stripe_customer_id"] = $stripeCustomer->id;
-        } catch (\Stripe\Exception\ApiErrorException $e) {
-          // Log the error for debugging purposes
-          error_log($e->getMessage());
-          error_log($e->getHttpStatus());
-          error_log($e->getStripeCode());
-          error_log($e->getError()->message);
+      } catch (\Stripe\Exception\ApiErrorException $e) {
+        // Log the error for debugging purposes
+        error_log($e->getMessage());
+        error_log($e->getHttpStatus());
+        error_log($e->getStripeCode());
+        error_log($e->getError()->message);
 
-          $stripeCode = $e->getStripeCode();
-          $errorMessage = "An error occurred while creating the Stripe customer.";
+        $stripeCode = $e->getStripeCode();
+        $errorMessage = "An error occurred while creating the Stripe customer.";
 
-          if ($stripeCode === 'email_invalid') {
-              $errorMessage = "Email inválido, necesitamos un email en formato jon@doe.me";
-          }
-
-          // Respond with an appropriate error message
-          $return = new PostController();
-          $return->fncResponse(null, $errorMessage, 500);
-          return;
+        if ($stripeCode === 'email_invalid') {
+            $errorMessage = "Email inválido, necesitamos un email en formato jon@doe.me";
         }
 
-        // Create a token for the email verification email
-        $token = Connection::jwt($data["name_user"], $data["email_user"]);
-        $jwt = JWT::encode($token, "d12sd124df3456dfw43w3fw34df", 'HS256');
-
-        $data["email_token_user"] = $jwt;
-
-        $response = PostModel::postData($table, $data);
-
-        // Add Stripe ID to the $response
-        $response["stripe_customer_id"] = $data["stripe_customer_id"];
-
-        // Add Checkout Session to $response
-        $checkout_session = PostModel::createCheckoutSession($data["stripe_customer_id"]);
-        $response['stripe_session_id'] = $checkout_session;
-
-        if(isset($response["comment"]) && $response["comment"] == "Sucess data entry") {
-          // Create the verification link
-          $verifyLink = $_ENV['FRONTEND_URL'] . "verify-email?token=$jwt";
-
-          // Send the verification email
-          $email = new \SendGrid\Mail\Mail();
-          $email->setFrom("noreply@testpilotpro.ai", "Daniel Martínez");
-          $email->setSubject("Por favor verifica tu correo electrónico");
-          $email->addTo($data["email_user"], $data["email_user"]);
-          // $email->addContent("text/plain", "Verifica tu corre haciendo click en el enlace: " . $verifyLink);
-          $email->addContent(
-              "text/html", "<a clicktracking=off href=\"". $verifyLink . "\">". $verifyLink . "</a>"
-          );
-          $sendgrid = new \SendGrid($_ENV['SENDGRID_API_KEY']);
-          try {
-            $responseSG = $sendgrid->send($email);
-          } catch (Exception $e) {
-              echo 'Caught exception: '. $e->getMessage() ."\n";
-          }
-        }
-
+        // Respond with an appropriate error message
         $return = new PostController();
-        $return -> fncResponse($response, null);
+        $return->fncResponse(null, $errorMessage, 500);
+        return;
       }
+
+      // Create a token for the email verification email
+      $token = Connection::jwt($data["name_user"], $data["email_user"]);
+      $jwt = JWT::encode($token, "d12sd124df3456dfw43w3fw34df", 'HS256');
+
+      $data["email_token_user"] = $jwt;
+
+      //-----> Create token and send email
+      $verifyLink = $_ENV['FRONTEND_URL'] . "verify-email?token=$jwt";
+      $email = new \SendGrid\Mail\Mail();
+      $email->setFrom("noreply@testpilotpro.ai", "Daniel Martínez");
+      $email->setSubject("Por favor verifica tu correo electrónico");
+      $email->addTo($data["email_user"], $data["email_user"]);
+      $email->addContent(
+          "text/html", "<a clicktracking=off href=\"". $verifyLink . "\">". $verifyLink . "</a>"
+      );
+      $sendgrid = new \SendGrid($_ENV['SENDGRID_API_KEY']);
+
+      try {
+        $responseSG = $sendgrid->send($email);
+
+      } catch (Exception $e) {
+        $response["sendgrid_error"] = 'Caught exception: ' . $e->getMessage() . "\n";
+
+      }
+
+      $response = PostModel::postData($table, $data);
+
+      // Add Stripe ID to the $response
+      $response["stripe_customer_id"] = $data["stripe_customer_id"];
+
+      // Add Checkout Session to $response
+      $checkout_session = PostModel::createCheckoutSession($data["stripe_customer_id"]);
+      $response['stripe_session_id'] = $checkout_session;
+
+      if(isset($response["comment"]) && $response["comment"] == "Sucess data entry") {
+        $return = new PostController();
+        $return->fncResponse($response, null);
+      }
+    }
       else {
-        //-----> //TODO User register from external apps (Google, GitHub, Facebook, etc...)
+        // Handle the case where no password is provided
+        // TODO: User registration from external apps (Google, GitHub, Facebook, etc...)
         $response = PostModel::postData($table, $data);
-        if(isset($response["comment"]) && $response["comment"] == "Edit successful") {
-          //-----> Do stuff if user comes for external app.
+        if (isset($response["comment"]) && $response["comment"] == "Edit successful") {
+            // Do stuff if the user comes from an external app.
         }
       }
-    }
-    else {
-        $response = null;
-        $return = new PostController();
-        $return -> fncResponse(null, "Ya existe ese email.", 409);
-    }
   }
 
 
