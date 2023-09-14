@@ -71,6 +71,18 @@ if (isset($_POST)) {
 		exit;
 	}
 
+	elseif (isset($_POST["cancelCustomerNumber"])) {
+		$controller = new PostController();
+		$response = $controller->cancelSubscription($_POST["cancelCustomerNumber"]);
+		exit;
+	}
+
+	elseif (isset($_POST["ResubscribeCustomerNumber"])) {
+		$controller = new PostController();
+		$response = $controller->resubscribe($_POST["ResubscribeCustomerNumber"]);
+		exit;
+	}
+
 	elseif (isset($_POST["authId"]) && isset($_POST["authEmail"])) {
 		$post = new PostController();
 		$response = $post->createOrUpdateUser($_POST["authId"], $_POST["authEmail"]);

@@ -4,6 +4,7 @@
     require_once "vendor/autoload.php";
   use Firebase\JWT\JWT;
   use \Firebase\JWT\Key;
+  \Stripe\Stripe::setApiKey($_ENV['STRIPE_KEY']);
 
   class GetModel {
 
@@ -34,6 +35,46 @@
       $stmt -> execute([':user_id' => $userId, ':exam_id' => $examId]);
       return $stmt -> fetchAll(PDO::FETCH_CLASS);
     }
+
+
+
+
+    static public function getUserStripeData($customerNumber) {
+      $response = array();
+      $response['stripeCustomerID'] = $customerNumber;
+
+      // Obtener todas las suscripciones del cliente
+      $subscriptions = \Stripe\Subscription::all(['customer' => $customerNumber]);
+
+      if (count($subscriptions->data) > 0) {
+          $firstSubscription = $subscriptions->data[0];
+          $response['next_billing_date'] = $firstSubscription->current_period_end;
+          $response['status'] = $firstSubscription->status;
+      } else {
+          // Si no hay suscripciones activas, buscar suscripciones canceladas
+          $canceledSubscriptions = \Stripe\Subscription::all([
+              'customer' => $customerNumber,
+              'status' => 'canceled'
+          ]);
+
+
+          if (count($canceledSubscriptions->data) > 0) {
+              $response['status'] = 'canceled';
+          } else {
+              $response['status'] = 'No Subscription Found';
+          }
+      }
+
+      // Verificar métodos de pago
+      $paymentMethods = \Stripe\PaymentMethod::all([
+          'customer' => $customerNumber,
+          'type' => 'card',
+      ]);
+      $response['has_payment_method'] = count($paymentMethods->data) > 0;
+
+      return $response;
+  }
+
 
 
 
@@ -470,7 +511,7 @@
 
 
             $question_text = "Estoy haciendo un test para la licencia PPL, en la categoría $category, me preguntan lo siguiente:\n$question\n\nLas opciones de respuesta son\n$option_1\n$option_2\n$option_3\n$option_4\n\nPon una etiqueta h4 cual es la respuesta correcta con el formato \'Respuesta correcta: X\' donde X es la letra de la respuesta. Luego razona detalladamente el por qué. Necesito que tu respuesta esté toda en entiquetas y formato HTML.";
-            echo '<pre>'; print_r($question_text); echo '</pre>';
+
 
 
 
@@ -507,7 +548,7 @@
     }
 
     static public function listAllQuestions() {
-    $sql = "SELECT
+      $sql = "SELECT
                 *
             FROM
                 questions q
@@ -516,26 +557,26 @@
             JOIN categories c ON q.id_category_question = c.id_category
             ORDER BY
                 q.id_question, a.id_answer;
-    ";
-    $stmt = Connection::connect()->prepare($sql);
-    $stmt->execute();
+      ";
+      $stmt = Connection::connect()->prepare($sql);
+      $stmt->execute();
 
-    $questions = [];
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        if (!isset($questions[$row['id_question']])) {
-            $questions[$row['id_question']] = [
-                'question' => $row['string_question'],
-                'category' => $row['name_category'],
-                'answers'  => []
-            ];
-        }
-        $questions[$row['id_question']]['answers'][] = [
-            'id'    => $row['id_answer'],
-            'text'  => $row['string_answer'],
-            'isTrue'=> $row['istrue_answer']
-        ];
+      $questions = [];
+      while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+          if (!isset($questions[$row['id_question']])) {
+              $questions[$row['id_question']] = [
+                  'question' => $row['string_question'],
+                  'category' => $row['name_category'],
+                  'answers'  => []
+              ];
+          }
+          $questions[$row['id_question']]['answers'][] = [
+              'id'    => $row['id_answer'],
+              'text'  => $row['string_answer'],
+              'isTrue'=> $row['istrue_answer']
+          ];
+      }
+      return $questions;
     }
-    return $questions;
-}
 
   }
