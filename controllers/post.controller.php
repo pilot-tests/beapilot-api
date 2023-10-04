@@ -12,7 +12,6 @@ require_once "vendor/autoload.php";
 use \Stripe\Exception\ApiErrorException;
 use Firebase\JWT\JWT;
 \Stripe\Stripe::setApiKey($_ENV['STRIPE_KEY']);
-
 class PostController {
 
  //-----> Post request to add new Test
@@ -39,6 +38,16 @@ class PostController {
     $return = new PostController();
     $return -> fncResponse($response, null);
   }
+
+
+  //-----> Post request send a message FROM the user
+  static public function userContact($data, $name, $email, $message) {
+    $response = PostModel::userContact($data, $name, $email, $message);
+
+    $return = new PostController();
+    $return -> fncResponse($response, null);
+  }
+
 
 
 

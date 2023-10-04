@@ -162,7 +162,30 @@
 
 
 
+    static public function userContact ($data, $name, $email, $message) {
+      $emailSg = new \SendGrid\Mail\Mail();
+      $emailSg->setFrom("d@wakkos.com");
+      $emailSg->setSubject("Formulario");
+      $emailSg->addTo("wakkos@gmail.com", "Daniel");
+      $emailSg->addContent("text/plain", "Nombre: $name\nEmail: $email\nMensaje: $message");
+      $sendgrid = new \SendGrid($_ENV['SENDGRID_API_KEY']);
 
+      try {
+        $responseSG = $sendgrid->send($emailSg);
+        if ($responseSG->statusCode() === 202) {
+            return [
+                'message' => 'Correo electrónico enviado con éxito.'
+            ];
+        } else {
+            http_response_code($responseSG->statusCode());
+            echo json_encode(["message" => "Error al enviar el correo electrónico: " . $responseSG->body()]);
+        }
+      } catch (Exception $e) {
+          http_response_code(500);
+          echo json_encode(["message" => "Error al enviar el correo electrónico: " . $e->getMessage()]);
+      }
+
+    }
 
     static public function getGlobalPrompt($userId) {
       $link = Connection::connect();

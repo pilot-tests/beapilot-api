@@ -3,7 +3,6 @@ require_once "models/connection.php";
 require_once "controllers/post.controller.php";
 
 $response = new PostController();
-
 // Register User
 if (isset($_GET["register"]) && $_GET["register"] == true) {
     $response->postRegister($table, $_POST);
@@ -68,6 +67,16 @@ if (isset($_POST)) {
 	if (isset($_POST["prompt"]) && isset($_POST["type"])) {
 		$controller = new PostController(); // Not ideal, since we already declares a $response = new PostController at begining of this file.
 		$response = $controller->finishTest($_POST["prompt"], $_POST["type"], $_POST["userId"], $_POST["testId"]);
+		exit;
+	}
+
+	elseif ($table === "userContact") {
+		$data = json_decode(file_get_contents("php://input"));
+    $name = $data->name;
+    $email = $data->email;
+    $message = $data->message;
+		$controller = new PostController();
+		$response = $controller->userContact($data, $name, $email, $message);
 		exit;
 	}
 
