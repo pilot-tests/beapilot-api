@@ -72,33 +72,39 @@ class PostController {
       $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
       $data["password_user"] = $crypt;
 
-      try {
-        // Create a new customer in Stripe
-        $stripeCustomer = \Stripe\Customer::create([
-            'email' => $data["email_user"],
-            'name'  => $data["name_user"]
-        ]);
-        // Add the Stripe customer ID to the user data
-        $data["stripe_customer_id"] = $stripeCustomer->id;
+      if($data["subscription_type"] != "free" && !empty($data["subscription_type"]) && isset($data["subscription_type"])) {
+        try {
+          // Create a new customer in Stripe
+          $stripeCustomer = \Stripe\Customer::create([
+              'email' => $data["email_user"],
+              'name'  => $data["name_user"]
+          ]);
+          // Add the Stripe customer ID to the user data
+          $data["stripe_customer_id"] = $stripeCustomer->id;
 
-      } catch (\Stripe\Exception\ApiErrorException $e) {
-        // Log the error for debugging purposes
-        error_log($e->getMessage());
-        error_log($e->getHttpStatus());
-        error_log($e->getStripeCode());
-        error_log($e->getError()->message);
+        } catch (\Stripe\Exception\ApiErrorException $e) {
+          // Log the error for debugging purposes
+          error_log($e->getMessage());
+          error_log($e->getHttpStatus());
+          error_log($e->getStripeCode());
+          error_log($e->getError()->message);
 
-        $stripeCode = $e->getStripeCode();
-        $errorMessage = "An error occurred while creating the Stripe customer.";
+          $stripeCode = $e->getStripeCode();
+          $errorMessage = "An error occurred while creating the Stripe customer.";
 
-        if ($stripeCode === 'email_invalid') {
-            $errorMessage = "Email inválido, necesitamos un email en formato jon@doe.me";
+          if ($stripeCode === 'email_invalid') {
+              $errorMessage = "Email inválido, necesitamos un email en formato jon@doe.me";
+          }
+
+          // Respond with an appropriate error message
+          $return = new PostController();
+          $return->fncResponse(null, $errorMessage, 500);
+          return;
         }
-
-        // Respond with an appropriate error message
-        $return = new PostController();
-        $return->fncResponse(null, $errorMessage, 500);
-        return;
+        $checkout_session = PostModel::createCheckoutSession($data["stripe_customer_id"]);
+      } else {
+        $data["stripe_customer_id"] = null;
+        $checkout_session = null;
       }
 
       // Create a token for the email verification email
@@ -132,8 +138,8 @@ class PostController {
       $response["stripe_customer_id"] = $data["stripe_customer_id"];
 
       // Add Checkout Session to $response
-      $checkout_session = PostModel::createCheckoutSession($data["stripe_customer_id"]);
       $response['stripe_session_id'] = $checkout_session;
+      $response["subscription_type"] = $data["subscription_type"];
 
       if(isset($response["comment"]) && $response["comment"] == "Sucess data entry") {
         $return = new PostController();
@@ -166,20 +172,35 @@ class PostController {
       if($response[0]->password_user == $crypt) {
 
         $stripeCustomerId = $response[0]->stripe_customer_id;
-        $subscriptions = \Stripe\Subscription::all(['customer' => $stripeCustomerId]);
+
         $activeSubscription = false;
         $endOfSubscriptionPeriod = false;
-        foreach ($subscriptions->data as $subscription) {
+
+        try {
+          $subscriptions = \Stripe\Subscription::all(['customer' => $stripeCustomerId]);
+          foreach ($subscriptions->data as $subscription) {
             // if ($subscription->status === 'active') {
             //     $activeSubscription = true;
             //     break;
             // }
             $activeSubscription = $subscription->status;
             $endOfSubscriptionPeriod = $subscription->current_period_end;
+          }
+        } catch (\Stripe\Exception\ApiErrorException $e) {
+          if ($e->getHttpStatus() === 404 || $e->getStripeCode() === 'resource_missing') {
+            // Cliente no encontrado, podrías establecer $subscriptions a null o manejarlo de alguna otra manera.
+            $subscriptions = null;
+            $activeSubscription = null;
+          } else {
+            // Ocurrió otro error, puedes optar por volver a lanzar la excepción o manejarlo de otra manera.
+            throw $e;
+            $activeSubscription = null;
+          }
         }
 
-        $response[0]->active_subscription = $activeSubscription;
-        $response[0]->subscription_ends = $endOfSubscriptionPeriod;
+
+        $response[0]->stripe_active_subscription = $activeSubscription;
+        $response[0]->stripe_subscription_ends = $endOfSubscriptionPeriod;
         $token = Connection::jwt($response[0]->id_user, $response[0]->email_user);
         $jwt = JWT::encode($token, "d12sd124df3456dfw43w3fw34df", 'HS256');
         //-----> Update database with Token
@@ -265,6 +286,16 @@ class PostController {
     $testDetailPrompt = $postModel->getTestPrompt($userId, $testId);
     $responseOpenAi = $postModel->getAnswerFromOpenAI($prompt);
     return $responseOpenAi;
+  }
+
+
+
+
+  //-----> Add correctg answer via OpenAI to unanswered questions
+  static public function addCorrectAnswer() {
+    $response = PostModel::addCorrectAnswer();
+    $return = new PostController();
+    $return -> fncResponse($response, null);
   }
 
 

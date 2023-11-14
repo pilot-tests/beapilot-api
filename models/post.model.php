@@ -3,6 +3,8 @@
   \Stripe\Stripe::setApiKey($_ENV['STRIPE_KEY']);
   use \Stripe\PaymentMethod;
   use \Stripe\Subscription;
+
+
   class PostModel {
 
     static public function postNewTest($addTest) {
@@ -367,9 +369,11 @@
         $canceledSubscription = \Stripe\Subscription::retrieve($subscriptionId);
         $canceledSubscription->cancel();
 
+
         $response = array(
-          'subscription_status' => $canceledSubscription>status,
-          'current_period_end' => $subscription->current_period_end,
+          'subscription_status' => $canceledSubscription->status,
+          'current_period_end' => $canceledSubscription->current_period_end,
+          'subscription_type' => "free",
           'stripe_user_id' => $customerNumber
         );
         return $response;
@@ -419,6 +423,149 @@
       return $userId;
     }
   }
+
+static public function addCorrectAnswer() {
+    try {
+      // Conexión a la base de datos
+      $link = Connection::connect();
+
+      // Define el tamaño del lote y el número total de registros
+      $batch_size = 80;  // Ajusta según tus necesidades
+
+      $updated_questions = [];
+
+      // Obtener las preguntas en el lote
+      $question_sql = "
+        SELECT
+            q.id_question
+        FROM
+          questions q
+        WHERE
+          NOT EXISTS (
+            SELECT
+                1
+            FROM
+                answers a
+            WHERE
+              a.id_question_answer = q.id_question
+              AND a.istrue_answer = 1
+          )
+        ORDER BY q.id_question
+        LIMIT $batch_size";
+
+
+
+      $question_stmt = $link->prepare($question_sql);
+      $question_stmt->execute();
+      $questionIds = $question_stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+
+
+      // Recorrer cada id de pregunta
+      foreach ($questionIds as $id_question) {
+        // Obtén el texto de la pregunta
+        $question_text_query = "
+            SELECT string_question
+            FROM questions
+            WHERE id_question = :id_question
+        ";
+        $question_text_stmt = $link->prepare($question_text_query);
+        $question_text_stmt->bindParam(':id_question', $id_question, PDO::PARAM_INT);
+        $question_text_stmt->execute();
+        $question_text = $question_text_stmt->fetchColumn();
+
+        // Obtén las respuestas para esta pregunta
+        $answer_query = "
+            SELECT a.*
+            FROM answers a
+            WHERE a.id_question_answer = :id_question
+        ";
+        $answer_stmt = $link->prepare($answer_query);
+        $answer_stmt->bindParam(':id_question', $id_question, PDO::PARAM_INT);
+        $answer_stmt->execute();
+        $answers = $answer_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Formatea las respuestas
+        $letters = ['A', 'B', 'C', 'D'];
+        $formatted_answers = [];
+        foreach ($answers as $index => $answer) {
+            $letter_index = $index % count($letters);
+            $formatted_answers[] = $letters[$letter_index] . '. ' . $answer['string_answer'];
+        }
+        $answer_text = implode("\n", $formatted_answers);
+
+
+        $prompt = "Actúa como si estuvieras respondiendo un test de selección simple: Sólo quiero que respondas una letra. No incluyas la respuesta, la LETRA de la respuesta adecuada en formato A (Sin punto, sin comillas, sin espacios, sólo la letra). La pregunta es la siguiente:\n$question_text\n\nLas opciones de respuesta son\n$answer_text\n\nIndica SÓLO la letra de la respuesta correcta: A, B, C o D.";
+        // $prompt = $question_text . "\n" . $answer_text . "\n¿Cuál es la respuesta correcta?";
+
+
+        try {
+          $yourApiKey = $_ENV['OPENAI_API_KEY'];
+          $client = OpenAI::client($yourApiKey);
+
+          $result = $client->completions()->create([
+              'model' => 'text-davinci-003',
+              'prompt' => $prompt,
+              'max_tokens' => 10,
+              'temperature' => 0.3,
+          ]);
+
+          $openai_response = $result['choices'][0]['text'];
+          $correct_answer_letter = trim($openai_response);  // Suponiendo que OpenAI devuelva la letra seguida de un salto de línea o espacio, trim eliminará esos caracteres extra.
+        } catch (Exception $e) {
+          $errorMessage = date('Y-m-d H:i:s') . ' - Error: ' . $e->getMessage() . ' in ' . $e->getFile() . ' on line ' . $e->getLine() . "\n";
+          $logFile = 'openAIlogfile.log';
+          error_log($errorMessage, 3, $logFile);
+        }
+
+        // Convertir la letra de la respuesta correcta a un índice
+        $correct_answer_index = array_search($correct_answer_letter, $letters);
+
+
+        // Actualizar la base de datos con la respuesta correcta
+        if ($correct_answer_index !== false) {
+
+          $update_query = "
+            UPDATE answers
+            SET istrue_answer = 1
+            WHERE id_answer = (
+                SELECT id_answer FROM (
+                    SELECT a.id_answer
+                    FROM answers a
+                    WHERE a.id_question_answer = :id_question
+                    ORDER BY a.id_answer
+                    LIMIT 1 OFFSET :offset
+                ) AS subquery
+            )
+          ";
+
+          $update_stmt = $link->prepare($update_query);
+          $update_stmt->bindParam(':id_question', $id_question, PDO::PARAM_INT);
+          $update_stmt->bindParam(':offset', $correct_answer_index, PDO::PARAM_INT);
+
+          $success = $update_stmt->execute();
+          if ($success) {
+              $updated_questions[$id_question] = $correct_answer_letter;
+              echo "<p>Rows affected: {$update_stmt->rowCount()}</p>";
+          } else {
+              echo "<p>Error update_stmt: " . implode(", ", $update_stmt->errorInfo()) . "</p>";
+          }
+          echo '<p>'; print_r($id_question . "->" . $correct_answer_index); echo '</p>';
+          $affected_rows = $update_stmt->rowCount();
+          echo '<p>Rows affected: ', $affected_rows, '</p>';
+        }
+      }
+
+    } catch (PDOException $e) {
+        echo "Error PDO: " . $e->getMessage();
+    } catch (Exception $e) {
+        echo "Error Exception: " . $e->getMessage();
+    }
+    // Retornar el array de preguntas actualizadas
+
+    return $updated_questions;
+  }
+
+
 
     public function userExists($auth0_user_id)
     {

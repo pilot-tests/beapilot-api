@@ -9,6 +9,7 @@ if (file_exists(__DIR__ . '/.env')) {
 require_once('./models/get.model.php');
 
 $allQuestions = GetModel::listAllQuestions();
+$count = 0;
 
 ?>
 
@@ -36,8 +37,10 @@ $allQuestions = GetModel::listAllQuestions();
         </thead>
         <tbody>
             <?php foreach ($allQuestions as $question): ?>
+
+                <?php $count = $count + 1; ?>
                 <tr>
-                    <td><?= $question['question'] ?></td>
+                    <td><b><?php echo $count; ?></b> <?= $question['question'] ?></td>
                     <td><?= $question['category'] ?></td>
                     <td>
                         <ul>

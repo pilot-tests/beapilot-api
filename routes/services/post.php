@@ -70,6 +70,12 @@ if (isset($_POST)) {
 		exit;
 	}
 
+		if (isset($_POST["addCorrectAnswer"]) && $_POST["addCorrectAnswer"] == true && $table === "addCorrectAnswer") {
+		$controller = new PostController();
+		$response = $controller->addCorrectAnswer();
+		exit;
+	}
+
 	elseif ($table === "userContact") {
 		$data = json_decode(file_get_contents("php://input"));
     $name = $data->name;
