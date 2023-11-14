@@ -199,8 +199,8 @@ class PostController {
         }
 
 
-        $response[0]->active_subscription = $activeSubscription;
-        $response[0]->subscription_ends = $endOfSubscriptionPeriod;
+        $response[0]->stripe_active_subscription = $activeSubscription;
+        $response[0]->stripe_subscription_ends = $endOfSubscriptionPeriod;
         $token = Connection::jwt($response[0]->id_user, $response[0]->email_user);
         $jwt = JWT::encode($token, "d12sd124df3456dfw43w3fw34df", 'HS256');
         //-----> Update database with Token

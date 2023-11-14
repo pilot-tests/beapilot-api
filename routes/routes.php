@@ -9,6 +9,7 @@ if(isset($_SERVER['QUERY_STRING'])) {
 }
 $routesArray = explode('/', $fullRoute);
 $routesArray = array_filter($routesArray);
+$headers = getallheaders();
 
 
 
@@ -23,6 +24,10 @@ if(count($routesArray) == 0) {
   return;
 }
 
+if (isset($headers["Stripe-Signature"])) {
+
+    include "services/stripe.php";
+}
 
 //-----> Some Request
 if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])) {

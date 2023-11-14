@@ -369,9 +369,11 @@
         $canceledSubscription = \Stripe\Subscription::retrieve($subscriptionId);
         $canceledSubscription->cancel();
 
+
         $response = array(
-          'subscription_status' => $canceledSubscription>status,
-          'current_period_end' => $subscription->current_period_end,
+          'subscription_status' => $canceledSubscription->status,
+          'current_period_end' => $canceledSubscription->current_period_end,
+          'subscription_type' => "free",
           'stripe_user_id' => $customerNumber
         );
         return $response;
