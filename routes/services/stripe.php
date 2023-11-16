@@ -69,11 +69,12 @@ try {
     echo json_encode($response);
     exit();
 } catch (\Exception $e) {
-    http_response_code(400); // Firma incorrecta
+    // Cualquier otro tipo de error
+    http_response_code(500); // Error interno del servidor
 
     $response = [
         'status' => 'error',
-        'message' => 'Error de verificación de firma',
+        'message' => 'Error general al procesar el webhook',
         'error_details' => $e->getMessage()
     ];
 
