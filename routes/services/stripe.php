@@ -7,6 +7,7 @@ require 'vendor/autoload.php';
 // Ensure the key is kept out of any version control system you might be using.
 $stripe = new \Stripe\StripeClient($_ENV['STRIPE_KEY']);
 
+
 // This is your Stripe CLI webhook secret for testing your endpoint locally.
 $endpoint_secret = 'whsec_db72c72807a59688c4fb0d2cc8345e91aa70217b29b85df16cdf563d17e5fead';
 
@@ -22,6 +23,7 @@ try {
   );
 
   http_response_code(200); // Responde inmediatamente a Stripe
+
 
   $subscription = $event->data->object; // Datos de la suscripción
   $stripeCustomerId = $subscription->customer; // ID de cliente de Stripe
@@ -49,28 +51,32 @@ try {
       $dataToUpdate['subscription_type'] = "free";
       // Llama a la función para actualizar la base de datos aquí si es necesario
       break;
+  }
+  $response = [
+    'status' => 'success',
+    'message' => 'Webhook processed correctly',
+];
+
+} catch (\Stripe\Exception\SignatureVerificationException $e) {
+    http_response_code(400); // Firma incorrecta
+
+    $response = [
+        'status' => 'error',
+        'message' => 'Error de verificación de firma',
+        'error_details' => $e->getMessage()
+    ];
+
+    echo json_encode($response);
+    exit();
+} catch (\Exception $e) {
+    http_response_code(400); // Firma incorrecta
+
+    $response = [
+        'status' => 'error',
+        'message' => 'Error de verificación de firma',
+        'error_details' => $e->getMessage()
+    ];
+
+    echo json_encode($response);
+    exit();
 }
-
-
-} catch(\UnexpectedValueException $e) {
-  // Invalid payload
-  file_put_contents('debug.log', "Invalid Payload: " . $e->getMessage(), FILE_APPEND);
-  http_response_code(400);
-  exit();
-} catch(\Stripe\Exception\SignatureVerificationException $e) {
-  // Invalid signature
- file_put_contents('debug.log', "Invalid Signature: " . $e->getMessage(), FILE_APPEND);
-  http_response_code(400);
-  exit();
-}
-
-// Handle the event
-switch ($event->type) {
-  case 'payment_intent.succeeded':
-    $paymentIntent = $event->data->object;
-  // ... handle other event types
-  default:
-    echo 'Received unknown event type ' . $event->type;
-}
-
-http_response_code(200);

@@ -27,6 +27,7 @@ if(count($routesArray) == 0) {
 if (isset($headers["Stripe-Signature"])) {
 
     include "services/stripe.php";
+    exit;
 }
 
 //-----> Some Request
