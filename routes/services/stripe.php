@@ -23,6 +23,9 @@ try {
   );
 
   http_response_code(200); // Responde inmediatamente a Stripe
+  // Registrar que se ha recibido un evento
+    $logMessage = "///// --- Webhook Event Received: " . $event->type . " at " . date('Y-m-d H:i:s') . "\n";
+    file_put_contents($logFile, $logMessage, FILE_APPEND);
 
 
   $subscription = $event->data->object; // Datos de la suscripción
@@ -35,6 +38,9 @@ try {
       $stripeCustomerId = $event->data->object->customer;
       $dataToUpdate['subscription_type'] = "premium";
       $response = PutModel::putData('users', $dataToUpdate, $stripeCustomerId, 'stripe_customer_id');
+      // Suponiendo que todo va bien
+      $logMessage = "customer.subscription.created.\n" . $dataToUpdate['subscription_type'] . "\n" . $response;
+      file_put_contents($logFile, $logMessage, FILE_APPEND);
       break;
 
     case 'invoice.payment_succeeded':
@@ -45,12 +51,17 @@ try {
         $dataToUpdate['subscription_type'] = "premium";
         $response = PutModel::putData('users', $dataToUpdate, $stripeCustomerId, 'stripe_customer_id');
       }
+      $logMessage = "invoice.payment_succeeded.\n" . $dataToUpdate['subscription_type'] . "\n" . $response;
+      file_put_contents($logFile, $logMessage, FILE_APPEND);
       break;
     case 'customer.subscription.deleted':
       $stripeCustomerId = $event->data->object->customer;
       // Actualiza la base de datos para reflejar la cancelación de la suscripción
       $dataToUpdate['subscription_type'] = "free";
+      $response = PutModel::putData('users', $dataToUpdate, $stripeCustomerId, 'stripe_customer_id');
       // Llama a la función para actualizar la base de datos aquí
+       $logMessage = "customer.subscription.deleted.\n" . $dataToUpdate['subscription_type'] . "\n" . $response;
+      file_put_contents($logFile, $logMessage, FILE_APPEND);
       break;
     case 'customer.subscription.updated':
       $subscriptionStatus = $event->data->object->status;
@@ -68,6 +79,10 @@ try {
         $dataToUpdate['subscription_type'] = "free";
         $dataToUpdate['subscription_end_date'] = date('Y-m-d H:i:s', $currentPeriodEnd);
       }
+       $response = PutModel::putData('users', $dataToUpdate, $stripeCustomerId, 'stripe_customer_id');
+      // Llama a la función para actualizar la base de datos aquí
+       $logMessage = "customer.subscription.deleted.\n" . $dataToUpdate['subscription_type'] . "\n" . $response;
+      file_put_contents($logFile, $logMessage, FILE_APPEND);
       break;
     default:
       // Cualquier otro evento se considera una suscripción "free"
