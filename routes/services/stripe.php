@@ -31,6 +31,12 @@ try {
   // Determinar los datos a actualizar basado en el evento
   $dataToUpdate = [];
   switch ($event->type) {
+    case 'customer.subscription.created':
+      $stripeCustomerId = $event->data->object->customer;
+      $dataToUpdate['subscription_type'] = "premium";
+      $response = PutModel::putData('users', $dataToUpdate, $stripeCustomerId, 'stripe_customer_id');
+      break;
+
     case 'invoice.payment_succeeded':
       $stripeCustomerId = $event->data->object->customer;
       // Verifica si la factura se ha pagado y actualiza según la lógica de tu aplicación
@@ -45,6 +51,23 @@ try {
       // Actualiza la base de datos para reflejar la cancelación de la suscripción
       $dataToUpdate['subscription_type'] = "free";
       // Llama a la función para actualizar la base de datos aquí
+      break;
+    case 'customer.subscription.updated':
+      $subscriptionStatus = $event->data->object->status;
+      $currentPeriodEnd = $event->data->object->current_period_end; // Timestamp de la finalización del período actual
+
+      if ($subscriptionStatus === 'canceled') {
+          // La suscripción ha sido cancelada, pero sigue activa hasta el final del período actual
+          $dataToUpdate['subscription_type'] = "free";
+          $dataToUpdate['subscription_end_date'] = date('Y-m-d H:i:s', $currentPeriodEnd);
+      } elseif ($subscriptionStatus === 'active') {
+        $dataToUpdate['subscription_type'] = "premium";
+        $dataToUpdate['subscription_end_date'] = date('Y-m-d H:i:s', $currentPeriodEnd);
+      }
+      else {
+        $dataToUpdate['subscription_type'] = "free";
+        $dataToUpdate['subscription_end_date'] = date('Y-m-d H:i:s', $currentPeriodEnd);
+      }
       break;
     default:
       // Cualquier otro evento se considera una suscripción "free"
