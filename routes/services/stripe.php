@@ -52,7 +52,7 @@ try {
         $dataToUpdate['subscription_type'] = "premium";
         $response = PutModel::putData('users', $dataToUpdate, $stripeCustomerId, 'stripe_customer_id');
       }
-      $logMessage = "invoice.payment_succeeded.\n" . $dataToUpdate['subscription_type'] . "\n" . $response;
+      $logMessage = "invoice.payment_succeeded.\n" . $dataToUpdate['subscription_type'] . "\n" . json_encode($response);
       file_put_contents($logFile, $logMessage, FILE_APPEND);
       break;
     case 'customer.subscription.deleted':
