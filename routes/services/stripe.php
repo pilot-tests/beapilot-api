@@ -25,6 +25,7 @@ try {
   http_response_code(200); // Responde inmediatamente a Stripe
   // Registrar que se ha recibido un evento
     $logMessage = "///// --- Webhook Event Received: " . $event->type . " at " . date('Y-m-d H:i:s') . "\n";
+    $logFile = 'log.txt';
     file_put_contents($logFile, $logMessage, FILE_APPEND);
 
 
