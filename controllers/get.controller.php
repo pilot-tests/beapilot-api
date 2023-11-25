@@ -55,7 +55,14 @@
 
     //-----> Get Stripe user Data
     static public function getUserStripeData($customerNumber) {
-      $response = GetModel::getUserStripeData($customerNumber);
+      if($customerNumber != null) {
+        $response = GetModel::getUserStripeData($customerNumber);
+      } else {
+        $response = [
+          'message' => 'No Stripe subscription found'
+        ];
+      }
+
 
       $return = new GetController();
       $return -> fncResponse($response, "getUserStripeData");

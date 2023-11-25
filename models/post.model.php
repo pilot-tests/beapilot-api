@@ -289,30 +289,49 @@
 
     static public function resubscribe($customerID) {
       $planID = $_ENV['STRIPE_SUBSCRIPTION_PLAN_ID'];
+
+      // Verificar si el cliente existe
+      try {
+          $customer = \Stripe\Customer::retrieve($customerID);
+          if (!$customer || $customer->isDeleted) {
+              return [
+                  'stripe_client' => null,
+                  'message' => 'El cliente no existe o fue eliminado.'
+              ];
+          }
+      } catch (\Stripe\Exception\ApiErrorException $e) {
+          return [
+              'stripe_client' => null,
+              'message' => 'Error al buscar el cliente: ' . $e->getMessage()
+          ];
+      }
+
       $paymentMethods = PaymentMethod::all([
           'customer' => $customerID,
           'type' => 'card',
       ]);
 
       if (count($paymentMethods->data) == 0) {
-        return [
-          'status' => 'no_payment_method',
-          'message' => 'El cliente no tiene un método de pago.'
-        ];
+          return [
+              'status' => 'no_payment_method',
+              'message' => 'El cliente no tiene un método de pago.',
+              'stripe_client' => null,
+          ];
       }
 
       $subscription = Subscription::create([
-        'customer' => $customerID,
-        'items' => [['plan' => $planID]],
+          'customer' => $customerID,
+          'items' => [['plan' => $planID]],
       ]);
 
       $response = array(
-        'subscription_status' => $subscription->status,
-        'current_period_end' => $subscription->current_period_end,
-        'stripe_customer_id' => $customerID
+          'subscription_status' => $subscription->status,
+          'current_period_end' => $subscription->current_period_end,
+          'stripe_customer_id' => $customerID
       );
       return $response;
     }
+
 
 
 
@@ -565,10 +584,56 @@ static public function addCorrectAnswer() {
     return $updated_questions;
   }
 
+  static public function SubscribeExistingUser($table, $data) {
+    $response = GetModel::getDataFilter($table, "*","email_user", $data["email_user"], null, null, null, null);
+
+    //-----> Check if the email exists or not.
+    //TODO: create a function out of this, we need this same login on register new user.
+    if (!empty($response[0]->email_user)) {
+      try {
+        // Create a new customer in Stripe
+        $stripeCustomer = \Stripe\Customer::create([
+            'email' => $data["email_user"],
+            'name'  => $data["name_user"]
+        ]);
+        // Add the Stripe customer ID to the user data
+        $updateDBArray["stripe_customer_id"] = $stripeCustomer->id;
+        $checkout_session = PostModel::createCheckoutSession($stripeCustomer->id);
+      } catch (\Stripe\Exception\ApiErrorException $e) {
+        // Log the error for debugging purposes
+        error_log($e->getMessage());
+        error_log($e->getHttpStatus());
+        error_log($e->getStripeCode());
+        error_log($e->getError()->message);
+
+        $stripeCode = $e->getStripeCode();
+        $errorMessage = "An error occurred while creating the Stripe customer.";
+
+        if ($stripeCode === 'email_invalid') {
+            $errorMessage = "Email inválido, necesitamos un email en formato jon@doe.me";
+        }
+        return $errorMessage;
+      }
 
 
-    public function userExists($auth0_user_id)
-    {
+      $update = PutModel::putData($table, $updateDBArray, $data["email_user"], "email_user");
+
+      if(isset($update["comment"]) && $update["comment"] == "Edit successful") {
+        $update["stripe_customer_id"] = $updateDBArray["stripe_customer_id"];
+        $update["checkout_session"] = $checkout_session;
+        $update["subscription_type"] = "free";
+        return $update;
+      }
+    }
+
+    else {
+      return "ese email no existe";
+    }
+  }
+
+
+
+  public function userExists($auth0_user_id) {
       $link = Connection::connect();
 
       $sql = "SELECT id_user FROM users WHERE auth0_user_id = ? LIMIT 0,1";
@@ -589,5 +654,4 @@ static public function addCorrectAnswer() {
 
       return false;
     }
-
   }

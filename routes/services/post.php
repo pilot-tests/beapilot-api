@@ -51,11 +51,12 @@ if (isset($headers["token"])) {
 // If we get to this point, we know that a valid token has been provided.
 // So, we can now safely handle the other POST actions.
 
-// Suscripción de un usuario
+// Suscripción de un usuario no existente
 if (isset($_GET["subscribe"]) && $_GET["subscribe"] == true) {
-    $response->postSubscribe($table, $_POST);
+	$response->postSubscribe($table, $_POST);
     exit;
 }
+
 
 if (isset($_POST)) {
 
@@ -70,7 +71,7 @@ if (isset($_POST)) {
 		exit;
 	}
 
-		if (isset($_POST["addCorrectAnswer"]) && $_POST["addCorrectAnswer"] == true && $table === "addCorrectAnswer") {
+	elseif (isset($_POST["addCorrectAnswer"]) && $_POST["addCorrectAnswer"] == true && $table === "addCorrectAnswer") {
 		$controller = new PostController();
 		$response = $controller->addCorrectAnswer();
 		exit;
@@ -92,9 +93,17 @@ if (isset($_POST)) {
 		exit;
 	}
 
+	// Suscripción de un usuario que ya existe
+
+	elseif (isset($_POST["SubscribeExistingUser"])) {
+		$controller = new PostController();
+		$response = $controller->SubscribeExistingUser($table, $_POST);
+		exit;
+	}
+
 	elseif (isset($_POST["ResubscribeCustomerNumber"])) {
 		$controller = new PostController();
-		$response = $controller->resubscribe($_POST["ResubscribeCustomerNumber"]);
+		$response = $controller->ResubscribeCustomerNumber($_POST["ResubscribeCustomerNumber"]);
 		exit;
 	}
 

@@ -233,11 +233,17 @@ class PostController {
 
 
 
+  static public function SubscribeExistingUser($table, $data) {
+    $response = PostModel::SubscribeExistingUser($table, $data);
+    $return = new PostController();
+    $return -> fncResponse($response, null);
+  }
+
+
+
 
   static public function resubscribe($customerID) {
-
     $response = PostModel::resubscribe($customerID);
-
     $return = new PostController();
     $return -> fncResponse($response, null);
   }

@@ -68,7 +68,12 @@ else if($table === "testResult" && isset($_GET["userId"])) {
 //----> Get Stripe user Data
 
 else if(isset($_GET["getStripeData"])) {
-  $response -> getUserStripeData($_GET["customerNumber"]);
+  if (isset($_GET["customerNumber"])) {
+    $customerNumber = $_GET["customerNumber"];
+  } else {
+    $customerNumber = null;
+  }
+  $response->getUserStripeData($customerNumber);
 }
 
 //-----> Request with filter
