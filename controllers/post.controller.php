@@ -55,6 +55,17 @@ class PostController {
 
   //-----> Post request register user
   static public function postRegister($table, $data) {
+    $validCoupon = false;
+    if (!empty($data["coupon_code"])) {
+      if ($data["coupon_code"] != "SUPERFLY") {
+        $return = new PostController();
+        $return->fncResponse(null, "Cupón no válido.", 409);
+        return;
+      }
+      else {
+        $validCoupon = true;
+      }
+    }
 
     $response = GetModel::getDataFilter($table, "*","email_user", $data["email_user"], null, null, null, null);
 
@@ -72,7 +83,7 @@ class PostController {
       $crypt = crypt($data["password_user"], '$2a$07$7b61560f4c62999371b4d3$');
       $data["password_user"] = $crypt;
 
-      if($data["subscription_type"] != "free" && !empty($data["subscription_type"]) && isset($data["subscription_type"])) {
+      if (!empty($data["subscription_type"]) && $data["subscription_type"] != "free" && !$validCoupon) {
         try {
           // Create a new customer in Stripe
           $stripeCustomer = \Stripe\Customer::create([
